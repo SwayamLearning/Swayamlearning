@@ -530,7 +530,7 @@
 
 
         function ShowContent(fname, ext, res, id) {
-        //    debugger;
+         debugger;
            <%--if ($("#<%= btnShow.ClientID%>") != null) {
                 $("#<%= btnShow.ClientID%>").click();
                 document.getElementById('<%= LblDisplay.ClientID %>').innerHTML = document.getElementById('<%= hdnTopicName.ClientID %>').value;--%>
@@ -566,22 +566,24 @@
                 //modalBody.innerHTML = "<video style=\"margin:auto;\" id=\"myVideo\" width='65%' preload controls autoplay><source type='video/mp4' codecs='avc1.42E01E, mp4a.40.2' src='" + res + "' ></video>";
              //   alert( modalBody.innerHTML);
                 var vid = document.getElementById("myVideo");
-             //  alert(vid);
-                //vid.onplaying = function () {
-                //    alert("The video is now playing");
-                //};
-                //vid.onabort = function () {
-                //    alert("The video ended");
-                //}
-                //vid.onpause = function () {
-                //    alert("The video paused");
-                //}
+             alert(vid);
+                 vid.onplaying = function () {
+                   alert("The video is now playing");
+                 };
+                 vid.onabort = function () {
+               alert("The video ended");
+                }
+                vid.onpause = function () {
+                   alert("The video paused");
+                 }
                 vid.onended = function () {
+                    alert("the video ended");
+                    PageMethods.log_StudentWiseCoveredSyllabus(fname, id);
                     $('#modal-body').html('');
                     jQuery("#myModal").modal("hide");
 
                     //Log the resource into database for student.
-                    PageMethods.log_StudentWiseCoveredSyllabus(fname, id);
+                 
 
                     //document.querySelectorAll('[property]'); // All with attribute named "property"
                     
