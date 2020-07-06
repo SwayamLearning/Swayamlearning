@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnlogin.Text" xml:space="preserve">
+    <value>પ્રવેશ કરો</value>
+  </data>
+  <data name="btnstudentsignup.Text" xml:space="preserve">
+    <value>વિદ્યાર્થી નોંધણી</value>
+  </data>
+  <data name="btnteachersignup.Text" xml:space="preserve">
+    <value>શિક્ષક નોંધણી</value>
+  </data>
+  <data name="ButtonResource1.Text" xml:space="preserve">
+    <value>શિક્ષક નોંધણી</value>
+  </data>
+  <data name="ButtonResource2.Text" xml:space="preserve">
+    <value>વિદ્યાર્થી નોંધણી</value>
+  </data>
+  <data name="BtnGSEB.Text" xml:space="preserve">
+    <value>જીએસઈબી - ગુજરાતી</value>
+  </data>
+  <data name="lablelearningimg1_1.Text" xml:space="preserve">
+    <value>સરળ શીખવું</value>
+  </data>
+  <data name="lablelearningimg2_1.Text" xml:space="preserve">
+    <value>આનંદ અને તકનીકના સંપૂર્ણ મિશ્રણ સાથે સરળ શીખવું</value>
+  </data>
+  <data name="lablelearningimg3_1.Text" xml:space="preserve">
+    <value>1 થી 8 મી વર્ગો માટે લગભગ 600 કલાક એનિમેટેડ વિડિઓ પાઠ.</value>
+  </data>
+  <data name="FooterPara1_1.Text" xml:space="preserve">
+    <value>"તમારી શીખવાની ઝડપ અનુસાર જ્ઞાન અને સમજણ મેળવવા માટે ગમ્મત તથા દ્રશ્ય-શ્રાવ્ય આકર્ષણના આદર્શ સમન્વયથી શીખવાની પ્રક્રિયાને સરળ બનાવો"</value>
+  </data>
+  <data name="FooterPara2_1.Text" xml:space="preserve">
+    <value>અભ્યાસક્રમઃ</value>
+  </data>
+  <data name="FooterPara2_2.Text" xml:space="preserve">
+    <value>જી.એસ.ઈ.બી. – ગુજરાતી</value>
+  </data>
+  <data name="FooterPara2_3.Text" xml:space="preserve">
+    <value>એન.સી.ઈ.આર.ઈ.ટી. – હિન્દી</value>
+  </data>
+  <data name="FooterPara2_4.Text" xml:space="preserve">
+    <value>એન.સી.ઈ.આર.ઈ.ટી. – અંગ્રેજી</value>
+  </data>
+  <data name="FooterPara3_1.Text" xml:space="preserve">
+    <value>ક્વીક લીંક</value>
+  </data>
+  <data name="FooterPara3_2.Text" xml:space="preserve">
+    <value>અમારા વિશે</value>
+  </data>
+  <data name="FooterPara3_3.Text" xml:space="preserve">
+    <value>અમારો સંપર્ક</value>
+  </data>
+  <data name="FooterPara3_4.Text" xml:space="preserve">
+    <value>યોગદાન આપો</value>
+  </data>
+  <data name="FooterPara3_5.Text" xml:space="preserve">
+    <value>ગોપનીયતા નીતિ</value>
+  </data>
+  <data name="lablelearningimg1_2.Text" xml:space="preserve">
+    <value>અમારો અભિગમ</value>
+  </data>
+  <data name="lablelearningimg1_3.Text" xml:space="preserve">
+    <value>મફત નોંધણી કરાવો</value>
+  </data>
+  <data name="lablelearningimg2_2.Text" xml:space="preserve">
+    <value>નબળા, મધ્યમ તથા હોંશિયાર વિદ્યાર્થીઓના વિકાસ માટે પાઠ અનુસાર પ્રશ્નબેંક</value>
+  </data>
+  <data name="lablelearningimg2_3.Text" xml:space="preserve">
+    <value>તુરંત લાભ લેવા મફત નોંધણી કરાવો</value>
+  </data>
+  <data name="lablelearningimg3_2.Text" xml:space="preserve">
+    <value>સ્પટીકરણ માટે વાર્તાલાપ મંચ</value>
+  </data>
+  <data name="lablelearningimg3_3.Text" xml:space="preserve">
+    <value>ડેમોમાં તમે નોંધાવેલા ધોરણ પ્રમાણે દરેક વિષયના બે પાઠનો સમાવેશ કરવામાં આવેલ છે</value>
+  </data>
+  <data name="Sliderimg1_1.Text" xml:space="preserve">
+    <value>શીખો. અભ્યાસ કરો. શ્રેષ્ઠ બનો.</value>
+  </data>
+  <data name="Sliderimg1_2.Text" xml:space="preserve">
+    <value>અભ્યાસ માટેની કસોટીઓ સહિત વિડિયો આધારિત પાઠ</value>
+  </data>
+  <data name="Sliderimg2_1.Text" xml:space="preserve">
+    <value>યુવા માનસને સફળતા તરફ લઈ જતો </value>
+  </data>
+  <data name="Sliderimg2_2.Text" xml:space="preserve">
+    <value>માતૃભાષામાં તૈયાર કરાયેલો અભ્યાસક્રમ</value>
+  </data>
+  <data name="Sliderimg3_1.Text" xml:space="preserve">
+    <value>પાયાથી ઉચ્ચતમ સ્તરની કસોટીઓ</value>
+  </data>
+  <data name="Sliderimg3_2.Text" xml:space="preserve">
+    <value>સાથે વાર્તાલાપ મંચ તો ખરો જ !</value>
+  </data>
+</root>

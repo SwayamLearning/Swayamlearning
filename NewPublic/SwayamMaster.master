@@ -1,0 +1,767 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="SwayamMaster.master.cs"
+    Inherits="NewPublic_SwayamMaster" meta:resourcekey="PageResource1" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png" />
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Swayam Learning </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport' />
+    <!--     Fonts and icons     -->
+    <%--<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />--%>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <!-- CSS for swayam learning portal demo -->
+    <%--<link href="css/style.css" rel="stylesheet" type="text/css" />--%>
+    <!-- Start -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
+    <link href="css/mainpage.css" rel="stylesheet" />
+    <link href="css/dropdownmenu.css" rel="stylesheet" />
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <link href="../App_Themes/Home/css/bootstrap.css" rel="Stylesheet" />
+    <link href="../App_Themes/Home/css/bootstrap.css" rel="stylesheet" />
+    <link href="../App_Themes/Home/css/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="../App_Themes/Home/css/megamenu.css" rel="stylesheet" />
+    <link href="../App_Themes/Home/css/style.css" rel="stylesheet" />
+    <link href="../App_Themes/Home/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../App_Themes/Home/js/fancybox/source/jquery.fancybox.css?v=2.1.4" />
+    <script src="../App_Themes/Home/js/jquery.js" type="text/javascript"></script>
+    <script src="../App_Themes/Home/js/respond.min.js" type="text/javascript"></script>
+    <script src="../App_Themes/Home/js/jquery.easing.js" type="text/javascript"></script>
+    <script src="../App_Themes/Home/js/bootstrap.js" type="text/javascript"></script>
+    <script src="../App_Themes/Home/js/functions.js" type="text/javascript"></script>
+    <script src="../App_Themes/Home/assets/validate.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../App_Themes/Home/css/fullwidth.css" media="screen" />
+    <link rel="stylesheet" href="../App_Themes/Home/rs-plugin/css/settings.css" media="screen" />
+    <script src="../App_Themes/Home/rs-plugin/js/jquery.themepunch.plugins.min.js" type="text/javascript"></script>
+    <script src="../App_Themes/Home/rs-plugin/js/jquery.themepunch.revolution.min.js" type="text/javascript"></script>
+    <script src="../App_Themes/Home/js/revolutio-slider-func.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var a1 = 0;
+        $(window).scroll(function () {
+
+            var oTop = $('#counter').offset().top - window.innerHeight;
+            var scrolltop = $(window).scrollTop();
+
+
+            if (a1 == 0 && $(window).scrollTop() > oTop) {
+
+                $('.counter-value').each(function () {
+                    var $this = $(this),
+                      countTo = $this.attr('data-count');
+                    $({
+                        countNum: $this.text()
+                    }).animate({
+                        countNum: countTo
+                    },
+
+                      {
+
+                          duration: 7000,
+                          easing: 'swing',
+                          step: function () {
+                              $this.text(Math.floor(this.countNum));
+                          },
+                          complete: function () {
+                              $this.text(this.countNum);
+                              //alert('finished');
+                          }
+
+                      });
+                });
+                a1 = 1;
+            }
+
+        });
+
+
+
+    </script>
+    <style type="text/css">
+        .para {
+            font-family: 'Lato', sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            width: 500px;
+            padding-top: 10px;
+        }
+
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        .c-no {
+            height: 150px;
+        }
+
+        .grey-bg {
+            background: #ebebeb;
+        }
+
+        .counter-Txt {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+
+            .counter-Txt span {
+                display: block;
+                font-size: 36px;
+            }
+
+        .counter-value {
+            padding-top: 20px;
+        }
+
+        @media(min-width:320px) and (max-width:767px) {
+            .c-no {
+                height: 100%;
+            }
+
+            .counter-Txt {
+                margin-top: 35px;
+            }
+
+            .margin-bot-35 {
+                margin-bottom: 35px;
+            }
+        }
+    </style>
+    <%--  <script type="text/javascript">
+         $(function () {
+             $.ajax({
+                 type: "POST",
+                 url: "SwayamMaster.master/GetCustomers",
+                 data: '{}',
+                 contentType: "application/json; charset=utf-8",
+                 dataType: "json",
+                 success: function (r) {
+                     var ddlCustomers = $("[id*=ddlCustomers]");
+                     ddlCustomers.empty().append('<option selected="selected" value="0">Please select</option>');
+                     $.each(r.d, function () {
+                         ddlCustomers.append($("<option></option>").val(this['Value']).html(this['Text']));
+                     });
+                 }
+             });
+         });
+</script>
+
+    --%>
+    <!-- End -->
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <script type="text/javascript">
+        $(document).on('click', '.panel-heading span.clickable', function (e) {
+            debugger;
+            var $this = $(this);
+            if (!$this.hasClass('panel-collapsed')) {
+                $this.parents('.panel').find('.panel-body').slideUp();
+                $this.addClass('panel-collapsed');
+                $this.find('i').removeClass('glyphicon-minus').addClass('glyphicon-plus');
+            } else {
+                $this.parents('.panel').find('.panel-body').slideDown();
+                $this.removeClass('panel-collapsed');
+                $this.find('i').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+            }
+        });
+        $(document).on('click', '.panel div.clickable', function (e) {
+            var $this = $(this);
+            if (!$this.hasClass('panel-collapsed')) {
+                $this.parents('.panel').find('.panel-body').slideUp();
+                $this.addClass('panel-collapsed');
+                $this.find('i').removeClass('glyphicon-minus').addClass('glyphicon-plus');
+            } else {
+                $this.parents('.panel').find('.panel-body').slideDown();
+                $this.removeClass('panel-collapsed');
+                $this.find('i').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+            }
+        });
+        $(document).ready(function () {
+            $('.panel-heading span.clickable').click();
+            $('.panel div.clickable').click();
+        });
+
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btnlogin").click(function () {
+                $("#login").css("display", "block");
+                $("#signup").css("display", "none");
+                $('#LoginModal').modal('show');
+            });
+        });
+        $(function () {
+            $("#btnsignup").click(function () {
+                //alert("here");
+                $("#login").css("display", "none");
+                $("#signup").css("display", "block");
+                $('#LoginModal').modal('show');
+            });
+        });
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var navoffset = jQuery("nav").offset().top;
+            // alert(navoffset);
+            jQuery(window).scroll(function () {
+                var scrollPos = jQuery(window).scrollTop();
+                ///  alert(scrollpos);
+                if (scrollPos >= navoffset) {
+                    //alert("inside");
+                    jQuery("nav").addClass("sticky");
+                } else {
+                    jQuery("nav").removeClass("sticky");
+                }
+            });
+
+        });
+        function redirect() {
+            window.location = "UserLogin.aspx"
+        }
+        function redirectSignUp(name) {
+            window.location = "StudentRegistration.aspx?name=" + name;
+        }
+
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" EnablePartialRendering="true">
+        </asp:ScriptManager>
+
+        <header class="banner">
+           
+        <nav class="navbar navbar-default sticky" id="navbarr" role="navigation">
+ 
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="brand-centered">
+                <a class="navbar-brand" href="SwayamHomePage.aspx" style="z-index:100!important;">
+                    <img style="margin-right: 10px; padding: 0;" src="img/logo2.png" width="150" alt="Swayam Learning"/>
+                </a>
+            </div>
+          
+            <div id="navbar9" class="navbar-collapse collapse">
+             
+          
+        
+                     <ul class=" nav navbar-nav  navbar-right" style="padding-top: 41px;">
+                                    
+                                    <%--<li class="dropdown dropdown-large hidden-xs">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Courses <b class="caret"></b></a>
+
+                                        <ul class="dropdown-menu dropdown-menu-large row">
+                                            <li class="col-sm-4">
+                                                <ul>
+                                                    <li class="dropdown-header"><a href="#gsebg">GSEB - Gujarati</a></li>
+                                    
+                                                    <li class="divider"></li>
+                                                </ul>
+                                                </li>
+                                            <li class="col-sm-4">
+                                                <ul>
+                                                    <li class="dropdown-header"><a href="#ncerth">NCERT - Hindi</a></li>
+                                   
+                                                    <li class="divider"></li>
+                                    
+                                                </ul>
+                                            </li>
+                                            <li class="col-sm-4">
+                                                <ul>
+                                                    <li class="dropdown-header"><a href="#ncerte">NCERT - English</a></li>
+
+                                                    <li class="divider"></li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>--%>
+
+                         <%--<li class="dropdown-header"><a href="#gsebg">GSEB - Gujarati</a></li>--%>
+                         <li class="dropdown-header"><asp:HyperLink runat="server" ID="HyperLink5"  NavigateUrl="#gsebg" Text="GSEB - Gujarati" meta:resourcekey="BtnGSEB"></asp:HyperLink></li>
+                                                   <%-- <li class="hidden-xs" ><button type="button" class="btn btn-primary-outine-donate" data-toggle="modal" data-target="#myModal" id="btndonate"> Donate</button></li>--%>
+                                     <%--<li class="hidden-xs" ><a href="#ncerte">Donate</a></li>--%>
+                                    <%--<li><button type="button" class="btn btn-primary-outine-signup" data-toggle="modal" data-target="#myModal" id="btnsignup"> Sign up</button></li>
+                                    <li><button type="button" class="btn btn-primary-outine-Login" data-toggle="modal" data-target="#myModal" id="btnlogin"> Log In</button></li>--%>
+                                    <li>  <%--<button meta:resourcekey="btnstudentsignup" id="btnstudentsignup" type="button" class="btn btn-primary-outine" onclick="redirectSignUp('student')">Student Sign up</button>--%>
+                                        <asp:Button ID="Button1" runat="server" Text="Okay" meta:resourcekey="ButtonResource2" class="btn btn-primary-outine" OnClientClick="redirectSignUp('student')"/>
+                                        <asp:Button ID="OkayAction" runat="server" Text="Okay" meta:resourcekey="ButtonResource1" class="btn btn-primary-outine" OnClientClick="redirectSignUp('teacher')"/>
+                                        <%--<button meta:resourcekey="ButtonResource1" id="btnteachersignup" type="button" class="btn btn-primary-outine" onclick="redirectSignUp('teacher')">Teacher Sign up</button>--%>
+                                        <asp:Button ID="Button2" runat="server" Text="Okay" meta:resourcekey="btnlogin" class="btn btn-primary-outine-Login" OnClientClick="redirect()"/>
+                                        <%--<button type="button" class="btn btn-primary-outine-Login" onclick="redirect()"> Log In</button>--%>
+                                         </li>
+                         <li>
+                                          <asp:DropDownList ID="cmbCulture" runat="server" AutoPostBack="True" OnSelectedIndexChanged="cmbCulture_SelectedIndexChanged" style="padding-top:2px;">
+                                                 <asp:ListItem Value="en-US">English</asp:ListItem>
+                                                 <asp:ListItem Value="gu-IN">Gujarati</asp:ListItem>
+                                                 <asp:ListItem Value="hi-IN">Hindi</asp:ListItem>
+                <%--<asp:ListItem Value="de-DE">German</asp:ListItem>--%>
+                
+                <%--<asp:ListItem Value="en-US">English</asp:ListItem>--%>
+
+                                            </asp:DropDownList>
+                                   
+                             </li>
+
+                          <li class="innerhead">
+                       <%-- <asp:DropDownList runat="server" ID="ddlLanguage12" AutoPostBack="True" OnSelectedIndexChanged="ddlLanguage12_SelectedIndexChanged"
+                            meta:resourcekey="ddlLanguage12Resource1">
+                            <asp:ListItem Text="English" Value="en-US" Selected="True" ></asp:ListItem>
+                            <asp:ListItem Text="ગુજરાતી" Value="gu-IN" ></asp:ListItem>
+                            <asp:ListItem Text="हिन्दी" Value="hi-IN" ></asp:ListItem>
+                        </asp:DropDownList>--%>
+                             
+
+                    </li>
+                        </ul>
+
+                
+            </div>
+        </nav>
+    </header>
+        <%--    <section class="hero">
+        <div class="container">
+            <h1 class="hero__title"align="center">Swayam Learning</h1>
+            <p class="hero__snippet">Learning Simplified</p>
+             
+        </div>
+    </section>--%>
+
+        <!--Star slider-->
+        <section class="slider" style="margin-top: 50px;">
+    <div class="fullwidthbanner-container" style="overflow: hidden !important; position: relative;">
+            <a href="#">
+               <%-- <--%>img alt="Epathshala Registration Offer" src="../App_Themes/Images/_offer30days.png" id="imgOffer" style="position: absolute;
+                    top: 0px; right: 0px; cursor: pointer; z-index: 1000; height: 160px; width: 160px;" />
+            </a>
+            <div class="fullwidthbanner">
+            <ul>
+                <!-- THE FIRST SLIDE -->
+                <li data-transition="slideright" data-slotamount="1" data-masterspeed="300">
+                    <img src="../App_Themes/Home/images/slides/slide-intro.jpg" alt="" />
+                    <div class="caption very_big_white lfl stl" data-x="left" data-y="180" data-speed="300"
+                        data-start="500" data-easing="easeOutExpo">
+                        <%-- Learn. Practice. Excel.--%>
+                        <asp:Label Text="text" runat="server" meta:resourcekey="Sliderimg1_1"/>
+
+                    </div>
+                    <div class="caption big_white lfl stl" data-x="left" data-y="250" data-speed="300"
+                        data-start="1000" data-easing="easeOutExpo">
+                         <asp:Label Text="text" runat="server" meta:resourcekey="Sliderimg1_2"/>
+               </div>
+                </li>
+                <li data-transition="cube" data-slotamount="1" data-masterspeed="300">
+                    <img src="../App_Themes/Home/images/slides/slide-7a.jpg" alt="" />
+                    <div class="caption big_white lfr stl" data-x="510" data-y="180" data-speed="300"
+                        data-start="1000" data-easing="easeOutExpo">
+                        <asp:Label Text="text" runat="server" meta:resourcekey="Sliderimg2_1"/>
+                        <br />
+                        <asp:Label Text="text" runat="server" meta:resourcekey="Sliderimg2_2"/>
+                       <%-- Unlocking young minds to
+                        <br>
+                        succeed through Vernacular content--%>
+                        <%--<br>
+                        educational challenges--%>.</div>
+                </li>
+                <!-- THE SECOND SLIDE -->
+               <%-- <li data-transition="3dcurtain-horizontal" data-slotamount="1" data-masterspeed="300">
+                    <img src=App_Themes/Home/images/slides/slide-1.jpg" alt="" />
+                    <div class="caption randomrotate" data-x="160" data-y="110" data-speed="300" data-start="1000"
+                        data-easing="easeOutExpo">
+                        <img src=App_Themes/Home/images/slides/diagram.png" alt="Image 9" /></div>
+                    <div class="caption randomrotate" data-x="50" data-y="30" data-speed="300" data-start="2000"
+                        data-easing="easeOutExpo">
+                        <a href="Login.aspx">
+                            <img src=App_Themes/Home/images/slides/e-pathshala.png" alt="" /></a></div>
+                    <div class="caption randomrotate" data-x="30" data-y="290" data-speed="300" data-start="2500"
+                        data-easing="easeOutExpo">
+                        <img src=App_Themes/Home/images/slides/e-volve.png" alt="" /></div>
+                    <div class="caption randomrotate" data-x="240" data-y="350" data-speed="300" data-start="3000"
+                        data-easing="easeOutExpo">
+                        <img src=App_Themes/Home/images/slides/e-live.png" alt="" /></div>
+                    <div class="caption randomrotate" data-x="450" data-y="300" data-speed="300" data-start="3500"
+                        data-easing="easeOutExpo">
+                        <img src=App_Themes/Home/images/slides/e-lab.png" alt="" /></div>
+                    <div class="caption randomrotate" data-x="460" data-y="30" data-speed="300" data-start="4000"
+                        data-easing="easeOutExpo">
+                        <img src=App_Themes/Home/images/slides/e-pathonwheels.png" alt="" /></div>
+                    <div class="caption very_big_white lfr stl" data-x="550" data-y="180" data-speed="300"
+                        data-start="4500" data-easing="easeOutExpo">
+                        Learn. Practice. Excel.</div>
+                    <div class="caption big_white lfr stl" data-x="550" data-y="250" data-speed="300"
+                        data-start="5000" data-easing="easeOutExpo">
+                        Video based lessons with practice tests </div>
+                </li>--%>
+                <!-- THE FOURTH SLIDE -->
+                <li data-transition="slideleft" data-slotamount="1" data-masterspeed="300">
+                    <img src="../App_Themes/Home/images/slides/slide-4.jpg" alt="" />
+                    <div class="caption randomrotate" data-x="left" data-y="40" data-speed="300" data-start="500"
+                        data-easing="easeOutExpo">
+                        <img src="../App_Themes/Home/images/slides/puzzle.png" alt="" /></div>
+                    <div class="caption big_white lfr stl" data-x="500" data-y="180" data-speed="300"
+                        data-start="1000" data-easing="easeOutExpo">
+                        
+                        <asp:Label Text="text" runat="server" meta:resourcekey="Sliderimg3_1"/>
+
+                    </div>
+                    <div class="caption big_white lfr stl" data-x="500" data-y="250" data-speed="300"
+                        data-start="1300" data-easing="easeOutExpo">
+                         <asp:Label Text="text" runat="server" meta:resourcekey="Sliderimg3_2"/>
+                      
+                        <br />
+                        
+                    </div>
+                </li>
+            </ul>
+            <div class="tp-bannertimer tp-bottom">
+            </div>
+        </div>
+    </div>
+    </section>
+        <!--End slider-->
+
+
+        <div class="container">
+            <div class="row" id="main-boxes">
+                <div class="span4">
+                    <div class="box-style-2 green">
+                        <a href="#" title="Epathshala">
+                            <h3><asp:Label Text="text" runat="server" meta:resourcekey="lablelearningimg1_1"/> </h3>
+                            <%--<h3>Learning Simplified </h3>--%>
+                            <img src="../App_Themes/Home/img/icon-computer.png" alt="" />
+                            <p>
+                                <%--Learning Simplified with perfect blend of fun and technology.--%>
+                                <asp:Label Text="text" runat="server" meta:resourcekey="lablelearningimg2_1"/>
+                            </p>
+                            <p>
+                                <asp:Label Text="text" runat="server" meta:resourcekey="lablelearningimg3_1"/>
+                                <%--Around 600 hrs of animated video lessons for classes 1st to 8th.--%>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="box-style-2 orange">
+                        <a href="#" title="Education Initiatives">
+                            <h3>
+                                <asp:Label Text="text" runat="server" meta:resourcekey="lablelearningimg1_2"/> 
+                            </h3>
+                            <img src="../App_Themes/Home/img/icon-computer.png" alt="" />
+
+                            <p><%--Chapterwise question banks at beginner,intermediate and advance levels for improvement.--%>
+                                <asp:Label Text="text" runat="server" meta:resourcekey="lablelearningimg2_2"/> 
+
+                            </p>
+                            <p>
+                                <%--discussion forums for clarifications--%>
+                                <asp:Label Text="text" runat="server" meta:resourcekey="lablelearningimg3_2"/> 
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="box-style-2 red">
+                        <a href="#" title="View a Demo video">
+                            <h3><%--Register for Free--%>
+                                   <asp:Label Text="text" runat="server" meta:resourcekey="lablelearningimg1_3"/> 
+                            </h3>
+                            <img src="../App_Themes/Home/img/icon-computer.png" width="73" alt="" />
+                            <p>
+                                 <asp:Label Text="text" runat="server" meta:resourcekey="lablelearningimg2_3"/> 
+                            </p>
+                            <p>
+                                <asp:Label Text="text" runat="server" meta:resourcekey="lablelearningimg3_3"/> 
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <asp:ContentPlaceHolder ID="page_headerpart" runat="server">
+        </asp:ContentPlaceHolder>
+        <section id="main_content">
+        <div class="container">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                
+            </asp:ContentPlaceHolder>
+        </div>
+        </section>
+        <div class="grey-bg c-no container-fluid">
+            <div class="container">
+                <div class="row" id="counter">
+                    <div class="col-sm-4 counter-Txt">Schools <span class="counter-value" data-count="700">0</span></div>
+                    <div class="col-sm-4 counter-Txt">Students <span class="counter-value" data-count="100000">0</span></div>
+                    <div class="col-sm-4 counter-Txt margin-bot-35">Teachers <span class="counter-value" data-count="1000">0</span></div>
+                </div>
+            </div>
+        </div>
+        <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-sm-12 col-md-6 hidden-xs">
+                     
+                    <p class="text-justify para">
+                          <asp:Label Text="text" runat="server" meta:resourcekey="FooterPara1_1"/> 
+                        <%--“Simplify Learning with perfect blend of fun, visual appeal for learners to gain knowledge and understanding at a comfortable pace”--%>
+                    </p>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <h6><asp:Label Text="text" runat="server" meta:resourcekey="FooterPara2_1"/></h6>
+                    <ul class="footer-links">
+                        <li><a href="#gsebg"><asp:Label Text="text" runat="server" meta:resourcekey="FooterPara2_2"/></a></li>
+                        <li><a href="#ncerth"><asp:Label Text="text" runat="server" meta:resourcekey="FooterPara2_3"/></a></li>
+                        <li><a href="#ncerte"><asp:Label Text="text" runat="server" meta:resourcekey="FooterPara2_4"/></a></li>
+                        
+                        
+                    </ul>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <h6><asp:Label Text="text" runat="server" meta:resourcekey="FooterPara3_1"/></h6>
+                    <ul class="footer-links">
+                        <li><a href="aboutus.aspx"><asp:Label Text="text" runat="server" meta:resourcekey="FooterPara3_2"/></a></li>
+                        <li><a href="contact.aspx"><asp:Label Text="text" runat="server" meta:resourcekey="FooterPara3_3"/></a></li>
+                        <li><a href="#"><asp:Label Text="text" runat="server" meta:resourcekey="FooterPara3_4"/></a></li>
+                        <li><a href="#"><asp:Label Text="text" runat="server" meta:resourcekey="FooterPara3_5"/></a></li>
+                       
+                    </ul>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <p class="copyright-text">
+                        Copyright &copy; 2019 All Rights Reserved by
+                        <a href="#">Swayam Learning</a>.
+                    </p>
+                </div>
+
+              
+            </div>
+        </div>
+
+
+        
+
+    </footer>
+        <div class="modal fade  " id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" id="login" style="width: 340px; margin: auto;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;</button>
+                        <h2 class="modal-title" id="ModalTitle">Login</h2>
+                    </div>
+                    <div class="modal-body">
+                        <div class="text-center social-btn">
+                            <%-- <a href="https://www.facebook.com/" class="btn btn-primary btn-block"><i class="fa fa-facebook"></i> Sign in with <b>Facebook</b></a>--%>
+                            <%--<a href="https://www.gmail.com" class="btn btn-danger btn-block"><i class="fa fa-google"></i> Sign in with <b>Google</b></a>--%>
+                            <%-- <asp:Button runat="server"  ID="btnsigninwithgoogle" Text="Sign In with google" 
+                            CssClass="btn btn-danger btn-block"  UseSubmitBehavior="false" 
+                            data-dismiss="modal" onclick="btnsigninwithgoogle_Click" />--%>
+                        </div>
+                        <%--      <div class="or-seperator" style="margin: 20px 0 10px; text-align: center;border-top: 1px solid #ccc;"><i style=" padding: 0 10px;background: #f7f7f7;position: relative; top: -11px;""
+        z-index: 1;">or</i></div>--%>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <%--<input type="text" class="form-control" name="username" placeholder="Username" required="required" id="txtusername"/>--%>
+                                <asp:TextBox runat="server" ID="txtusername" class="form-control" placeholder="Username"
+                                    required="required" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <%--<input type="password" class="form-control" name="password" placeholder="Password" required="required" id="txtpassword"/>--%>
+                                <asp:TextBox runat="server" ID="txtpassword" type="password" class="form-control"
+                                    placeholder="Password" required="required" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <%--  <button type="submit" class="btn btn-success btn-block login-btn">Sign in</button>--%>
+                            <%--<asp:Button Text="sign in" CommandArgument='<%# Eval("ID") %>'  runat="server" ID="btnswayamlogin" OnCommand="btnswayamlogin_click"/>--%>
+                            <asp:Button runat="server" ID="btnswayamlogin" Text="Sign In" CssClass="btn btn-success btn-block login-btn"
+                                OnClick="btnswayamlogin_click" UseSubmitBehavior="false" data-dismiss="modal" />
+                        </div>
+                        <div class="clearfix">
+                            <label class="pull-left checkbox-inline">
+                                <asp:CheckBox ID="ucchkRememberMe" runat="server" Text="" />
+                                Remember me</label>
+                            <a href="#" class="pull-right text-success">Forgot Password?</a>
+                        </div>
+                        <div class="form-group">
+                            <p>
+                                <asp:ValidationSummary ID="ucvsumTeacherLogin" runat="server" ValidationGroup="ucLogin"
+                                    CssClass="Summary" ShowMessageBox="false" ShowSummary="true" />
+                                <p>
+                                    <asp:Label ID="ucinvalididpassword" runat="server" ForeColor="Red"></asp:Label>
+                                </p>
+                        </div>
+                        <div class="hint-text small">
+                            Don't have an account? <a href="#" class="text-success">Register Now!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-content" id="signup" style="display: none;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;</button>
+                        <h2 class="modal-title" id="ModalTitle">Sign Up</h2>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <asp:TextBox ID="txtFirstName" runat="server" placeholder="First name"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="ReqFieldFirstName" runat="server" ErrorMessage="Please enter First Name."
+                                    ValidationGroup="a" ControlToValidate="txtFirstName" placeholder="First name">*</asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="revFirstName" runat="server" ErrorMessage="Only characters are allowed in First Name."
+                                    ToolTip="Only characters are allowed in First Name." Text="." ValidationGroup="a"
+                                    ValidationExpression="^[a-zA-Z ]+$" ControlToValidate="txtFirstName"></asp:RegularExpressionValidator>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <asp:TextBox ID="txtLastName" runat="server" placeholder="Last name"></asp:TextBox>
+                                <%--<asp:RequiredFieldValidator ID="ReqFieldLastName" runat="server" ErrorMessage="Please enter Last Name."
+                                    ValidationGroup="a" ControlToValidate="txtLastName">*</asp:RequiredFieldValidator>--%>
+                                <asp:RegularExpressionValidator ID="revLastName" runat="server" ErrorMessage="Only characters are allowed in Last Name."
+                                    ToolTip="Only characters are allowed in Last Name." Text="." ValidationGroup="a"
+                                    ValidationExpression="^[a-zA-Z ]+$" ControlToValidate="txtLastName"></asp:RegularExpressionValidator>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-university" aria-hidden="true"></i>
+                                </span>
+                                <asp:TextBox ID="txtSchoolname" runat="server" placeholder="School Name"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-list-ul" aria-hidden="true"></i>
+                                </span>
+                                <%-- <select name="Board" class="form-control selectpicker">
+                                <option value="0">Select your Board/Language</option>
+                                <option value="1">GSEB-Gujarati</option>
+                                <option value="2">NCERT - Hindi</option>
+                                <option value="3">NCERT - English</option>
+                            </select>--%>
+                                <asp:DropDownList ID="ddlBoard" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlBoard_SelectedIndexChanged">
+                                </asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="ReqFieldBoard" runat="server" InitialValue="--Select Board--"
+                                    ErrorMessage="Please Select Board." ValidationGroup="a" ControlToValidate="ddlBoard">*</asp:RequiredFieldValidator>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
+                                <ContentTemplate>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-list-ul" aria-hidden="true"></i>
+                                        </span>
+                                        <asp:DropDownList ID="ddlMedium" runat="server" AutoPostBack="True" Enabled="False"
+                                            OnSelectedIndexChanged="ddlMedium_SelectedIndexChanged">
+                                            <asp:ListItem Value="0" Text="Select Medium"></asp:ListItem>
+                                        </asp:DropDownList>
+                                        <asp:RequiredFieldValidator ID="ReqFieldMedium" runat="server" InitialValue="--Select Medium--"
+                                            ErrorMessage="Please Select Medium of Education." ValidationGroup="a" ControlToValidate="ddlMedium">*</asp:RequiredFieldValidator>
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="ddlBoard" EventName="SelectedIndexChanged" />
+                                </Triggers>
+                            </asp:UpdatePanel>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+                            <ContentTemplate>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-list-ul" aria-hidden="true"></i>
+                                    </span>
+                                    <asp:DropDownList ID="ddlStandard" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlStandard_SelectedIndexChanged"
+                                        Enabled="False">
+                                        <asp:ListItem Value="0" Text="Select Standard"></asp:ListItem>
+                                    </asp:DropDownList>
+                                    <asp:RequiredFieldValidator ID="ReqFieldStandard" runat="server" InitialValue="--Select Standard--"
+                                        ErrorMessage="Please Select Standard." ValidationGroup="a" ControlToValidate="ddlStandard">*</asp:RequiredFieldValidator>
+                            </ContentTemplate>
+                            <Triggers>
+                                <asp:AsyncPostBackTrigger ControlID="ddlMedium" EventName="SelectedIndexChanged" />
+                            </Triggers>
+                        </asp:UpdatePanel>
+                        <%-- <select name="Standard" class="form-control selectpicker">
+                                <option value="0">Select your Standard</option>
+                                <option value="1">Class5</option>
+                                <option value="1">Class6</option>
+                                <option value="1">Class7</option>
+                                <option value="1">Class8</option>
+                                <option value="1">Class9</option>
+                                <option value="1">Class10</option>
+                            </select>--%>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                        <asp:TextBox ID="txtEmail" runat="server" placeholder="Email ID"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="ReqFieldEmailID" runat="server" ErrorMessage="Please enter EmailID."
+                            ValidationGroup="a" ControlToValidate="txtEmail">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="revEmailID" runat="server" ErrorMessage="Please enter valid EmailID."
+                            ToolTip="Please enter valid EmailID." Text="." ValidationGroup="a" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+                            ControlToValidate="txtEmail"></asp:RegularExpressionValidator>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-phone-square" aria-hidden="true"></i>
+                        </span>
+                        <asp:TextBox ID="txtContactNo" runat="server" MaxLength="20" placeholder="Contact Number"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="ReqFieldContactNo" runat="server" ErrorMessage="Please enter Contact Number."
+                            ControlToValidate="txtContactNo" ValidationGroup="a">*</asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <asp:Button ID="btnsubmit" runat="server" CssClass="btn btn-success btn-block login-btn"
+                        Text="Sign Up" OnClick="btnSubmit_Click" UseSubmitBehavior="false" data-dismiss="modal" />
+                    <%-- <button type="submit" class="btn btn-success btn-block login-btn">Submit</button>--%>
+                </div>
+            </div>
+        </div>
+        </div>
+    <div id="toTop">
+        Back to top
+    </div>
+    </form>
+</body>
+</html>

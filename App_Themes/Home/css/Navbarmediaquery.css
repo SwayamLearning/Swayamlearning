@@ -1,0 +1,2069 @@
+﻿@font-face {
+    font-family: 'Avenir Next LT Pro';
+    src: url('../Fonts/AvenirNextLTPro-It.woff2') format('woff2'),
+        url('../Fonts/AvenirNextLTPro-It.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Avenir Next LT Pro';
+    src: url('../Fonts/AvenirNextLTPro-Regular.woff2') format('woff2'),
+        url('../Fonts/AvenirNextLTPro-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir Next LT Pro';
+    src: url('../Fonts/AvenirNextLTPro-Bold.woff2') format('woff2'),
+        url('../Fonts/AvenirNextLTPro-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+ 
+
+body {
+     font-family: 'Avenir Next LT Pro' !important;
+}
+ .mydropdownlist
+{
+color: #17476E;
+font-size: 16px;
+padding: 10px 10px;
+border-radius: 5px;
+background-color: white;
+font-weight: bold;
+}
+.navbar-brand
+{
+    position: relative;
+    background: url(../Homepagenewimages/NewLogo.png);
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#nav-toggle-button {
+    background-color: #17476e;
+    width: 51px;
+    height: 42px;
+    margin-top: 3px;
+}
+    .grey-bg
+       {
+             /*background-color:#00b4c6 !important;*/
+             background-color:#17476E !important;
+           font-family: 'Avenir Next LT Pro' !important;
+            
+    color: white !important;
+    
+       }
+.counter-Txt {
+    text-align: center;
+}
+.counter-Txt span
+{
+    display:block;
+}
+footer
+{
+    color:white;
+   /*background:#17476E;*/
+   background:white;
+     /*position:absolute;*/
+   /*bottom:0;*/
+   width:100%;
+   height:50px;
+}
+.cf:before,
+.cf:after {
+    content:"";
+    display:table;
+    line-height:0;
+}
+.cf:after {
+    clear:both;
+}
+ .col-12 {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+ footer .copyright   {
+            color:#17476e !important;
+           
+        }
+ footer .copyright p  {
+            color: #17476e !important;
+           
+        }
+ footer .disclaimer a 
+        {
+            color:#17476e !important;
+        }
+ .school ul li,.student ul li,.teacher ul li,h1{
+     color:#17476e !important;
+ }
+ .mydropdownlist
+ {
+     height: 36px;
+ }
+ button:focus{
+     outline:0 !important;
+     box-shadow:none !important;
+ }
+ a{
+     outline:0 !important;
+     /*color:#17476e  !important;*/
+ }
+ @media (max-width:380px)
+ {
+    h1 {
+        font-size: 18px !important;
+    }
+ }
+@media  (max-width:480px) {
+     /*body{
+        background-color:yellow;
+    }*/
+
+     .fixed-btn {
+           
+            position: absolute !important;
+            top: 126px !important;
+            /*right: 0 !important;*/
+            height: 100px;
+            z-index: 999;
+            left:-23px;
+        }
+         
+        .btnfixed{
+            width:141px;
+            height:150px;
+            padding:10px;
+            /*border-radius:20px;
+            background-color:#ffd69a;*/
+            color:#17476E;
+            font-size:20px;
+            font-weight:bold;
+            font-family: 'Avenir Next LT Pro' !important;
+            background-image:url('App_Themes/Home/Homepagenewimages/demo%20button.png');
+
+        }
+         #demo1
+        {
+            width:100px !important;
+        }
+    .navbar-brand {
+        width: 178px;
+        height: 55px;
+        margin-left: -40px;
+    }
+    .navbar-nav > li {
+    padding-left: 0px;
+    padding-right: 15px;
+}
+
+    .mydropdownlist {
+        font-size: 14px;
+        padding: 5px 5px;
+        border-radius: 5px;
+    }
+
+    .btnclass {
+        font-size: 14px;
+    }
+
+    .btnlogin {
+        font-size: 14px;
+    }
+
+    .nav ul li a {
+        font-size: 14px;
+    }
+
+    .navbar-nav {
+        padding-top: 8px;
+        text-align: center !important;
+    }
+
+    .grey-bg {
+        font-size: 20px;
+        font-weight: bold;
+        color: white !important;
+        height: 330px;
+    }
+
+    #counter {
+        padding-top: 10px !important;
+    }
+
+    .counter-Txt {
+        text-align: center;
+        padding: 20px 50px;
+    }
+
+    footer {
+        height: 225px !important;
+    }
+
+    .disclaimer {
+        text-align: center !important;
+        padding-left: 20px !important;
+    }
+
+    footer .copyright p {
+        text-align: center !important;
+    }
+
+    footer .copyright {
+        padding: 0px;
+    }
+
+    .copyright {
+        text-align: center !important;
+    }
+
+    footer .social {
+        padding: 20px 0 20px 0px !important;
+    }
+
+    #banner4 img {
+        padding-bottom: 20px;
+    }
+
+    .col-12 {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    #All {
+        margin-top: 72px !important;
+    }
+
+    h1 {
+        font-size: 20px;
+        font-weight: bold !important;
+        font-family: 'Avenir Next LT Pro' !important;
+        text-transform: uppercase;
+    }
+
+    .righth1 {
+        text-align: center;
+    }
+
+    .banner2, .banner3, .banner4 {
+        padding: 50px 15px;
+    }
+
+    .studentrow {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .student {
+        padding-top: 20px;
+        /*padding-right:80px;*/
+    }
+
+        .student ul {
+            list-style-type: none;
+            text-align: left;
+            width: 90%;
+            position: relative;
+            left: 22%;
+        }
+
+            .student ul li {
+                font-size: 18px !important;
+                font-weight: normal !important;
+                font-family: 'Avenir Next LT Pro' !important;
+                padding-top: 20px;
+            }
+
+    .teacher {
+        padding-top: 20px;
+    }
+
+        .teacher ul {
+            list-style-type: none;
+            text-align: left;
+            width: 90%;
+            position: relative;
+            left: 22%;
+        }
+
+            .teacher ul li {
+                font-size: 18px !important;
+                font-weight: normal !important;
+                font-family: 'Avenir Next LT Pro' !important;
+                padding-top: 20px;
+            }
+
+    .school {
+        padding-right: 0px  !important;
+        padding-left:0px  !important;
+        padding-top: 20px;
+    }
+    .school h1
+    {
+        width:351px !important;
+    }
+        .school ul {
+            list-style-type: none;
+            text-align: left;
+            width: 90%;
+            position: relative;
+            left: 12%;
+        }
+
+            .school ul li {
+                font-size: 18px !important;
+                font-weight: normal !important;
+                font-family: 'Avenir Next LT Pro' !important;
+                padding-top: 20px;
+            }
+
+    .btnwrapper {
+        text-align: center  !important;
+        margin-left:-18px  !important;
+        padding-top:20px  !important;
+    }
+
+    .btn-class {
+        background-color: #17476f;
+        color: white;
+        font-size: 16px !important;
+        font-weight: bold !important;
+        font-family: 'Avenir Next LT Pro' !important;
+        border-radius: 100px;
+        margin-top: 20px;
+    }
+
+    .btn-class-right {
+        width: 190px;
+    }
+
+    .btn-class-left {
+        /*float:left;*/
+        width: 180px;
+    }
+    .ct-section-head
+    {
+        font-size:32px !important;
+    }
+
+    input[type="button"]
+    {
+        outline:none !important;
+    }
+    *:focus{
+        outline:0!important;
+    }
+/***css for buttons on mobile banner*/
+ #MobileBanner1
+         {
+              /*width:82%;*/
+              position:relative;
+         background-color:white;
+         margin:auto;
+         height:620px; 
+         /*background-image:url('../Homepagenewimages/Banner1_English_Desktop.jpg');*/
+          background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain; 
+  margin-top:-38px;
+         
+
+        }
+ .inner
+{
+     padding-top:348px;
+    /*padding-top:210px;*/
+}
+.mlead{
+    
+
+}
+.mbtnlead{
+    width:355px;
+    height:48px;
+}
+.mteacher
+{
+    
+}
+.mbtnteacher{
+     width:355px;
+    height:45px;
+    margin-top:-10px;
+}
+.mschool{
+    
+}
+.mbtnschool
+{
+     width:355px;
+   height:45px;
+   margin-top:-16px;
+}
+/***css for buttons on mobile banner*/
+#MobileBanner1 > .inner3 {
+    position: relative;
+    z-index: 2;
+    margin-top:200px;
+}
+.inner3{
+    /*padding-top:93px  !important;;
+    padding-left:126px  !important;;*/
+}
+.mlink
+{
+    /*margin-left:47px !important;*/
+    width:400px;
+    height:100px;
+    margin-top:-9px;
+}
+}
+
+@media (min-width:425px) and (max-width: 480px) {
+    /*body{
+        background-color:blue;
+    }*/
+    .navbar-brand {
+        width: 200px;
+        height: 55px;
+        margin-left: -40px;
+    }
+
+    .mydropdownlist {
+        font-size: 14px;
+        padding: 5px 5px;
+        border-radius: 5px;
+    }
+
+    .btnclass {
+      
+        font-size: 14px;
+         
+    }
+
+    .btnlogin {
+       
+        font-size: 14px;
+         
+    }
+    .nav ul li a
+    {
+        font-size:14px;
+    }
+    .navbar-nav
+    {
+        padding-top:8px;
+        text-align:center !important;
+    }
+   .grey-bg {
+        font-size: 20px;
+        font-weight: bold;
+        color: white !important;
+        height: 328px;
+    }
+      #counter
+    {
+        padding-top:10px !important;
+    }
+    .counter-Txt {
+        text-align: center;
+        padding: 20px 50px;
+    }
+    footer
+    {
+        height:225px !important;
+    }
+    .disclaimer
+    {
+        text-align:center !important;
+    }
+    .copyright
+
+    {
+        text-align:center !important;
+        padding-left:0px !important;
+    }
+     footer .social
+    {
+        padding:20px 0 20px 0px !important;
+    }
+    .social
+    {
+        padding-left:50px !important;
+    }
+
+
+     .col-12 {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+       h1 {
+        font-size: 20px !important;
+        font-weight: bold !important;
+        font-family: 'Avenir Next LT Pro' !important;
+        text-transform: uppercase;
+    }
+       .righth1 {
+        text-align: center;
+    }
+
+    .banner2, .banner3, .banner4 {
+        padding: 50px 15px;
+    }
+
+    .studentrow {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .student {
+        padding-top: 20px;
+        /*padding-right:80px;*/
+    }
+
+    .student ul {
+            list-style-type: none;
+            text-align: left;
+            width: 90%;
+            position: relative;
+            left: 22%;
+        }
+
+    .student ul li {
+                font-size: 18px !important;
+                font-weight: normal !important;
+                font-family: 'Avenir Next LT Pro' !important;
+                padding-top: 20px;
+            }
+
+    .teacher {
+        padding-top: 20px;
+    }
+
+    .teacher ul {
+            list-style-type: none;
+            text-align: left;
+            width: 90%;
+            position: relative;
+            left: 22%;
+        }
+
+    .teacher ul li {
+                font-size: 18px !important;
+                font-weight: normal !important;
+                font-family: 'Avenir Next LT Pro' !important;
+                padding-top: 20px;
+            }
+
+    .school {
+          padding-right: 0px  !important;
+        padding-left:0px  !important;
+        /*padding-right: 20px;*/
+        padding-top: 20px;
+    }
+    .school h1
+    {
+        width:400px !important;
+    }
+    .school ul {
+            list-style-type: none;
+            text-align: left;
+            width: 90%;
+            position: relative;
+            left: 8%;
+        }
+
+    .school ul li {
+                font-size: 18px !important;
+                font-weight: normal !important;
+                font-family: 'Avenir Next LT Pro' !important;
+                padding-top: 20px;
+            }
+
+    .btnwrapper {
+        text-align: center;
+    }
+
+    .btn-class {
+        background-color: #17476f;
+        color: white;
+        font-size: 16px !important;
+        font-weight: bold !important;
+        font-family: 'Avenir Next LT Pro' !important;
+        border-radius: 100px;
+        margin-top: 20px;
+    }
+
+    .btn-class-right {
+        width: 190px;
+    }
+
+    .btn-class-left {
+        /*float:left;*/
+        width: 180px;
+    }
+    /***css for buttons on mobile banner*/
+ #MobileBanner1
+         {
+              /*width:82%;*/
+              position:relative;
+         background-color:white;
+         margin:auto;
+         height:620px; 
+         /*background-image:url('../Homepagenewimages/Banner1_English_Desktop.jpg');*/
+          background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain; 
+  margin-top:-10px;
+         
+
+        }
+ .inner
+{
+     padding-top:348px;
+    /*padding-top:210px;*/
+}
+.mlead{
+    
+
+}
+.mbtnlead{
+    width:355px;
+    height:48px;
+}
+.mteacher
+{
+    
+}
+.mbtnteacher{
+     width:355px;
+    height:45px;
+    margin-top:-10px;
+}
+.mschool{
+    
+}
+.mbtnschool
+{
+     width:355px;
+   height:45px;
+   margin-top:-16px;
+}
+/***css for buttons on mobile banner*/
+
+}
+@media screen and (min-width: 480px) and (max-width: 576px) {
+     /*body{
+        background-color:red;
+    }*/
+      .navbar-brand {
+        width: 190px;
+        height: 70px;
+    }
+      .mydropdownlist {
+        font-size: 14px;
+        padding: 7px 15px;
+        border-radius: 5px;
+    }
+                 .grey-bg {
+        font-size: 25px;
+        font-weight: bold;
+        color: white !important;
+        height: 370px;
+    }
+
+    .counter-Txt {
+        text-align: center;
+        padding: 20px 50px;
+    }
+       #counter
+    {
+        padding-top:10px !important;
+    }
+        footer
+    {
+        height:230px !important;
+    }
+    .disclaimer
+    {
+        text-align:center !important;
+    }
+    .copyright
+
+    {
+        text-align:center !important;
+        padding-left:0px !important;
+    }
+     footer .social
+    {
+        padding:20px 0 20px 0px !important;
+    }
+    .social
+    {
+        padding-left:50px !important;
+    }
+    .student ul li {
+        font-size: 20px !important;
+    }
+    .teacher ul li {
+        font-size: 20px !important;
+    }
+    .school ul li {
+        font-size: 20px !important;
+    }
+       .col-12 {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+       h1 {
+        font-size: 20px !important;
+        font-weight: bold !important;
+        font-family: 'Avenir Next LT Pro' !important;
+        text-transform: uppercase;
+    }
+       .righth1 {
+        text-align: center;
+    }
+
+    .banner2, .banner3, .banner4 {
+        padding: 50px 15px;
+    }
+
+    .studentrow {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .student {
+        padding-top: 20px;
+        /*padding-right:80px;*/
+    }
+
+    .student ul {
+            list-style-type: none;
+            text-align: left;
+            width: 90%;
+            position: relative;
+            left: 22%;
+        }
+
+    .student ul li {
+                font-size: 18px !important;
+                font-weight: normal !important;
+                font-family: 'Avenir Next LT Pro' !important;
+                padding-top: 20px;
+            }
+
+    .teacher {
+        padding-top: 20px;
+    }
+
+    .teacher ul {
+            list-style-type: none;
+            text-align: left;
+            width: 90%;
+            position: relative;
+            left: 22%;
+        }
+
+    .teacher ul li {
+                font-size: 18px !important;
+                font-weight: normal !important;
+                font-family: 'Avenir Next LT Pro' !important;
+                padding-top: 20px;
+            }
+
+    .school {
+          padding-right: 0px  !important;
+        padding-left:0px  !important;
+        /*padding-right: 20px;*/
+        padding-top: 20px;
+    }
+    .school h1
+    {
+            width: 431px !important;
+    padding-left: 80px;
+}
+    
+    .school ul {
+            list-style-type: none;
+            text-align: left;
+            width: 80%;
+            position: relative;
+            left: 15%;
+        }
+
+    .school ul li {
+                font-size: 18px !important;
+                font-weight: normal !important;
+                font-family: 'Avenir Next LT Pro' !important;
+                padding-top: 20px;
+            }
+
+    .btnwrapper {
+        text-align: center;
+        /*padding-left:110px;*/
+    }
+
+    .btn-class {
+        background-color: #17476f;
+        color: white;
+        font-size: 16px !important;
+        font-weight: bold !important;
+        font-family: 'Avenir Next LT Pro' !important;
+        border-radius: 100px;
+        margin-top: 20px;
+    }
+
+    .btn-class-right {
+        width: 190px;
+    }
+
+    .btn-class-left {
+        /*float:left;*/
+        width: 180px;
+    }
+    /***css for buttons on mobile banner*/
+ #MobileBanner1
+         {
+              /*width:82%;*/
+              position:relative;
+         background-color:white;
+         margin:auto;
+         height:715px; 
+         /*background-image:url('../Homepagenewimages/Banner1_English_Desktop.jpg');*/
+          background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain; 
+  margin-top:-10px;
+         
+
+        }
+ .inner
+{
+     padding-top:422px;
+     padding-left:30px;
+    /*padding-top:210px;*/
+}
+.mlead{
+    
+
+}
+.mbtnlead{
+    width:400px;
+    height:48px;
+}
+.mteacher
+{
+    
+}
+.mbtnteacher{
+     width:400px;
+    height:45px;
+    margin-top:-10px;
+}
+.mschool{
+    
+}
+.mbtnschool
+{
+     width:400px;
+   height:45px;
+   margin-top:-16px;
+}
+/***css for buttons on mobile banner*/
+} 
+
+ 
+/* SMALL DEVICES (landscape, 576px and up) */
+@media (min-width: 576px) {
+     /*body{
+        background-color:green;
+    }*/
+     .navbar-brand {
+        width: 190px;
+        height: 70px;
+    }
+      .mydropdownlist {
+        font-size: 14px;
+        padding: 7px 15px;
+        border-radius: 5px;
+    }
+            .grey-bg {
+        font-size: 20px;
+        font-weight: 600;
+        color: white !important;
+        height: 100px;
+    }
+
+    .counter-Txt {
+        text-align: center;
+        padding: 20px 50px;
+    }
+} 
+
+/* SMALL DEVICES ONLY! */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+     .navbar-brand {
+        width: 235px;
+        height: 70px;
+    }
+      .mydropdownlist {
+        font-size: 14px;
+        padding: 7px 15px;
+        border-radius: 5px;
+          margin-top:8px;
+       
+    }
+       
+       .grey-bg {
+        font-size: 25px;
+        font-weight: 600;
+        color: white !important;
+        height: 150px;
+    }
+
+    .counter-Txt {
+        text-align: center;
+        padding: 30px 50px;
+    }
+    h1 {
+        font-size: 22px !important;
+    }
+ 
+    
+
+      .col-12 {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+       h1 {
+        font-size: 20px !important;
+        font-weight: bold !important;
+        font-family: 'Avenir Next LT Pro' !important;
+        text-transform: uppercase;
+    }
+       .righth1 {
+        text-align: center;
+    }
+
+    .banner2, .banner3, .banner4 {
+        padding: 50px 15px;
+    }
+
+    .studentrow {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .banner2img{
+            margin-left: 15px  !important;
+        
+    width: 541px !important;
+    }
+
+    .student {
+        padding-top: 20px;
+        /*padding-right:80px;*/
+    }
+
+    .student ul {
+            list-style-type: none;
+            text-align: left;
+            width: 90%;
+            position: relative;
+            left: 22%;
+        }
+
+    .student ul li {
+                font-size: 18px !important;
+                font-weight: normal !important;
+                font-family: 'Avenir Next LT Pro' !important;
+                padding-top: 20px;
+            }
+
+    .teacher {
+        padding-top: 20px;
+    }
+
+    .teacher ul {
+            list-style-type: none;
+            text-align: left;
+            width: 90%;
+            position: relative;
+            left: 22%;
+        }
+
+    .teacher ul li {
+                font-size: 18px !important;
+                font-weight: normal !important;
+                font-family: 'Avenir Next LT Pro' !important;
+                padding-top: 20px;
+            }
+
+    .school {
+          padding-right: 0px  !important;
+        padding-left:0px  !important;
+        /*padding-right: 20px;*/
+        padding-top: 20px;
+    }
+    .school h1
+    {
+            width: 525px !important;
+    padding-left: 142px;
+}
+    
+    .school ul {
+            list-style-type: none;
+            text-align: left;
+            width: 80%;
+            position: relative;
+            left: 15%;
+        }
+
+    .school ul li {
+                font-size: 18px !important;
+                font-weight: normal !important;
+                font-family: 'Avenir Next LT Pro' !important;
+                padding-top: 20px;
+            }
+
+    .btnwrapper {
+        text-align: center;
+        /*padding-left:110px;*/
+    }
+
+    .btn-class {
+        background-color: #17476f;
+        color: white;
+        font-size: 16px !important;
+        font-weight: bold !important;
+        font-family: 'Avenir Next LT Pro' !important;
+        border-radius: 100px;
+        margin-top: 20px;
+    }
+
+    .btn-class-right {
+        width: 190px;
+    }
+
+    .btn-class-left {
+        /*float:left;*/
+        width: 180px;
+    }
+        footer
+    {
+        height:230px !important;
+    }
+    .disclaimer
+    {
+        text-align:center !important;
+    }
+    .copyright
+
+    {
+        text-align:center !important;
+        padding-left:0px !important;
+    }
+     footer .social
+    {
+        padding:20px 0 20px 0px !important;
+    }
+    .social
+    {
+        padding-left:50px !important;
+    }
+    /***css for buttons on mobile banner*/
+ #MobileBanner1
+         {
+              /*width:80%;*/
+              position:relative;
+         background-color:white;
+         margin:auto;
+         height:897px; 
+         /*background-image:url('../Homepagenewimages/Banner1_English_Desktop.jpg');*/
+          background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain; 
+  /*margin-top:37px;*/
+         
+
+        }
+ .inner
+{
+     padding-top:537px;
+     padding-left:40px;
+    /*padding-top:210px;*/
+}
+.mlead{
+    
+
+}
+.mbtnlead{
+    width:510px;
+    height:48px;
+}
+.mteacher
+{
+    padding-top:5px;
+}
+.mbtnteacher{
+      width:510px;
+    height:45px;
+    margin-top:-10px;
+}
+.mschool{
+    padding-top:28px;
+}
+.mbtnschool
+{
+     width:510px;
+   height:45px;
+   margin-top:-16px;
+}
+/***css for buttons on mobile banner*/
+ .fixed-btn {
+           
+            position: absolute !important;
+            top: 170px !important;
+            /*right: 0 !important;*/
+            height: 100px;
+            z-index: 999;
+            left:50px;
+        }
+         
+        .btnfixed{
+            width:141px;
+            height:150px;
+            padding:10px;
+            /*border-radius:20px;
+            background-color:#ffd69a;*/
+            color:#17476E;
+            font-size:20px;
+            font-weight:bold;
+            font-family: 'Avenir Next LT Pro' !important;
+            background-image:url('App_Themes/Home/Homepagenewimages/demo%20button.png');
+
+        }
+         #demo1
+        {
+            width:150px !important;
+        }
+}
+
+/* MEDIUM DEVICES (tablets, 768px and up) */
+@media (min-width: 768px) {
+     /*.navbar-brand {
+        width: 250px;
+        height: 70px;
+    }
+      .mydropdownlist {
+        font-size: 14px;
+        padding: 7px 15px;
+        border-radius: 5px;
+    }*/
+}
+
+/* MEDIUM DEVICES ONLY! */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+   .navbar-brand {
+        width: 250px;
+        height: 70px;
+    }
+     .navbar-nav {
+          margin-top:-3px;
+        /*padding-top: 8px;*/
+        text-align: center !important;
+    }
+      
+     
+     .navbar-nav >li
+     {
+         padding-top:15px;
+         padding-bottom:15px;
+     }
+    .mydropdownlist {
+        font-size: 14px;
+        padding: 7px 15px;
+        border-radius: 5px;
+        margin-top:-6px;
+    }
+
+
+    /***demo button*/
+      .fixed-btn {
+            position: absolute !important;
+            top: 61px !important;
+            right: 0 !important;
+            height: 100px;
+            z-index: 999;
+        }
+        .btnfixed{
+            width:120px;
+            height:120px;
+            padding:10px;
+            /*border-radius:20px;
+            background-color:#ffd69a;*/
+            color:#17476E;
+            font-size:20px;
+            font-weight:bold;
+            font-family: 'Avenir Next LT Pro' !important;
+            background-image:url('App_Themes/Home/Homepagenewimages/demo%20button.png');
+
+        }
+        #demo
+        {
+            width:100px;
+        }
+     /*.grey-bg {
+        font-size: 25px;
+        font-weight: 600;
+        color: white !important;
+        position:absolute;
+        bottom:110px;
+        height: 125px;
+    }*/
+     /**************************counter css************************************/
+     .grey-bg {
+        font-size: 22px;
+        font-weight: 600;
+        color: white !important;
+        height: 125px;
+                /*position:fixed;*/
+        bottom:110px;
+    }
+    .counter-Txt {
+        text-align: center;
+        padding: 20px 50px;
+    }
+      /*************************footer css*/
+      footer
+    {
+        height:110px !important;
+        /*position:absolute;*/
+        bottom:0;
+    }
+    .disclaimer
+    {
+        text-align:left !important;
+        font-size:11px !important;
+        font-weight:bold !important;
+    }
+    .copyright
+
+    {
+        text-align:right !important;
+        padding-left:0px !important;
+          font-size:11px !important;
+        font-weight:bold !important;
+    }
+     footer .social
+    {
+        padding:0px 0 20px 0px !important;
+        margin-top:-9px !important
+    }
+    .social
+    {
+        padding-left:50px !important;
+    }
+    /**************************Banner Home page CSS****************************/
+    h1
+    {
+        font-size:18px !important;
+        font-weight:bold;
+        text-align:right;
+       
+    }
+    .banner2h1
+    {
+         padding-right:35px;
+    }
+    .banner4h1
+    {
+        padding-right:8px;
+    }
+    .banner2img
+    {
+        max-width:100% !important;
+        padding-top:50px;
+    }
+    .fit-image
+    {
+        object-fit:scale-down !important;
+    }
+     .student ul {
+        list-style-type: none;
+        padding: 0;
+        padding-right:30px;
+        margin: 0;
+        text-align: right;
+    }
+
+        .student ul li {
+            font-size: 18px !important;
+            font-weight: normal !important;
+            font-family: 'Avenir Next LT Pro' !important;
+            padding-top: 20px;
+        }
+         .teacher ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+    }
+
+        .teacher ul li {
+            font-size: 18px !important;
+            font-weight: normal !important;
+            font-family: 'Avenir Next LT Pro' !important;
+            padding-top: 20px;
+        }
+        .teacher h1
+        {
+            text-align:left !important;
+        }
+         .school
+     {
+         padding-right:20px;
+     }
+    .school ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        text-align: right;
+    }
+
+        .school ul li {
+            font-size: 18px !important;
+            font-weight: normal !important;
+            font-family: 'Avenir Next LT Pro' !important;
+            padding-top: 20px;
+        }
+        .btnwrapper {
+            width:90%;
+        text-align: right;
+        margin-top:20px;
+    }
+           .btn-class {
+        background-color: #17476f;
+        color: white;
+        font-size: 16px !important;
+        font-weight: bold !important;
+        font-family: 'Avenir Next LT Pro' !important;
+        border-radius: 100px;
+        margin-top: 20px;
+    }
+
+    .btn-class-right {
+        width: 190px;
+    }
+
+    .btn-class-left {
+        float:left;
+        width: 180px;
+    }
+
+    /*******************************Contactus */
+    .contact-section{
+        padding-right:70px !important;
+        padding-bottom:250px;
+    }
+    form input, form textarea 
+    {
+        max-width:380px !important;
+    }
+     #DesktopBanner1
+         {
+              /*width:82%;*/
+              position:relative;
+         background-color:white;
+         margin:auto;
+         height:541px; 
+         /*background-image:url('../Homepagenewimages/Banner1_English_Desktop.jpg');*/
+          background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain; 
+  margin-top:-49px;
+         
+
+         }
+     #DesktopBanner1 .overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /*background-color: rgba(255, 132, 230, 0.85);*/
+    z-index: 1;
+}
+
+        #DesktopBanner1   .inner {
+    position: relative;
+    z-index: 2;
+    margin-top:32px;
+    /*padding-top:70px;*/
+}
+.inner
+{
+    /*padding-top:210px;*/
+}
+.lead{
+    padding-top:196px;
+
+}
+.btnlead{
+    width:418px;
+    height:50px;
+    margin-top:10px;
+}
+.teacher
+{
+    padding-top:0px;
+}
+.btnteacher{
+    width:418px;
+    height:53px;
+    margin-top:-15px;
+}
+.dschool{
+    padding-top:0px;
+}
+.btnschool
+{height:56px;
+    width:418px;
+}
+#DesktopBanner1 > .inner2 {
+    position: relative;
+    z-index: 2;
+    margin-top:200px;
+}
+.inner2{
+    /*padding-top:93px  !important;;
+    padding-left:126px  !important;;*/
+}
+.link1
+{
+    /*margin-left:47px !important;*/
+    width:1100px;
+    height:100px;
+    margin-top:32px;
+}
+}
+
+/* LARGE DEVICES (desktops, 992px and up) */
+@media (min-width: 992px) {
+ .navbar-brand {
+        width: 100px;
+        height: 70px;
+    }    
+}
+ 
+
+/* LARGE DEVICES ONLY! */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    /*body{
+        background-color:aquamarine;
+    }*/
+      .navbar-brand {
+        width: 255px;
+        height: 70px;
+    }
+      .navbar-nav > li
+      {
+          padding-left:15px;
+          padding-right:0px;
+      }
+        .navbar-nav > li >a
+        {
+            padding-left:10px !important ;
+            padding-right:10px !important ;
+        }
+    .mydropdownlist {
+        margin-top:1px !important;
+    }
+    .grey-bg {
+        font-size: 22px;
+        font-weight: 600;
+        color: white !important;
+        height: 125px;
+                /*position:fixed;*/
+        bottom:110px;
+    }
+
+    .counter-Txt {
+        text-align: center;
+        padding: 30px 50px;
+    }
+       footer
+    {
+        height:110px !important;
+        /*position:absolute;*/
+        bottom:0;
+    }
+    .disclaimer
+    {
+        text-align:left !important;
+        font-size:16px !important;
+        font-weight:bold !important;
+    }
+    .copyright
+
+    {
+        text-align:right !important;
+        padding-left:0px !important;
+          font-size:16px !important;
+        font-weight:bold !important;
+    }
+     footer .social
+    {
+        padding:0px 0 20px 0px !important;
+        margin-top:-9px !important
+    }
+    .social
+    {
+        padding-left:50px !important;
+    }
+    h1
+    {
+        font-size:18px !important;
+        font-weight:bold;
+        text-align:right;
+    }
+    
+    .banner2img
+    {
+        max-width:100% !important;
+        /*padding-top:30px;*/
+    }
+    .fit-image
+    {
+        object-fit:scale-down !important;
+    }
+     .student ul {
+        list-style-type: none;
+        padding: 0;
+        padding-right:30px;
+        margin: 0;
+        text-align: right;
+    }
+
+        .student ul li {
+            font-size: 20px !important;
+            font-weight: normal !important;
+            font-family: 'Avenir Next LT Pro' !important;
+            padding-top: 20px;
+        }
+         .teacher ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+    }
+
+        .teacher ul li {
+            font-size: 20px !important;
+            font-weight: normal !important;
+            font-family: 'Avenir Next LT Pro' !important;
+            padding-top: 20px;
+        }
+        .teacher h1
+        {
+            text-align:left !important;
+        }
+         .school
+     {
+         padding-right:20px;
+     }
+    .school ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        text-align: right;
+    }
+
+        .school ul li {
+            font-size: 20px !important;
+            font-weight: normal !important;
+            font-family: 'Avenir Next LT Pro' !important;
+            padding-top: 20px;
+        }
+        .btnwrapper {
+            width:90%;
+        text-align: right;
+        margin-top:20px;
+    }
+           .btn-class {
+        background-color: #17476f;
+        color: white;
+        font-size: 16px !important;
+        font-weight: bold !important;
+        font-family: 'Avenir Next LT Pro' !important;
+        border-radius: 100px;
+        margin-top: 20px;
+    }
+
+    .btn-class-right {
+        width: 190px;
+    }
+
+    .btn-class-left {
+        float:left;
+        width: 180px;
+    }
+    #Banner2
+     {
+         width:82%;
+         height:430px;
+         margin:auto;
+           background-color:white;
+     }
+      #Banner3
+     {
+        width:82%;
+         height:420px;
+         margin:auto;
+           background-color:white;
+     }
+       #Banner4
+     {
+            width:82%;
+         
+         margin:auto;
+         height:420px;
+           background-color:white;
+     }
+        /**css for banner button*/       
+               #DesktopBanner1
+         {
+              width:82%;
+              position:relative;
+         background-color:white;
+         margin:auto;
+         height:634px; 
+         background-image:url('../Homepagenewimages/Banner1_English_Desktop.jpg');
+          background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain; 
+  margin-top:34px;
+         
+
+         }  
+        #DesktopBanner1 > .overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /*background-color: rgba(255, 132, 230, 0.85);*/
+    z-index: 1;
+}
+
+        #DesktopBanner1 > .inner {
+    position: relative;
+    z-index: 2;
+    margin-top:200px;
+}
+.inner
+{
+    /*padding-top:251px;*/
+}
+.lead{
+    padding-top:239px;
+    padding-left:26px;
+
+}
+.teacher
+{
+     padding-left:28px;
+    padding-top:2px;
+}
+.dschool{
+     padding-left:29px;
+    padding-top:4px;
+}
+.btnlead{
+    width:392px;
+    height:61px;
+}
+.btnteacher
+{
+    width:392px;
+    height:61px;
+}
+.btnschool
+{
+    width:392px;
+    height:55px;
+    margin-top:-17px;
+
+}
+
+/**css for banner button*/
+
+}
+
+/* EXTRA LARGE DEVICES (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    body{
+        margin:0;
+        padding:0;
+        background-color:#f6f6ef;
+    }
+       .navbar-brand
+{
+    
+    width: 260px;
+    height: 70px;    
+    
+}
+       #container
+       {
+           min-height:100%;
+       }
+       .grey-bg
+       {
+           width:82%;
+               font-size:28px;
+               font-weight: 600;
+               position:relative;
+        /*position:fixed;
+        bottom:100px;*/
+    height:200px;
+       }
+       .counter-Txt
+       {
+          
+           padding:50px 50px;
+       }
+       footer
+       {
+           width:82%;
+           height:100px !important;
+           margin:auto;
+        
+       }
+       .disclaimer a
+       {
+           color:black !important;
+
+       }
+       .copyright
+       {
+           color:black !important;
+       }
+        footer .social
+    {
+        padding:0px 0 20px 0px !important;
+        margin-top:-9px !important
+    }
+    .social
+    {
+        padding-left:50px !important;
+    }
+    #All
+    {
+        margin-top:53px !important;
+    }
+     h1
+    {
+        font-size:24px !important;
+        font-weight:bold !important;
+         font-family: 'Avenir Next LT Pro' !important;
+         text-transform:uppercase;
+
+    }
+     .righth1
+     {
+         text-align:right;
+     }
+     #Banner2
+     {
+         width:82%;
+         /*width:980px;*/
+         height:540px;
+         margin:auto;
+           background-color:white;
+     }
+      #Banner3
+     {
+        width:82%;
+         height:540px;
+         margin:auto;
+           background-color:white;
+     }
+       #Banner4
+     {
+            width:82%;
+         
+         margin:auto;
+         height:577px;
+           background-color:white;
+     }
+     .studentrow
+     {
+        
+          padding-top:50px  ;
+          padding-bottom:50px;
+          padding-left:50px;
+          padding-right:50px;
+     }
+
+     .student
+     {
+         padding-right:80px;
+     }
+    .student ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        text-align: right;
+    }
+
+        .student ul li {
+            font-size: 22px !important;
+            font-weight: normal !important;
+            font-family: 'Avenir Next LT Pro' !important;
+            padding-top: 20px;
+        }
+         .teacher ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+    }
+
+        .teacher ul li {
+            font-size: 22px !important;
+            font-weight: normal !important;
+            font-family: 'Avenir Next LT Pro' !important;
+            padding-top: 20px;
+        }
+         .school
+     {
+         padding-right:20px;
+     }
+    .school ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        text-align: right;
+    }
+
+        .school ul li {
+            font-size: 22px !important;
+            font-weight: normal !important;
+            font-family: 'Avenir Next LT Pro' !important;
+            padding-top: 20px;
+        }
+        .btn-class
+        {
+            background-color:#17476f;
+            color:white;
+             font-size: 18px !important;
+            font-weight: bold !important;
+            font-family: 'Avenir Next LT Pro' !important;
+            border-radius:100px;
+            padding:10px 30px;
+            margin-top:40px;
+            
+        }
+        .btn-class-right
+
+        {
+            float:right;
+            width:230px;
+
+        }
+         .btn-class-left
+
+        {
+            float:left;
+            width:180px;
+
+        }
+
+         .banner2img
+    {
+       display: block;
+   max-width: 100vw;
+   background-size: cover;
+  
+   object-fit: cover;
+        /*padding-top:30px;*/
+    }
+         .img1
+         {
+             width:464px !important;
+             margin:auto !important;
+         }
+         .img2
+         {
+             width:464px !important;
+             margin:auto !important;
+         }
+         .img3
+         {
+             width:464px !important;
+             margin:auto !important;
+         }
+         .d1{
+             position:absolute;
+             width:100%;
+             height:100%;
+         }
+          /**css for banner button*/  
+         #DesktopBanner1
+         {
+              width:82%;
+              position:relative;
+         background-color:white;
+         margin:auto;
+         height:634px; 
+         background-image:url('../Homepagenewimages/Banner1_English_Desktop.jpg');
+          background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain; 
+  margin-top:-8px;
+         
+
+         }
+       
+        #DesktopBanner1 > .overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /*background-color: rgba(255, 132, 230, 0.85);*/
+    z-index: 1;
+}
+
+        #DesktopBanner1 > .inner {
+    position: relative;
+    z-index: 2;
+    margin-top:200px;
+}
+.inner
+{
+    /*padding-top:251px;*/
+}
+.lead{
+    padding-top:239px;
+    padding-left:40px;
+
+}
+.teacher
+{
+     padding-left:41px;
+    padding-top:2px;
+}
+.dschool{
+     padding-left:38px;
+    padding-top:4px;
+}
+.btnlead{
+    width:540px;
+    height:61px;
+}
+.btnteacher
+{
+    width:540px;
+    height:61px;
+}
+.btnschool
+{
+    width:540px;
+    height:55px;
+    margin-top:-10px;
+
+}
+
+/**css for banner button*/
+
+/**sample links in banner*/
+#DesktopBanner1 > .overlay2 {
+    position: absolute;
+    top: 400px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width:100px;
+    height:100px;
+    background-color: rgba(255, 132, 230, 0.85);
+    z-index: 1;
+}
+  #DesktopBanner1 > .inner2 {
+    position: relative;
+    z-index: 2;
+    margin-top:200px;
+}
+.inner2{
+    /*padding-top:93px  !important;;
+    padding-left:126px  !important;;*/
+}
+.link1
+{
+    /*margin-left:47px !important;*/
+    width:1100px;
+    height:100px;
+    margin-top:62px;
+}
+.link2{
+    margin-right:34px;
+    width:189px;
+    height:44px;
+}
+.link3{
+    width:171px;
+    height:44px;
+    margin-right:37px;
+}
+.link4{
+    width:262px;
+    height:44px;
+}
+  .fixed-btn {
+           
+            position: absolute !important;
+            top: 82px !important;
+            right: 0 !important;
+            height: 100px;
+            z-index: 999;
+        }
+         
+        .btnfixed{
+            width:141px;
+            height:150px;
+            padding:10px;
+            /*border-radius:20px;
+            background-color:#ffd69a;*/
+            color:#17476E;
+            font-size:20px;
+            font-weight:bold;
+            font-family: 'Avenir Next LT Pro' !important;
+            background-image:url('App_Themes/Home/Homepagenewimages/demo%20button.png');
+
+        }
+         #demo
+        {
+            width:150px !important;
+        }
+/**sample links in banner*/
+         .teacherh1
+         {
+             text-align:left !important;
+         }
+
+            .contact-section{
+        width:84% !important;
+        padding:100px!important;
+    }
+
+      
+}

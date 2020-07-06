@@ -1,0 +1,334 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="GenericMasterPage.master.cs" Inherits="MasterPage_GenericMasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+   
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="style.css"/>
+
+    <!-- Font Awesome JS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../App_Themes/Home/css/Homepagemaster.css" rel="stylesheet" />
+    <%--   <link href="App_Themes/Home/css/Homepagemediaquery.css" rel="stylesheet" />--%>
+    <link href="../App_Themes/Home/css/Navbarmediaquery.css" rel="stylesheet" />
+   <style>
+        .blur {
+ 
+	  filter: blur(5px);
+ 
+	}
+        *{
+            margin:0;
+            padding:0;
+        }
+            html,body
+            {
+                height:100%;
+            }
+            #container
+            {
+                min-height:100%;
+            }
+        /*.mydropdownlist
+{
+color: #17476E;
+font-size: 16px;
+padding: 10px 10px;
+border-radius: 5px;
+background-color: white;
+font-weight: bold;
+}*/
+   </style>
+</head>
+<body  <%--oncontextmenu="return false;--%>>
+    <form id="form1" runat="server">
+        
+        <section id="header" style="margin-top:20px;">
+             <nav class="navbar navbar-expand-lg  border-bottom border-info fixed-top" id="main_navbar">
+
+            <a class="navbar-brand logo text-center" href="#"><%--<img src="../App_Themes/Home/Homepagenewimages/Logonewresize.png" width="100" class="img-responsive" />--%></a>
+<div class="ml-auto d-flex flex-nowrap">
+            <ul class="navbar-nav d-lg-none">
+                <li class="nav-item ml-auto mr-1">
+                    <asp:DropDownList ID="ddlLanguage1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlLanguage1_SelectedIndexChanged" CssClass="mydropdownlist">
+                    <asp:ListItem  Value="en-US" Selected="True" >English</asp:ListItem>
+                    <asp:ListItem Value="gu-IN"  >ગુજરાતી</asp:ListItem>
+                        <asp:ListItem Value="hi-IN">हिन्दी</asp:ListItem>
+                </asp:DropDownList> 
+                </li>
+            </ul>
+            <button id="nav-toggle-button" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+              
+            <%--  <asp:DropDownList ID="ddllanguage" runat="server" CssClass="selectpicker" >
+                <asp:ListItem Value="0">English</asp:ListItem>
+                <asp:ListItem Value="1">Gujarati</asp:ListItem>
+            </asp:DropDownList> --%>
+          
+
+            <div class="collapse navbar-collapse w-100 flex-grow-0" id="navbarSupportedContent">
+                 
+                <ul class="nav navbar-nav ml-auto  w-100 justify-content-end">
+                     
+                    <li class="nav-item d-block d-md-none">
+                         <asp:Button ID="Button1" runat="server" Text="Register For Free" CssClass="btn  btnclass" OnClientClick="return redirectSignUp('student')" meta:resourcekey="Button1Resource1" />
+                         
+                    </li>
+                    <li class="nav-item active">
+                      <%--  <a class="nav-link" href="../HomePage.aspx">Home <span class="sr-only">(current)</span></a>--%>
+                          <asp:HyperLink ID="HyperHomeLink" CssClass="nav-link" runat="server" Text="Home" meta:resourcekey="HomeLink" navigateurl="~/SwayamDemoHomepage.aspx"></asp:HyperLink>
+                    </li>
+                    
+                    <li class="nav-item">
+                       <%-- <a class="nav-link" href="#">About Us</a>--%>
+                        <asp:HyperLink ID="Hyperaboutlink" CssClass="nav-link" runat="server" Text="About Us" meta:resourcekey="Aboutuslink" navigateurl="~/aboutus.aspx"></asp:HyperLink>
+                    </li>
+                    <li class="nav-item">
+                      <%--  <a class="nav-link" href="../contact.aspx">Contact Us</a>--%>
+                        <asp:HyperLink ID="HyperContactlink" CssClass="nav-link" runat="server" Text="Contact Us" meta:resourcekey="ContactusLink" navigateurl="~/contact.aspx"></asp:HyperLink>
+                    </li>
+                    <li class="nav-item nav-item">
+                        <asp:Button ID="btnlogin" runat="server" Text="Login" CssClass="btn btnlogin" OnClientClick="return redirect()" meta:resourcekey="Btnloginres" />
+                      
+                    </li>
+                      <li class="nav-item d-none d-md-block">
+                         <asp:Button ID="Button4" runat="server" Text="Register For Free" CssClass="btn  btnclass" OnClientClick="return redirectSignUp('student')" meta:resourcekey="BtnrRegres" />
+                       
+                    </li>
+                      <li class="nav-item d-none d-lg-block ">
+                            
+                                <asp:DropDownList ID="ddlLanguage2" runat="server"  AutoPostBack="True" OnSelectedIndexChanged="ddlLanguage2_SelectedIndexChanged" CssClass="mydropdownlist">
+                                                 <asp:ListItem Value="en-US" Selected="True">English</asp:ListItem>
+                                                 <asp:ListItem Value="gu-IN">ગુજરાતી</asp:ListItem>  
+                                                         
+                  
+                                       <asp:ListItem Value="hi-IN" >हिन्दी</asp:ListItem>
+                </asp:DropDownList>
+                        </li>
+                </ul>
+                 
+            </div>
+          
+              
+        </nav>
+        </section>
+      
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+         <div class="grey-bg c-no container-fluid">
+            <div class="container">
+                <div class="row" id="counter">
+                    <div class="col-sm-4 counter-Txt">
+                        <%--   <label for="Students">Students</label>  <span class="counter-value" data-count="327000">0</span>--%>
+                            <asp:label ID="Label24" text="Students" runat="server" meta:resourcekey="BtnStudents"/><span class="counter-value" data-count="327000">0</span></div>
+                     
+                    <div class="col-sm-4 counter-Txt">
+                    <%--  <label for="Teachers">Teachers</label>   <span class="counter-value" data-count="2884">0</span>--%>
+                         <asp:label ID="Label25" text="Teachers" runat="server" meta:resourcekey="BtnTeachers"/> <span class="counter-value" data-count="2884">0</span></div>
+                    
+                    <div class="col-sm-4 counter-Txt margin-bot-35">
+                       
+                         <%--<label for="Schools">Schools</label> <span class="counter-value" data-count="721">0</span>--%>
+                         <asp:label ID="Label23" text="Schools" runat="server" meta:resourcekey="BtnSchools"/> <span class="counter-value" data-count="721">0</span></div>
+                    </div>
+                </div>
+              </div>   
+        <footer>
+             <div class="container">
+               <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12">   
+                     
+                    <p class="disclaimer"><a href="#">Privacy Policy</a>|<a href="#">Terms & Conditions</a></p>
+                     
+            
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                      
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                       
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <p class="copyright">Copyright &copy;2020 All Rights Reserved.</p>
+                    
+                     
+                
+                </div>
+            </div>
+               </div>
+            <%-- <div class="width" style="margin-top:100px">
+        Document width: <span></span>px
+    </div> --%>
+        </footer>
+     
+    </form>
+     <script src="App_Themes/Home/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="App_Themes/Home/js/popper.js"></script>
+    <script src="App_Themes/Home/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="App_Themes/Home/js/owl-carousel.js"></script>
+    <script src="App_Themes/Home/js/scrollreveal.min.js"></script>
+    <script src="App_Themes/Home/js/waypoints.min.js"></script>
+    <script src="App_Themes/Home/js/jquery.counterup.min.js"></script>
+    <script src="App_Themes/Home/js/imgfix.min.js"></script> 
+    
+    <!-- Global Init -->
+    <script src="App_Themes/Home/js/custom.js"></script>
+        
+        <script src="App_Themes/Home/js/bootnavbar.js"></script>
+        <script>
+        $(function () {
+            $('#main_navbar').bootnavbar({
+                //option
+                //animation: false
+            });
+        })
+        </script>   
+        <script type="text/javascript">
+        var a1 = 0;
+        //$(window).scroll(function () {
+
+        //    var oTop = $('#counter').offset().top - window.innerHeight;
+        //    var scrolltop = $(window).scrollTop();
+
+
+        //    if (a1 == 0 && $(window).scrollTop() > oTop) {
+
+        //        $('.counter-value').each(function () {
+        //            var $this = $(this),
+        //      countTo = $this.attr('data-count');
+        //            $({
+        //                countNum: $this.text()
+        //            }).animate({
+        //                countNum: countTo
+        //            },
+
+        //      {
+
+        //          duration: 7000,
+        //          easing: 'swing',
+        //          step: function () {
+        //              $this.text(Math.floor(this.countNum));
+        //          },
+        //          complete: function () {
+        //              $this.text(this.countNum);
+        //              //alert('finished');
+        //          }
+
+        //      });
+        //        });
+        //        a1 = 1;
+        //    }
+
+        //});
+           
+        function redirectSignUp(name) {
+            
+            window.location = "NewPublic/StudentRegistration.aspx?name=" + name;
+            return false;
+        }
+        function redirect() {
+            
+            window.location = "NewPublic/UserLogin.aspx"
+            return false;
+        }
+        function redirecttoabout() {
+            
+            window.location = "aboutus.aspx"
+            return false;
+        }
+        function redirecttocontact() {
+            
+            window.location = "contact.aspx"
+            return false;
+        }
+             
+        $(document).ready(function () {
+            
+            $('.modalDialog').fadeIn();
+            $('#Allsections').addClass('blur');
+            $('.close').on('click', function (event) {
+                event.preventDefault();
+                /* Act on the event */
+
+                $('.modalDialog').fadeOut();
+                $('#Allsections').removeClass('blur');
+            });
+             
+        //$('span').text($(window).width());
+
+        //$(window).on('resize', function (e) {
+        //    $('span').text($(window).width());
+        //});
+     
+        });
+       
+     
+             </script>
+     <script type="text/javascript">
+        var a1 = 0;
+        $(window).scroll(function () {
+
+            var oTop = $('#counter').offset().top - window.innerHeight;
+            var scrolltop = $(window).scrollTop();
+
+
+            if (a1 == 0 && $(window).scrollTop() > oTop) {
+
+                $('.counter-value').each(function () {
+                    var $this = $(this),
+              countTo = $this.attr('data-count');
+                    $({
+                        countNum: $this.text()
+                    }).animate({
+                        countNum: countTo
+                    },
+
+              {
+
+                  duration: 7000,
+                  easing: 'swing',
+                  step: function () {
+                      $this.text(Math.floor(this.countNum));
+                  },
+                  complete: function () {
+                      $this.text(this.countNum);
+                      //alert('finished');
+                  }
+
+              });
+                });
+                a1 = 1;
+            }
+
+        });
+
+
+
+        </script>
+    <script>
+
+    </script>
+</body>
+</html>

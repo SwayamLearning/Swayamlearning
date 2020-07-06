@@ -1,0 +1,148 @@
+﻿
+@font-face {
+    font-family: 'Avenir Next LT Pro';
+    src: url('../Fonts/AvenirNextLTPro-It.woff2') format('woff2'),
+        url('../Fonts/AvenirNextLTPro-It.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Avenir Next LT Pro';
+    src: url('../Fonts/AvenirNextLTPro-Regular.woff2') format('woff2'),
+        url('../Fonts/AvenirNextLTPro-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir Next LT Pro';
+    src: url('../Fonts/AvenirNextLTPro-Bold.woff2') format('woff2'),
+        url('../Fonts/AvenirNextLTPro-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+ 
+.navbar-nav > li {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#main_navbar {
+    /*-webkit-box-shadow: 10px 10px 10px #6fa5af;
+    -moz-box-shadow: 10px 10px 10px #6fa5af;
+    box-shadow: 10px 10px 10px #6fa5af;
+    z-index: 1999;*/
+    background-color: white;
+     font-family: 'Avenir Next LT Pro' !important;
+}
+nav ul li a {
+                
+                  font-family: 'Avenir Next LT Pro' !important;
+                  color:  #17476E !important;
+                  font-size:18px  !important;
+                  font-weight:bold  !important;
+              }
+.custom-toggler.navbar-toggler {
+    border-color: rgba(103, 128, 159, 1);
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(103, 128, 159, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.btnclass {
+    font-family: 'Avenir Next LT Pro' !important;
+    background-color:#1b5780 !important;
+    /*background-color:#34aec6 !important;*/
+    /*color: #11525e !important;*/
+    font-size: 16px;
+    font-weight: 600;
+    color: white !important;
+}
+.btnlogin
+{
+     font-family: 'Avenir Next LT Pro' !important;
+    background-color:#00b4c6 !important;
+    /*background-color:#34aec6 !important;*/
+    /*color: #11525e !important;*/
+    font-size: 16px;
+    font-weight: 600;
+    color: white !important;
+}
+/*        ---------------------------------------------
+footer
+--------------------------------------------- 
+*/
+footer {
+    background-color: #fbfbfb;
+    padding: 30px 0px;
+    height:100px;
+    margin-top:-10px;
+    clear:both;
+    
+    /*margin-top:10px;*/
+}
+
+    footer .social {
+        overflow: hidden;
+        text-align: center;
+    }
+
+        footer .social li {
+            margin: 0px 5px;
+            display: inline-block;
+        }
+
+            footer .social li a {
+                color:white;
+                text-align: center;
+                background-color: #00b4c6;
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                border-radius: 5px;
+                display: inline-block;
+                font-size: 16px;
+                -webkit-transition: all 0.3s ease 0s;
+                -moz-transition: all 0.3s ease 0s;
+                -o-transition: all 0.3s ease 0s;
+                transition: all 0.3s ease 0s;
+            }
+
+                footer .social li a:hover {
+                    background-color: #0088e8;
+                    color: #fff;
+                }
+
+    footer .disclaimer {
+        /*margin-top: 10px;*/
+        
+        font-weight: 400;
+        font-size: 14px;
+        /*color: black;*/
+        letter-spacing: 0.88px;
+        text-transform: capitalize;
+         text-align:left;
+        
+    }
+       footer .copyright {
+        /*margin-top: 10px;*/
+        padding-left:37px;
+        font-weight: 400;
+        font-size: 14px;
+        color: black;
+        /*letter-spacing: 0.88px;*/
+        text-transform: capitalize;
+         text-align:right;
+        
+    }
+
+        footer .copyright p  {
+            color: white;
+           
+        }
+        footer .disclaimer a 
+        {
+            color:black;
+        }

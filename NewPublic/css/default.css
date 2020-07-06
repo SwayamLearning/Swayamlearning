@@ -1,0 +1,11 @@
+﻿  .navbar-brand-centered
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    text-align: center;
+    margin: auto;
+    margin-top:10px;
+    padding:0px;
+}

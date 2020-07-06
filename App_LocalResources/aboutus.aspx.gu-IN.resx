@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="litpara1.Text" xml:space="preserve">
+    <value>જ્ઞાનપ્રાપ્તિ દ્વારા જીવનના દરેક ક્ષેત્રમાં સકારાત્મક બદલાવ લાવી શકાય છે. પ્રત્યેક બાળકને કોઈ અવરોધ વિના શિક્ષણ અને જ્ઞાન મેળવવાનો અધિકાર મળવો જોઈએ. શિક્ષણને એક અવિરત ઊર્જામય અભિયાન બનાવવાની જરૂર છે, કે જેથી દેશના પ્રત્યેક ખૂણે દરેક બાળક સુધી જ્ઞાનનો પ્રસાર કરી શકાય. સ્વયમ્ લર્નિંગ આ જ અભિયાનની દિશામાં અમારું એક નાનકડું કદમ છે.</value>
+  </data>
+  <data name="litpara2.Text" xml:space="preserve">
+    <value>સ્વયમ્ લર્નિંગ વિદ્યાર્થીઓ, શિક્ષકો અને શાળાઓ માટે તૈયાર કરવામાં આવેલી ડિજીટલ જ્ઞાન પદ્ધતિ છે, જે શિક્ષણને સુલભ, સરળ અને સુવિધાજનક બનાવે છે. સરળ અને વ્યક્તિગત લર્નિંગ વીડિયોઝથી સજ્જ આ પ્લેટફોર્મ જીએસઈબી, સીબીએસઈ અને એનસીઈઆરટી અભ્યાસક્રમને હિન્દી, ગુજરાતી અને ઈંગ્લીશ ભાષામાં ઉપલબ્ધ બનાવે છે. તે યુઝરને પોતાની અનુકૂળ ઝડપે અભ્યાસ કરવાની સુવિધા આપે છે. સ્વયમ્ લર્નિંગમાં અભ્યાસક્રમ મુજબના વીડિયોઝ, ઈ-બુક્સ, ઈ-ટેસ્ટ, ઓડિયો લેક્ચર્સ, ઈ-ટુટોરિયલ્સ, એડ્યુટેઈનમેન્ટ વીડિયોઝ, વર્ચ્યુઅલ લેબ અને અધ્યાપનકાર્ય માટેના ટુલ્સ સહિતની વિવિધ સુવિધાઓ છે. જે યુઝર-ફ્રેન્ડલી રીતે અભ્યાસ, અધ્યાપન તેમજ શાળા વ્યવસ્થાપન – એમ પ્રત્યેક પાસાઓમાં 360 ડિગ્રી સર્વગ્રાહી શિક્ષણ સુવિધા આપે છે.</value>
+  </data>
+  <data name="litpara3.Text" xml:space="preserve">
+    <value>શિક્ષણ અને અભ્યાસ કોઈપણ સ્થાન પર, કોઈપણ સમયે થઈ શકે એ સ્વયમ્ લર્નિંગનો મૂળમંત્ર છે. સ્વયમ્ લર્નિંગ એ જ્ઞાન, ગમ્મત અને ટેકનોલોજીના સમન્વયથી શિક્ષણપ્રણાલીને સમૃદ્ધ બનાવીને આ મંત્રને સાકાર કરવાનો પ્રયાસ છે.  સ્વયમ્ લર્નિંગ સરળ, ઈન્ટરએક્ટિવ અને રોચક શિક્ષણનો અવસર આપે છે. આ શિક્ષણની એક એવી પ્રણાલી છે જે સ્થાનિક જરૂરિયાતો મુજબની પણ છે, અને સાથે જ વૈશ્વિક ધારાધોરણો અનુસારની પણ. સ્વયમ્ લર્નિંગ એ શિક્ષણ જગતમાં થયેલો નવો સૂર્યોદય છે.</value>
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="reslblbothd1.Text" xml:space="preserve">
+    <value>અહીં છે... પ્રત્યેક માટે શિક્ષણ અને જ્ઞાનપ્રાપ્તિનો અનેરો અવસર.</value>
+  </data>
+  <data name="reslblbothd1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="reslblbothd2.Text" xml:space="preserve">
+    <value>સ્વયમ્ લર્નિંગમાં આપનું સ્વાગત છે.</value>
+  </data>
+  <data name="reslblbothd2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="reslblhd1.Text" xml:space="preserve">
+    <value>“શિક્ષણ સમૃદ્ધિમાં આભૂષણનું કામ કરે છે અને વિપત્તિના સમયમાં તમને શરણ આપે છે.”</value>
+  </data>
+  <data name="reslblhd1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="reslblhd1p.Text" xml:space="preserve">
+    <value> - એરિસ્ટોટલ</value>
+  </data>
+  <data name="reslblhd1p.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="litpara11.Text" xml:space="preserve">
+    <value>જ્ઞાનપ્રાપ્તિ દ્વારા જીવનના દરેક ક્ષેત્રમાં સકારાત્મક બદલાવ લાવી શકાય છે. પ્રત્યેક બાળકને કોઈ અવરોધ વિના શિક્ષણ અને જ્ઞાન મેળવવાનો અધિકાર મળવો જોઈએ.</value>
+  </data>
+  <data name="litpara12.Text" xml:space="preserve">
+    <value>શિક્ષણને એક અવિરત ઊર્જામય અભિયાન બનાવવાની જરૂર છે, કે જેથી દેશના પ્રત્યેક ખૂણે દરેક બાળક સુધી જ્ઞાનનો પ્રસાર કરી શકાય. સ્વયમ્ લર્નિંગ આ જ અભિયાનની દિશામાં અમારું એક નાનકડું કદમ છે.</value>
+  </data>
+  <data name="litpara21.Text" xml:space="preserve">
+    <value>સ્વયમ્ લર્નિંગ વિદ્યાર્થીઓ, શિક્ષકો અને શાળાઓ માટે તૈયાર કરવામાં આવેલી ડિજીટલ જ્ઞાન પદ્ધતિ છે, જે શિક્ષણને સુલભ, સરળ અને સુવિધાજનક બનાવે છે. સરળ અને વ્યક્તિગત લર્નિંગ વીડિયોઝથી સજ્જ આ પ્લેટફોર્મ જીએસઈબી, સીબીએસઈ અને એનસીઈઆરટી અભ્યાસક્રમને હિન્દી,ગુજરાતી અને ઈંગ્લીશ ભાષામાં ઉપલબ્ધ બનાવે છે.</value>
+  </data>
+  <data name="litpara22.Text" xml:space="preserve">
+    <value> તે યુઝરને પોતાની અનુકૂળ ઝડપે અભ્યાસ કરવાની સુવિધા આપે છે. સ્વયમ્ લર્નિંગમાં અભ્યાસક્રમ મુજબના વીડિયોઝ, ઈ-બુક્સ, ઈ-ટેસ્ટ, ઓડિયો લેક્ચર્સ, ઈ-ટુટોરિયલ્સ, એડ્યુટેઈનમેન્ટ વીડિયોઝ, વર્ચ્યુઅલ લેબ અને અધ્યાપનકાર્ય માટેના ટુલ્સ સહિતની વિવિધ સુવિધાઓ છે. જે યુઝર-ફ્રેન્ડલી રીતે અભ્યાસ, અધ્યાપન તેમજ શાળા વ્યવસ્થાપન – એમ પ્રત્યેક પાસાઓમાં 360 ડિગ્રી સર્વગ્રાહી શિક્ષણ સુવિધા આપે છે.</value>
+  </data>
+</root>

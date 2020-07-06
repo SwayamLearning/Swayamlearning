@@ -1,0 +1,909 @@
+﻿@media (max-width: 480px) {
+
+.navbar-nav > li
+{
+    padding-top:20px;
+    text-align:center;
+}
+.navbar-nav li .btn
+{
+    margin-bottom:10px !important;
+}
+.btnclass
+{
+    padding-bottom: 1rem;
+}
+ .img-overlay1 {
+         position: absolute;
+
+      
+
+        margin: 0 auto;
+
+        left:-1px;
+
+        right:64%;
+
+        top: 29%; /* Adjust this value to move the positioned div up and down */
+
+        text-align: center;
+
+        width: 60%; /* Set the width of the positioned div */
+}
+ .btnwidth1
+ {
+     width:50px;   
+     background-color:transparent;
+     border:none;
+     color:#34aec6;
+     letter-spacing:2px;
+     text-transform:uppercase;
+     text-align:center;
+     height:10px;
+     cursor:pointer;
+   
+ }
+ .btnwidth2
+ {
+     width:50px;   
+     background-color:transparent;
+     border:none;
+     color:#34aec6;
+     letter-spacing:2px;
+     text-transform:uppercase;
+     text-align:center;
+     height:10px;
+       cursor:pointer;
+      
+ }
+ .btnwidth3
+ {
+     width:50px;   
+     background-color:transparent;
+     border:none;
+     color:#34aec6;
+     letter-spacing:2px;
+     text-transform:uppercase;
+     text-align:center;
+     height:10px;
+       cursor:pointer;
+       
+ }
+
+ .img-overlay2 {
+            position: absolute;
+            top: 81%;
+            left: 73%;
+        }
+ .btnstudent
+ {
+     background-color:transparent;
+     width:70px;
+      height:15px;
+       cursor:pointer;
+       border:none;
+ }
+ .img-overlay3 {
+            position: absolute;
+            top: 65%;
+            left: 5%;
+        }
+ .btnteacher
+ {
+     background-color:transparent;
+     width:70px;
+      height:21px;
+       cursor:pointer;
+       border:none;
+ }
+
+ .img-overlay4 {
+            position: absolute;
+            top: 159%;
+            left: 74%;
+        }
+
+  .btnschool
+        { background-color:black;
+     width:80px;
+      height:20px;
+       cursor:pointer;
+       border:none;
+
+        }
+  footer
+  {
+      height:232px !important;
+      text-align:left !important;
+  }
+   footer .disclaimer {
+        /*margin-top: 10px;*/
+        
+         
+        font-size: 12px !important;
+ 
+        letter-spacing: 0.78px !important;
+     
+         text-align:center !important;
+        
+    }
+   footer .copyright {
+        /*margin-top: 10px;*/
+        padding-left:2px !important;
+        font-weight: 400 !important;
+        font-size: 12px!important;
+       
+        letter-spacing: 0.58px;
+      
+         text-align:center !important;
+        
+    }
+   footer .social
+         {
+             text-align:left!important;
+             padding-top:10px !important;
+             padding-bottom:20px !important;
+             padding-left:75px !important;
+         }
+   .contact-section
+   {
+       padding-top:20px !important;
+   }
+   .contact-info
+   {
+       margin-top:10px  !important;
+       padding-left:10px !important;
+   }
+   .phone, .email, .working-hours, .location
+   {
+       font-size:16px !important;
+   }
+   .btncontact.btn-accent
+   {
+       line-height:0px;
+       height:33px;
+       background-color:#10697b;
+       
+       text-align:center !important;
+        
+   }
+    .c-no
+        {
+            height: 400px;
+        }
+        .grey-bg
+        {
+            background:#00b4c6;
+        }
+         .counter-Txt
+        {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 20px;
+            color:white;
+        }
+        .counter-Txt span
+        {
+            display: block;
+            font-size: 30px;
+        }
+        .counter-value
+        {
+            padding-top: 20px;
+            color:white;/*#4285F4;*/
+        }
+}
+@media (min-width: 481px) and (max-width: 767px)
+{
+ .navbar-nav > li
+{
+    padding-top:20px;
+    text-align:center;
+}
+.navbar-nav li .btn
+{
+    margin-bottom:10px !important;
+}
+ .img-overlay1 {
+         position: absolute;
+
+      
+
+        margin: 0 auto;
+
+        left:-1px;
+
+        right:64%;
+
+        top: 32%; /* Adjust this value to move the positioned div up and down */
+
+        text-align: center;
+
+        width: 60%; /* Set the width of the positioned div */
+}
+ .btnwidth1
+ {
+     width:80px;   
+     background-color:transparent;
+     border:none;
+     color:#34aec6;
+     letter-spacing:2px;
+     text-transform:uppercase;
+     text-align:center;
+     height:20px;
+     cursor:pointer;
+   
+ }
+ .btnwidth2
+ {
+     width:76px;   
+     background-color:transparent;
+     border:none;
+     color:#34aec6;
+     letter-spacing:2px;
+     text-transform:uppercase;
+     text-align:center;
+     height:20px;
+       cursor:pointer;
+      
+ }
+ .btnwidth3
+ {
+     width:80px;   
+     background-color:transparent;
+     border:none;
+     color:#34aec6;
+     letter-spacing:2px;
+     text-transform:uppercase;
+     text-align:center;
+     height:20px;
+       cursor:pointer;
+       
+ }
+
+ .img-overlay2 {
+            position: absolute;
+            top: 82%;
+            left: 73%;
+        }
+ .btnstudent
+ {
+     background-color:transparent;
+     width:110px;
+      height:30px;
+       cursor:pointer;
+       border:none;
+ }
+ .img-overlay3 {
+            position: absolute;
+            top: 67%;
+            left: 5%;
+        }
+ .btnteacher
+ {
+     background-color:transparent;
+     width:120px;
+      height:25px;
+       cursor:pointer;
+       border:none;
+ }
+
+ .img-overlay4 {
+            position: absolute;
+            top: 146%;
+            left: 73%;
+        }
+
+  .btnschool
+        { background-color:transparent;
+     width:120px;
+      height:30px;
+       cursor:pointer;
+       border:none;
+
+        }
+  footer
+  {
+      height:320px !important;
+      text-align:left !important;
+  }
+   footer .disclaimer {
+        /*margin-top: 10px;*/
+        
+         
+        font-size: 12px !important;
+ 
+        letter-spacing: 0.78px !important;
+     
+         text-align:center !important;
+        
+    }
+   footer .copyright {
+        /*margin-top: 10px;*/
+        padding-left:2px !important;
+        font-weight: 400 !important;
+        font-size: 12px!important;
+       
+        letter-spacing: 0.58px;
+      
+         text-align:center !important;
+        
+    }
+   footer .social
+         {
+             text-align:center!important;
+             padding-top:10px !important;
+             padding-bottom:20px !important;
+             margin-left: -50px !important;
+         }
+   .contact-section
+   {
+       padding-top:20px  !important;
+   }
+   .contact-info
+   {
+       margin-top:14px  !important;
+       padding-left:20px !important;
+   }
+   .phone, .email, .working-hours, .location
+   {
+       font-size:16px !important;
+   }
+   .btncontact.btn-accent
+   {
+       line-height:0px;
+       height:33px;
+   }
+}
+@media (min-width: 768px) and (max-width: 1024px)
+{
+    .navbar-nav > li
+{
+    padding-top:20px;
+    text-align:center;
+}
+.navbar-nav li .btn
+{
+    margin-bottom:10px !important;
+}
+#Mainsection
+{
+    margin-top:96px;
+    border-bottom:1px solid #efefef;
+    padding-bottom:30px;
+}
+#StudentSection
+{
+     border-bottom:1px solid #efefef;
+      padding-bottom:30px;
+}
+#Teachersection
+{
+     border-bottom:1px solid #efefef;
+      padding-bottom:30px;
+}
+ .img-overlay1 {
+    
+         position: absolute;
+
+      
+
+        margin: 0 auto;
+
+        left:-29px;
+
+        right:34%;
+
+        top: 34%; /* Adjust this value to move the positioned div up and down */
+
+        text-align: center;
+
+        width: 60%; /* Set the width of the positioned div */
+}
+ .btnwidth1
+ {
+     width:135px;   
+     background-color:transparent;
+     border:none;
+     color:#34aec6;
+     letter-spacing:2px;
+     text-transform:uppercase;
+     text-align:center;
+     height:30px;
+     cursor:pointer;
+   
+ }
+ .btnwidth2
+ {
+     width:137px;   
+     background-color:transparent;
+     border:none;
+     color:#34aec6;
+     letter-spacing:2px;
+     text-transform:uppercase;
+     text-align:center;
+     height:30px;
+       cursor:pointer;
+      
+ }
+ .btnwidth3
+ {
+     width:149px;   
+     background-color:transparent;
+     border:none;
+     color:#34aec6;
+     letter-spacing:2px;
+     text-transform:uppercase;
+     text-align:center;
+     height:30px;
+       cursor:pointer;
+       
+ }
+
+ .img-overlay2 {
+            position: absolute;
+            top: 85%;
+            left: 73%;
+        }
+ .btnstudent
+ {
+     background-color:transparent;
+     width:169px;
+      height:34px;
+       cursor:pointer;
+       border:none;
+ }
+ .img-overlay3 {
+            position: absolute;
+            top: 68%;
+            left: 5%;
+        }
+ .btnteacher
+ {
+     background-color:transparent;
+     width:170px;
+      height:38px;
+       cursor:pointer;
+       border:none;
+ }
+ .img-overlays {
+            position: absolute;
+            top: 75%;
+            left: 73%;
+        }
+ .img-overlay4 {
+            position: absolute;
+            top:75%;
+            left:75%;
+            /*top: 168%;
+            left: 73%;*/
+        }
+
+ .btnschool
+        { background-color:transparent;
+     width:168px;
+      height:42px;
+       cursor:pointer;
+       border:none;
+
+        }
+  footer
+  {
+      height:115px !important;
+      text-align:left !important;
+  }
+  footer .disclaimer {
+        /*margin-top: 10px;*/
+        font-weight:600 !important;
+         
+        font-size: 11px !important;
+ 
+        letter-spacing: 0.78px !important;
+     
+         text-align:left !important;
+        
+    }
+  footer .copyright {
+        /*margin-top: 10px;*/
+        padding-left:2px !important;
+        font-weight: 400 !important;
+        font-size: 12px !important;
+       
+        letter-spacing: 0px;
+      
+         text-align:left !important;
+        
+    }
+  footer .social
+         {
+             text-align:center!important;
+             padding-top:10px !important;
+             padding-bottom:20px !important;
+             margin-left: -50px !important;
+         }
+    .contact-section
+   {
+       padding-top:90px !important;
+   }
+   .contact-info
+   {
+       margin-top:20px  !important;
+       padding-left:10px !important;
+   }
+   .phone, .email, .working-hours, .location
+   {
+       font-size:16px !important;
+   }
+   .btncontact.btn-accent
+   {
+       line-height:0px;
+       height:33px;
+   }
+    .phone a, .email a, .location a {
+        font-size:16px !important;
+    }
+      .c-no
+        {
+            height: 150px;
+        }
+        .grey-bg
+        {
+            background:#00b4c6;
+        }
+         .counter-Txt
+        {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 20px;
+            color:white;
+        }
+        .counter-Txt span
+        {
+            display: block;
+            font-size: 30px;
+        }
+        .counter-value
+        {
+            padding-top: 20px;
+            color:white;/*#4285F4;*/
+        }
+}
+@media (min-width: 1025px) and (max-width: 1280px)
+
+{
+    body
+    {
+        background-color:aqua;
+    }
+    #Mainsection
+    {
+        margin-top:90px !important;
+    }
+ .img-overlay1 {
+         position: absolute;
+
+     
+
+        margin: 0 auto;
+
+        left:-46px;
+
+        right:34%;
+
+        top: 34%; /* Adjust this value to move the positioned div up and down */
+
+        text-align: center;
+
+        width: 60%; /* Set the width of the positioned div */
+}
+ .btnwidth1
+ {
+     width:170px;  
+     background-color:blue;
+     border:none;
+     color:#34aec6;
+     letter-spacing:2px;
+     text-transform:uppercase;
+     text-align:center;
+     height:40px;
+     cursor:pointer;
+   
+ }
+ .btnwidth2
+ {
+     width:170px;  
+     background-color:green;
+     border:none;
+     color:#34aec6;
+     letter-spacing:2px;
+     text-transform:uppercase;
+     text-align:center;
+     height:40px;
+       cursor:pointer;
+     
+ }
+ .btnwidth3
+ {
+     width:170px;  
+     background-color:red;
+     border:none;
+     color:#34aec6;
+     letter-spacing:2px;
+     text-transform:uppercase;
+     text-align:center;
+     height:40px;
+       cursor:pointer;
+       
+ }
+
+ .img-overlay2 {
+            position: absolute;
+            top: 85%;
+            left: 73%;
+        }
+ .btnstudent
+ {
+     background-color:yellow;
+     width:224px;
+      height:47px;
+       cursor:pointer;
+       border:none;
+ }
+ .img-overlay3 {
+            position: absolute;
+            top: 68%;
+            left: 5%;
+        }
+ .btnteacher
+ {
+     background-color:mediumaquamarine;
+     width:226px;
+      height:52px;
+       cursor:pointer;
+       border:none;
+ }
+
+ .img-overlays {
+            position: absolute;
+            top: 76%;
+            left: 73%;
+        }
+
+ .btnschool
+        { background-color:violet;
+     width:226px;
+      height:57px;
+       cursor:pointer;
+       border:none;
+
+        }
+  footer
+  {
+      height:115px !important;
+      text-align:left !important;
+  }
+  footer .disclaimer {
+        /*margin-top: 10px;*/
+        font-weight:600 !important;
+         
+        font-size: 11px !important;
+ 
+        letter-spacing: 0.78px !important;
+     
+         text-align:left !important;
+       
+    }
+  footer .copyright {
+        /*margin-top: 10px;*/
+        padding-left:2px !important;
+        font-weight: 400 !important;
+        font-size: 12px !important;
+       
+        letter-spacing: 0px;
+     
+         text-align:left !important;
+       
+    }
+  footer .social
+         {
+             text-align:center!important;
+             padding-top:10px !important;
+             padding-bottom:20px !important;
+             margin-left: -50px !important;
+         }
+  .contact-info
+  {
+      margin-top: -3px !important;
+padding-left: 55px;
+  }
+  .phone a, .email a, .location a
+  {
+      font-size:18px !important;
+  }
+  .phone, .email, .working-hours, .location
+  {
+      font-size:18px !important;
+  }
+    .c-no
+        {
+            height: 150px;
+        }
+        .grey-bg
+        {
+            background:#00b4c6;
+        }
+         .counter-Txt
+        {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 20px;
+            color:white;
+        }
+        .counter-Txt span
+        {
+            display: block;
+            font-size: 30px;
+        }
+        .counter-value
+        {
+            padding-top: 20px;
+            color:white;/*#4285F4;*/
+        }
+}
+@media (min-width: 1281px)
+{
+   
+ 
+#Mainsection
+{
+    
+    margin-top:90px;
+    padding-bottom:10px;
+    border-bottom: 2px solid #EBEBEB;
+}
+#StudentSection
+{
+    background-color:blue;
+     border-bottom: 2px solid #EBEBEB;
+}
+#Teachersection{
+     background-color:green;
+      border-bottom: 2px solid #EBEBEB;
+}
+ #Schoolsection
+ {
+     background-color:rosybrown;
+ }
+.img-overlay1 {
+         position: absolute;
+
+      
+
+        margin: 0 auto;
+
+        left:5px;
+
+        right:2500px;
+
+        top: 34%; /* Adjust this value to move the positioned div up and down */
+
+        text-align: center;
+
+        width: 60%; /* Set the width of the positioned div */
+}
+ 
+ .btnwidth1
+ {
+     width:250px;   
+     background-color:transparent;
+     border:none;
+     color:#34aec6;
+     letter-spacing:2px;
+     text-transform:uppercase;
+     text-align:center;
+     height:50px;
+     cursor:pointer;
+   
+ }
+ .btnwidth2
+ {
+     width:250px;   
+     background-color:transparent;
+     border:none;
+     color:#34aec6;
+     letter-spacing:2px;
+     text-transform:uppercase;
+     text-align:center;
+     height:50px;
+       cursor:pointer;
+      
+ }
+ .btnwidth3
+ {
+     width:250px;   
+     background-color:transparent;
+     border:none;
+     color:#34aec6;
+     letter-spacing:2px;
+     text-transform:uppercase;
+     text-align:center;
+     height:50px;
+       cursor:pointer;
+       
+ }
+
+
+        .img-overlay2 {
+            position: absolute;
+            top: 85%;
+            left: 73%;
+        }
+ .btnstudent
+ {
+     background-color:transparent;
+     width:331px;
+      height:50px;
+       cursor:pointer;
+       border:none;
+ }
+ .img-overlay3 {
+            position: absolute;
+            top: 68%;
+            left: 5%;
+        }
+  .btnteacher
+ {
+     background-color:transparent;
+     width:335px;
+      height:52px;
+       cursor:pointer;
+       border:none;
+ }
+  
+       .img-overlays {
+            position: absolute;
+            top: 75%;
+            left: 73%;
+        }
+        .btnschool
+        { background-color:black;
+     width:335px;
+      height:56px;
+       cursor:pointer;
+       border:none;
+
+        }
+         .c-no
+        {
+            height: 150px;
+        }
+        .grey-bg
+        {
+            background:#00b4c6;
+        }
+         .counter-Txt
+        {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 20px;
+            color:white;
+        }
+        .counter-Txt span
+        {
+            display: block;
+            font-size: 30px;
+        }
+        .counter-value
+        {
+            padding-top: 20px;
+            color:white;/*#4285F4;*/
+        }
+}

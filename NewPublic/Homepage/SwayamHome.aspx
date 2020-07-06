@@ -1,0 +1,378 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="SwayamHome.aspx.cs" Inherits="NewPublic_Homepagetemplate1" %>
+
+ <!DOCTYPE html>
+<html>
+  <head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Swayam Learning: Learning Simplified</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Custom Font Icons CSS-->
+    <link rel="stylesheet" href="css/landy-iconfont.css">
+    <!-- Google fonts - Open Sans-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800">
+    <!-- owl carousel-->
+    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.css">
+    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="css/style.green.css">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="favicon.png">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  </head>
+  <body>
+    <!-- navbar-->
+    <header class="header">
+      <nav class="navbar navbar-expand-lg fixed-top"><a href="index.html" class="navbar-brand"><img src="img/logo2.png" width="120"></a>
+        <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><span></span><span></span><span></span></button>
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto align-items-start align-items-lg-center">
+            <li class="nav-item"><a href="#about-us" class="nav-link link-scroll">About Us</a></li>
+            <li class="nav-item"><a href="#features" class="nav-link link-scroll">Products</a></li>
+            <!-- <li class="nav-item"><a href="#testimonials" class="nav-link link-scroll">Courses</a></li> -->
+            <div class="dropdown show">
+              <a class="btn btn-secondary dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Courses
+              </a>
+            
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">GSEB-Gujarati</a>
+                <a class="dropdown-item" href="#">CBSE-Hindi</a>
+                <a class="dropdown-item" href="#">CBSE-English</a>
+                <a class="dropdown-item" href="#">UP-Hindi</a>
+              </div>
+            </div>
+
+
+            
+          </ul>
+          <div class="navbar-text">   
+            <!-- Button trigger modal--><a href="../UserLogin.aspx"  class="btn btn-primary navbar-btn btn-shadow">SIGN IN</a>
+             <!-- Button trigger modal--><a href="#" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary navbar-btn btn-shadow btn-gradient">Sign Up</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- Modal-->
+    <div id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade">
+      <div role="document" class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 id="exampleModalLabel" class="modal-title">Sign Up Modal</h5>
+            <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+          </div>
+          <div class="modal-body">
+            <form id="signupform" action="#">
+              <div class="form-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" name="fullname" placeholder="Full Name" id="fullname">
+              </div>
+              <div class="form-group">
+                <label for="username">User Name</label>
+                <input type="text" name="username" placeholder="User Name" id="username">
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="text" name="email" placeholder="Email Address" id="email">
+              </div>
+              <div class="form-group">
+                <button type="submit" class="submit btn btn-primary btn-shadow btn-gradient">Signup</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <section id="hero" class="hero hero-home bg-gray"> -->
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="d-block w-100" src="img/students1.jpg" alt="First slide">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block w-100" src="img/teachers1.jpg" alt="Second slide">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block w-100" src="img/schools1.jpg" alt="Third slide">
+                      </div>
+                    </div>
+                    <!-- <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a> -->
+                  </div>
+
+      <!-- <div class="container">
+        <div class="row d-flex">
+          <div class="col-lg-6 text order-2 order-lg-1 my-auto">
+            
+            <h1>Admin&bull; Academics &bull; Reports </h1>
+            <p class="hero-text">Connect with Teachers,Student and Parents</p>
+            <div class="CTA"><a href="#features" class="btn btn-primary btn-shadow btn-gradient link-scroll">Register for free trial</a></div>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2"><img src="img/Macbook.png" alt="..." class="img-fluid"></div>
+        </div>
+      </div> -->
+    <!-- </section> -->
+    <section id="browser" class="browser">
+      <div class="container">
+        <div class="row d-flex justify-content-center"> 
+          <div class="col-lg-8 text-center">
+            <h2 class="h3 mb-5">How it works</h2>
+            <div class="browser-mockup">
+              <!-- <div id="nav-tabContent" class="tab-content">
+                <div id="nav-first" role="tabpanel" aria-labelledby="nav-first-tab" class="tab-pane fade show active"><img src="img/preview-3.png" alt="..." class="img-fluid"></div>
+                <div id="nav-second" role="tabpanel" aria-labelledby="nav-second-tab" class="tab-pane fade"><img src="img/preview-2.png" alt="..." class="img-fluid"></div>
+                <div id="nav-third" role="tabpanel" aria-labelledby="nav-third-tab" class="tab-pane fade"><img src="img/preview-1.png" alt="..." class="img-fluid"></div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+        <div id="myTab" role="tablist" class="nav nav-tabs">
+          <div class="row">
+            <div class="col-md-4"><a id="nav-first-tab" data-toggle="tab" href="#nav-first" role="tab" aria-controls="nav-first" aria-expanded="true" class="nav-item nav-link active"> <span class="number">1</span>Around 600 hrs of animated video lessons for classes 1st to 12th.</a></div>
+            <div class="col-md-4"><a id="nav-second-tab" data-toggle="tab" href="#nav-second" role="tab" aria-controls="nav-second" class="nav-item nav-link"> <span class="number">2</span>Chapterwise question banks at beginner,intermediate and advance levels</a></div>
+            <div class="col-md-4"><a id="nav-third-tab" data-toggle="tab" href="#nav-third" role="tab" aria-controls="nav-third" class="nav-item nav-link"> <span class="number">3</span>Content mapped to GSEB,CBSE and UP board</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="about-us" class="about-us bg-gray">
+      <div class="container">
+        <h2>About Us</h2>
+        <div class="row">
+          <p class="lead col-lg-10">Swayam Learning, with its vast experience in the field of broadcasting, system integration and education has designed CBSE,NCERT,GSEB, UP board curriculum with a perfect blend of fun, knowledge and learning to meet this challenge. Our focus is to inspire and empower each individual with relevant, reliable and rigorous approach towards education. CBSE/NCERT curriculum is available in Hindi and English and GSEB in Gujarati enabling students to learn in their preferred language.  
+              </p>
+        </div><a href="#" class="btn btn-primary btn-shadow btn-gradient">Discover More</a>
+      </div>
+    </section>
+    <section id="features" class="features">
+      <div class="container">
+        <div class="row d-flex align-items-center">
+          <div class="text col-lg-6 order-2 order-lg-1">
+            <div class="icon"><img src="img/training.svg" alt="..." class="img-fluid"></div>
+            <h4>Desktop Solutions for Schools</h4>
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p><a href="#" class="btn btn-primary btn-shadow btn-gradient">View More</a>
+          </div>
+          <div class="image col-lg-6 order-1 order-lg-2"><img src="img/feature-1.png" alt="..." class="img-fluid"></div>
+        </div>
+        <div class="row d-flex align-items-center">
+          <div class="image col-lg-6"><img src="img/feature-2.png" alt="..." class="img-fluid"></div>
+          <div class="text col-lg-6">
+            <div class="icon"><img src="img/university.svg" alt="..." class="img-fluid"></div>
+            <h4>Complete ERP for schools</h4>
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p><a href="#" class="btn btn-primary btn-shadow btn-gradient">View More</a>
+          </div>
+        </div>
+        <div class="row d-flex align-items-center">
+          <div class="text col-lg-6 order-2 order-lg-1">
+            <div class="icon"><img src="img/online-learning.svg" alt="..." class="img-fluid"></div>
+            <h4>Online learning solutions</h4>
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p><a href="#" class="btn btn-primary btn-shadow btn-gradient">View More</a>
+          </div>
+          <div class="image col-lg-6 order-1 order-lg-2"><img src="img/feature-3.jpg" alt="..." class="img-fluid"></div>
+        </div>
+      </div>
+    </section>
+    <section id="extra-features" class="extra-features bg-primary">
+      <div class="container text-center extra">
+        <header class="header1">
+          <h2>Our Reach</h2>
+          <!-- <div class="row">
+            <p class="lead col-lg-8 mx-auto">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
+          </div> -->
+        </header>
+        <div class="grid row">
+          <div class="item col-lg-4 col-md-6 rect">
+            <div class="icon"> <i class="icon-diploma"></i></div>
+            <h2>700</h2>
+            <h3 class="h5">Schools</h3>
+            
+          </div>
+          <div class="item col-lg-4 col-md-6 rect" >
+            <div class="icon"> <i class="icon-folder-1"></i></div>
+            <h2>100000</h2>
+            <h3 class="h5">Students</h3>
+           
+          </div>
+          <div class="item col-lg-4 col-md-6 rect">
+            <div class="icon"> <i class="icon-gears"></i></div>
+            <h2>1000</h2>
+            <h3 class="h5">Teachers</h3>
+          </div>
+          <!-- <div class="item col-lg-4 col-md-6">
+            <div class="icon"> <i class="icon-management"></i></div>
+            <h3 class="h5">Lorem Ipsum Dolor</h3>
+            <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+          </div>
+          <div class="item col-lg-4 col-md-6">
+            <div class="icon"> <i class="icon-pie-chart"></i></div>
+            <h3 class="h5">Lorem Ipsum Dolor</h3>
+            <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+          </div>
+          <div class="item col-lg-4 col-md-6">
+            <div class="icon"> <i class="icon-quality"></i></div>
+            <h3 class="h5">Lorem Ipsum Dolor</h3>
+            <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+          </div> -->
+        </div>
+      </div>
+    </section>
+    <section id="testimonials" class="testimonials">
+      <div class="container">
+        <header class="text-center no-margin-bottom">   
+          <h2>Demo Lessons</h2>
+          <p class="lead">There are many variations of passages of Lorem Ipsum available, but the majority have</p>
+        </header>
+        <div class="owl-carousel owl-theme testimonials-slider"> 
+          <div class="item-holder">
+            <div class="item">
+              <!-- <div class="avatar"><img src="img/avatar-3.jpg" alt="..." class="img-fluid"></div> -->
+              <div class="text">
+                <div class="quote"><img src="img/quote.svg" alt="..." class="img-fluid"></div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever</p><strong class="name">Jessica Watson</strong>
+              </div>
+            </div>
+          </div>
+          <div class="item-holder">
+            <div class="item">
+              <!-- <div class="avatar"><img src="img/avatar-5.jpg" alt="..." class="img-fluid"></div> -->
+              <div class="text">
+                <div class="quote"><img src="img/quote.svg" alt="..." class="img-fluid"></div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever</p><strong class="name">Sarrah Wood</strong>
+              </div>
+            </div>
+          </div>
+          <div class="item-holder">
+            <div class="item">
+              <!-- <div class="avatar"><img src="img/avatar-3.jpg" alt="..." class="img-fluid"></div> -->
+              <div class="text">
+                <div class="quote"><img src="img/quote.svg" alt="..." class="img-fluid"></div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever</p><strong class="name">Jessica Watson</strong>
+              </div>
+            </div>
+          </div>
+          <div class="item-holder">
+            <div class="item">
+              <!-- <div class="avatar"><img src="img/avatar-5.jpg" alt="..." class="img-fluid"></div> -->
+              <div class="text">
+                <div class="quote"><img src="img/quote.svg" alt="..." class="img-fluid"></div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever</p><strong class="name">Sarrah Wood</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="newsletter" class="newsletter bg-gray">
+      <div class="container text-center">
+        <h2>Register for a 15days free trial</h2>
+        <p class="lead">There are many variation passages of lorem ipsum, but the majority have</p>
+        <div class="form-holder">
+          <form id="newsletterForm" action="#">
+            <div class="form-group">
+              <input type="email" name="email" id="email" placeholder="Enter Your Email Address">
+              <button type="submit" class="btn btn-primary btn-gradient submit">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <div id="scrollTop">
+      <div class="d-flex align-items-center justify-content-end"><i class="fa fa-long-arrow-up"></i>To Top</div>
+    </div>
+    <footer class="main-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6"><a href="#" class="brand">Swayam Learning</a>
+            <ul class="contact-info list-unstyled">
+              <li><a href="mailto:sales@landy.com">support@swayamlearning.com</a></li>
+              <li><a href="tel:123456789">+079 123 456 789</a></li>
+            </ul>
+            <ul class="social-icons list-inline">
+              <li class="list-inline-item"><a href="#" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+              <li class="list-inline-item"><a href="#" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+              <li class="list-inline-item"><a href="#" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+              <li class="list-inline-item"><a href="#" target="_blank" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5>Contact Us</h5>
+            <ul class="links list-unstyled">
+              <li> <a href="#">Gandhinagar</a></li>
+              <li> <a href="#">Gujarat</a></li>
+               
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5>Courses</h5>
+            <ul class="links list-unstyled">
+              <li> <a href="#">GSEB-gujarati</a></li>
+              <li> <a href="#">CBSE-Hindi</a></li>
+              <li> <a href="#">CBSE-English</a></li>
+              <li> <a href="#">UP board-Hindi</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5>Company</h5>
+            <ul class="links list-unstyled">
+              <li> <a href="#">About us</a></li>
+              <li> <a href="#">Products</a></li>
+               
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="copyrights">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-7">
+              <p>&copy; 2019 SwayamLeanring.com. All rights reserved.                        </p>
+            </div>
+            <div class="col-md-5 text-right">
+              <!-- <p>Template By <a href="https://bootstrapious.com/" class="external">Bootstrapious</a>  </p> -->
+              <!-- Please do not remove the backlink to Bootstrapious unless you support us at http://bootstrapious.com/donate. It is part of the license conditions. Thanks for understanding :) -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Javascript files-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"> </script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="js/front.js"></script>
+    <script src="js/main.js"></script>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
+    <!---->
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+  </body>
+</html>

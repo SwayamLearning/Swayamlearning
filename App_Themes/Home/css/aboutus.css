@@ -1,0 +1,334 @@
+﻿body {
+}
+@font-face {
+    font-family: 'Avenir Next LT Pro';
+    src: url('../Fonts/AvenirNextLTPro-It.woff2') format('woff2'),
+        url('../Fonts/AvenirNextLTPro-It.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Avenir Next LT Pro';
+    src: url('../Fonts/AvenirNextLTPro-Regular.woff2') format('woff2'),
+        url('../Fonts/AvenirNextLTPro-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir Next LT Pro';
+    src: url('../Fonts/AvenirNextLTPro-Bold.woff2') format('woff2'),
+        url('../Fonts/AvenirNextLTPro-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+ 
+@import url('https://fonts.googleapis.com/css2?family=Rasa:wght@600&display=swap');
+ 
+body {
+     font-family: 'Avenir Next LT Pro','Rasa' !important;
+}
+.about11
+{
+    display:none;
+}
+.about12{
+    display:none;
+}
+.jumbotron { margin-top: 87px; margin-bottom: 10px; box-shadow: 0px 0px 40px 0px rgba( 248, 196, 79, .80 ); background-color:#1b5780;color:white;
+                     width:84%;margin-right:auto;margin-left:auto;height:210px;padding: 4rem 2rem;
+        }
+.jumbotron p { font-size: 23px; color:white; line-height: 1.6; text-align:right;padding-right:45px;}
+.jumbotron h1 { color: white !important; font-weight: 800 !important; font-size:26px !important;text-transform:none !important;text-align:center;/* width:80%;margin:auto;*/ 
+                padding-right:17px;
+}
+.jumbotron .btn { background-color: #ff9800; border: none;}
+.jumbotron .btn:hover, .jumbotron .btn:focus, .jumbotron .btn.active { background-color: #F5360D;}
+.aboutsection
+{
+    width:82%;
+    margin:auto;
+    background-color:white;
+    font-family:'Avenir Next LT Pro';
+    font-weight:normal;
+    color:#17476E;
+}
+.paraclass
+{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 360px;
+  /*border: 3px solid green;*/ 
+  font-size: 20px;
+    line-height: 2rem;
+    font-weight:400;
+    padding-left:30px;
+    padding-bottom:10px;
+    padding-right:30px;
+    text-align:justify !important;
+}
+.about-bottom2
+{
+    background-color:#f8c44f;
+    margin-left:0px !important;
+    margin-right:0px !important;
+}
+@media only screen and (min-device-width : 320px) and (max-width:480px) {
+    /*body
+    {
+        background-color:yellow;
+    }*/
+    .jumbotron
+    {
+        width:100%;
+        height:200px !important;
+        margin-top:50px !important;
+    }
+    .jumbotron h1
+    {
+        font-family: 'Avenir Next LT Pro','Rasa' !important;
+        font-size:18px !important;
+    }
+    .abouttop2
+    {
+        margin-top:50px;
+    }
+    .jumbotron p
+    {
+        font-size:19px !important;
+    }
+    .paraclass{
+        font-family: 'Avenir Next LT Pro','Rasa' !important;
+        font-size:16px !important;
+        text-align:justify !important;
+       
+    }
+    .about1{
+        height:290px;
+        order:2;
+    }
+    .about1img
+    {
+        order:1;
+    }
+    .about2
+    {
+        min-height:550px;
+        
+    }
+    .about2 .paraclass{
+        height:570px;
+        margin-top:-30px !important;
+        margin-bottom:-21px !important;
+    }
+    .about-bottom2 .paraclass
+    {
+        height:480px;
+        font-weight:bold;
+    }
+    .about-bottom3{
+        margin-top:20px;
+        color:#00b4c6;
+    }
+    .about-bottom3 h1{
+        font-size:14px !important;
+        color:#00b4c6 !important;
+        font-weight:bold;
+    }
+     .about-bottom3 h2{
+        font-size:20px !important;
+    }
+     .abouttop1 .paraclass
+     {
+         padding-top:40px !important;
+     }
+     .abouttop2
+     {
+         margin-top:80px !important;
+     }
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+
+     .jumbotron
+    {
+        height:180px !important;
+        margin-top:71px !important;
+    }
+    .jumbotron h1
+    {
+        font-family: 'Avenir Next LT Pro','Rasa' !important;
+        font-size:19px !important;
+    }
+    .jumbotron p
+    {
+        font-size:19px !important;
+    }
+    .paraclass{
+        font-family: 'Avenir Next LT Pro','Rasa' !important;
+        font-size:16px !important;
+         padding-left:0px !important;
+    }
+    /*.about1
+    {
+        display:none !important; 
+    }
+    .about11{
+       display:block;
+        order:1;
+    }*/
+    .about11
+    {
+        
+    }
+    .about111 .paraclass
+    {
+         height:200px !important;
+    }
+    .about121 .paraclass
+    {
+        height:100px !important;
+        margin-top:-40px !important;
+    }
+    .about211 .paraclass
+    {
+        margin-top:-50px;
+        height:300px;
+        padding:30px !important;
+    }
+    .about212 .paraclass
+    {
+        margin-top:-38px;
+        height:150px;
+    }
+    .about1 .paraclass
+    {
+         height:225px;
+    }
+    .about1img
+    {
+        order:2;
+    }
+    .about12
+    {
+        display:block !important;
+    }
+    .about2
+    {
+        
+        
+    }
+    .about2 .paraclass{
+        height:300px;
+    }
+    .about-bottom2 .paraclass
+    {
+        padding-top:35px !important;
+        height:200px !important;
+        padding-left:20px !important;
+        padding-right:20px;
+        font-weight:bold;
+        padding-bottom:35px !important;
+    }
+    .about-bottom3{
+        margin-top:20px;
+        color:#00b4c6;
+    }
+    .about-bottom3 h1{
+        font-size:21px !important;
+        color:#00b4c6 !important;
+    }
+     .about-bottom3 h2{
+        font-size:20px !important;
+    }
+/* Styles */
+}
+
+@media (min-width: 1200px) {
+
+       .jumbotron { margin-top: 87px; margin-bottom: 10px; box-shadow: 0px 0px 40px 0px rgba( 248, 196, 79, .80 ); background-color:#1b5780;color:white;
+                     width:84%;margin-right:auto;margin-left:auto;height:210px;padding: 4rem 2rem;
+        }
+.jumbotron p { font-size: 23px; color:white; line-height: 1.6; text-align:right;padding-right:45px;}
+.jumbotron h1 { color: white !important; font-weight: 800 !important; font-size:26px !important;text-transform:none !important;text-align:center;/* width:80%;margin:auto;*/ 
+                padding-right:17px;
+}
+.jumbotron .btn { background-color: #ff9800; border: none;}
+.jumbotron .btn:hover, .jumbotron .btn:focus, .jumbotron .btn.active { background-color: #F5360D;}
+
+/*.aboutsection p
+{
+    font-size: 20px;
+    line-height: 2rem;
+    margin-top: 1rem;
+    vertical-align:middle;
+    display:table-cell;
+}*/
+.aboutsection
+{
+    width:82%;
+    margin:auto;
+    background-color:white;
+    font-family:'Avenir Next LT Pro';
+    font-weight:normal;
+    color:#17476E;
+}
+.abouttop1{
+    height:340px !important;
+}
+.abouttop2{
+    height:350px !important;
+}
+.abouttop1, abouttop21
+{
+    padding:20px;
+}
+.abouttop2 img
+{
+    height:355px !important;
+    padding-left:40px !important;;
+}
+.abouttop2 .paraclass
+{
+    padding-right:40px !important;
+}
+.about1img
+{
+    padding-right:40px !important;
+}
+.paraclass
+{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 360px;
+  /*border: 3px solid green;*/ 
+  font-size: 20px;
+    line-height: 2rem;
+    font-weight:400;
+    padding-left:30px;
+    padding-bottom:10px;
+    padding-right:30px;
+}
+html[lang="gu_IN"] .paraclass
+{
+    font-size:18px;
+    line-height:2.2rem;
+}
+.about-bottom2
+{
+    background-color:#f8c44f;
+    margin-left:0px !important;
+    margin-right:0px !important;
+}
+.about-bottom2 .paraclass
+{
+    height:200px;
+}
+.about-bottom3
+{
+    padding:20px !important;
+}
+}
