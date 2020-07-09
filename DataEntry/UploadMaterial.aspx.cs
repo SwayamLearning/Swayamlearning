@@ -15,14 +15,17 @@ public partial class DataEntry_UploadMaterial : System.Web.UI.Page
     SYS_Subject_BLogic obj_BAL_SYS_Subject;
     SYS_Chapter_BLogic obj_BAL_SYS_Chapter;
     SYS_Chapter obj_SYS_Chapter;
+    SYS_Resource_Blogic SYS_resource;
     EduResourceBlogic obj_Eduresource;
 
     #endregion
     protected void Page_Load(object sender, EventArgs e)
         {
+        txtvimeourl.Visible = rblhost.SelectedValue == "2" ? false : true;
         if (!IsPostBack)
             {
             Fillddls();
+            txtvimeourl.Visible = rblhost.SelectedValue == "2" ? false : true;
             }
         }
 
@@ -322,5 +325,140 @@ public partial class DataEntry_UploadMaterial : System.Web.UI.Page
             dl.Enabled = true;
             dl.SelectedIndex = ((int)EnumFile.AssignValue.Zero);
             }
+        }
+
+    protected void btnUploadurl_Click(object sender, EventArgs e)
+        {
+        obj_SYS_Chapter = new SYS_Chapter();
+        obj_BAL_SYS_Chapter = new SYS_Chapter_BLogic();
+
+        obj_SYS_Chapter.subjectid = Convert.ToInt16(ddlSubject.SelectedValue);
+        obj_SYS_Chapter.chapterid = Convert.ToInt64(ddlChapter.SelectedValue);
+        obj_SYS_Chapter.topicid = Convert.ToInt64(ddlTopic.SelectedValue);
+
+        Int64 sctid = obj_BAL_SYS_Chapter.BAL_SYS_SCT_Insert(obj_SYS_Chapter);
+
+        obj_SYS_Chapter.sctid = sctid;
+        obj_SYS_Chapter.bmsid = Convert.ToInt64(ViewState["BMSID"]);
+
+        Int64 bmssctid = obj_BAL_SYS_Chapter.BAL_SYS_BMS_SCT_Insert(obj_SYS_Chapter);
+        string bmsctid = bmssctid.ToString();
+     
+        string folderPath = String.Empty,fullpath=string.Empty;
+        if (ddlpackage.SelectedItem.Value == "0")
+            {
+            //folderPath = Server.MapPath("~/Eduresource/" + "Demo/" + bmssctid + "_Demo/");
+            folderPath = Server.MapPath("../Eduresource/" + "Demo/" + bmssctid + "_Demo/");
+            fullpath = "Eduresource/" + "Demo/" + bmssctid + "_Demo/";
+            }
+        if (ddlpackage.SelectedItem.Value == "1")
+            {
+            folderPath = Server.MapPath("../Eduresource/" + "Free/" + bmssctid);
+            fullpath = "Eduresource/" + "Free/" + bmssctid + "/";
+            }
+        if (ddlpackage.SelectedItem.Value == "2")
+            {
+            folderPath = Server.MapPath("../Eduresource/" + bmssctid);
+            fullpath = "Eduresource/" + bmssctid + "/";
+            }
+       
+        string resourcetype = "", PackageType = "",url="";
+        SYS_Resource src = new SYS_Resource();
+        src.bmssctid = bmsctid;
+        if (ddlpackage.SelectedItem.Value == "0")
+            {
+            src.PackageType = "Demo";
+            }
+        if (ddlpackage.SelectedItem.Value == "1")
+            {
+            src.PackageType = "Free";
+            }
+        if (ddlpackage.SelectedItem.Value == "2")
+            {
+            src.PackageType = "Paid";
+            }
+        string FileNamevideo = string.Empty;
+        string FileNameText = string.Empty;
+        if (Directory.Exists(folderPath))
+            {
+            string[] ContentSubFolderList = Directory.GetDirectories(folderPath);
+            int ContentFolderPathLength = folderPath.Length + 1;
+            foreach (string ContentSubFolderPath in ContentSubFolderList)
+                {
+                
+                string FileName = string.Empty;
+                string ext = string.Empty;
+                string[] Files = Directory.GetFiles(folderPath + "\\" + ContentSubFolderPath.Substring(ContentFolderPathLength) + "\\");
+                if (Files.Length > 0)
+                    {
+                    FileName = Path.GetFileName(Files[0]);
+                    ext = Path.GetExtension(Files[0]);
+                    ext = ext.ToLower();
+                    if (ext.ToString().Equals(".pdf"))
+                        {
+                        FileNameText = FileName;
+                        }
+                    if (ext.ToString().Equals(".mp4"))
+                        {
+                        FileNamevideo = FileName;
+                        }
+                    }
+
+
+
+                    }
+            }
+            if ((ddlContent.SelectedItem.Value == "1") || (ddlContent.SelectedItem.Value == "2") ||(ddlContent.SelectedItem.Value == "3"))
+            {
+            src.ResourceType =  "Video";
+            if (rblhost.SelectedValue == "2")
+                {
+                 
+                    src.url = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) + HttpRuntime.AppDomainAppVirtualPath + fullpath 
+                    + "01 Video Presentation/"+ FileNamevideo;
+                }
+
+            }
+        if ((ddlContent.SelectedItem.Value == "4") || (ddlContent.SelectedItem.Value == "5") || (ddlContent.SelectedItem.Value == "6"))
+            {
+            src.ResourceType = "Worksheet";
+
+            }
+        if (ddlContent.SelectedItem.Value == "8")
+            {
+            src.ResourceType = "Textbook";
+            if (rblhost.SelectedValue == "2")
+                {
+               // http://www.swayamlearning.org/Eduresource/Free/99/Textbook/chapter%201.pdf
+                src.url = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) + HttpRuntime.AppDomainAppVirtualPath + fullpath +
+                    "Textbook/" + FileNameText;
+                }
+            }
+        if (rblhost.SelectedValue == "1")
+            {
+
+            src.url = txtvimeourl.Text;
+            }
+
+        SYS_resource = new SYS_Resource_Blogic();
+        try
+            {
+            SYS_resource.BAL_SYSResource_Insert(src);
+            clearcontrols();
+            }
+        catch(Exception ex)
+            {
+            WebMsg.Show("Insert failed" + ex);
+            }
+        
+        }
+    public void clearcontrols()
+        {
+        ddlBoard.ClearSelection();
+        ddlChapter.ClearSelection();
+        ddlContent.ClearSelection();
+        ddlpackage.ClearSelection();
+        ddlSubject.ClearSelection();
+        ddlTopic.ClearSelection();
         }
     }
