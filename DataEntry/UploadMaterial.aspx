@@ -189,21 +189,57 @@
         <div class="col-25">
             <asp:Label ID="Label2" runat="server" Text="File Upload" meta:resourcekey="lblBoardResource1"></asp:Label>
         </div>
-        <div class="col-75">
+        <div class="col-25">
               <asp:FileUpload ID="FileUpload1"   runat="server" />
+        </div>
+       
+         <div class="col-15">
+             <asp:RadioButtonList ID="rblhost" RepeatDirection="Horizontal" runat="server" CssClass="radio"  >
+    <asp:ListItem Text="Vimeo"  selected="True" Value="1" />
+    <asp:ListItem Text="Local"  Value="2" />
+   
+    
+</asp:RadioButtonList>
+
+             
+        </div>
+         <div class="col-25">
+              <asp:TextBox ID="txtvimeourl" runat="server" Visible="false" placeholder="vimeourl"></asp:TextBox>
         </div>
     </div>
     <div class="row">
         <div class="col-25">
              <asp:Button ID="Button1" CssClass="btn btn-outline-secondary" runat="server" Text="Upload" OnClick="btnUpload_Click" />
         </div>
+        <div class="col-25">
+             <asp:Button ID="Button2" CssClass="btn btn-outline-secondary" runat="server" Text="Upload URL" OnClick="btnUploadurl_Click" />
+        </div>
     </div>
     <div class="row">
         <asp:Label ID="lblMessage" runat="server"></asp:Label>
     </div>
         </div>
-            
-
+   <script>
+       $(document).ready(function () {
+           debugger;
+            var radioChecked;
+            radioChecked = $("#<%=rblhost.ClientID%> input:checked").val();
+            if (radioChecked == "1") {
+                  $('#<%= txtvimeourl.ClientID%>').show();
+            } else {
+                 $('#<%= txtvimeourl.ClientID%>').hide();
+            }
+            $('#<%=rblhost.ClientID%>').change(function () {
+                radioChecked = $("input[type='radio']:checked").val()
+                if (radioChecked == "1") {
+                    $('#<%= txtvimeourl.ClientID%>').show();
+                } else {
+                    $('#<%= txtvimeourl.ClientID%>').hide();
+                }
+            });
+        });
+   </script>         
+   
                  
 </asp:Content>
 
