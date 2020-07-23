@@ -58,4 +58,13 @@ public class Common_Blogic
         arrParameter = new ArrayList();
         return DA.DAL_Select("Proc_Registration_count_monthwise", arrParameter);
     }
-}
+
+    //change 13-07-2020
+    public DataSet BAL_Select_CouponInfo(string Couponcode)
+        {
+        DA = new DataAccess();
+        arrParameter = new ArrayList();
+        arrParameter.Add(new parameter("Couponcode", Couponcode));
+        return DA.DAL_Select("Proc_Select_CouponDetails", arrParameter);
+        }
+    }

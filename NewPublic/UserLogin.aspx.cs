@@ -222,24 +222,24 @@ public partial class NewPublic_UserLogin : System.Web.UI.Page
                                     //change 09-07-2020
                                     //  Response.Redirect("~/DashBoard/SelectPackage.aspx", false);
                                     string studentid = AppSessions.StudentID.ToString();
-                                    Hashtable sessions = (Hashtable)Application["WEB_SESSIONS_OBJECT"];
-                                    HttpSessionState existingUserSession = (HttpSessionState)sessions[studentid];
-                                    sessions.Remove(studentid);
-                                    if (existingUserSession != null)
-                                        {
-                                        existingUserSession = null;
-                                        }
+                                    //Hashtable sessions = (Hashtable)Application["WEB_SESSIONS_OBJECT"];
+                                    //HttpSessionState existingUserSession = (HttpSessionState)sessions[studentid];
+                                    //sessions.Remove(studentid);
+                                    //if (existingUserSession != null)
+                                    //    {
+                                    //    existingUserSession = null;
+                                    //    }
 
-                                    Session.RemoveAll();
-                                    Session.Abandon();
+                                    //Session.RemoveAll();
+                                    //Session.Abandon();
                                     string Message = "Free Trial Expired";
-                                    ShowMessage_Redirect(this.Page, Message, "../SwayamDemoHomePage.aspx");
+                                    ShowMessage_Redirect(this.Page, Message, "PackageBuy.aspx?PageIndex=1");
                                     TrackLog_Utils.Log(Convert.ToInt32(AppSessions.SchoolID), Convert.ToInt32(AppSessions.EmployeeOrStudentID), Convert.ToInt16(AppSessions.DivisionID), "Login", "btnLogin", "Click", Convert.ToDateTime(System.DateTime.Now), HttpContext.Current.Session.SessionID, StringEnum.stringValueOf(EnumFile.Activity.PackageSelection), "LoginId: " + uctxtUserName.Text, 0);
                                 }
                             }
                             else
                             {
-                                Response.Redirect("~/DashBoard/SelectPackage.aspx", false);
+                           //     ShowMessage_Redirect(this.Page, Message, "PackageBuy.aspx?PageIndex=1");
                                 TrackLog_Utils.Log(Convert.ToInt32(AppSessions.SchoolID), Convert.ToInt32(AppSessions.EmployeeOrStudentID), Convert.ToInt16(AppSessions.DivisionID), "Login", "btnLogin", "Click", Convert.ToDateTime(System.DateTime.Now), HttpContext.Current.Session.SessionID, StringEnum.stringValueOf(EnumFile.Activity.PackageSelection), "LoginId: " + uctxtUserName.Text, 0);
                             }
                         }

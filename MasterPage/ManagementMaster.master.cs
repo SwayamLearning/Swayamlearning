@@ -23,7 +23,6 @@ public partial class MasterPage_ManagementMaster : System.Web.UI.MasterPage
         if (dregcount.Tables.Count > 0)
             {
           
-          
            
          
 

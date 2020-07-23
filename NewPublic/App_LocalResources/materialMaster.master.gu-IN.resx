@@ -117,25 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="hlAccount.Text" xml:space="preserve">
-    <value>પ્રોફાઇલ</value>
-  </data>
-  <data name="hlDashboard.Text" xml:space="preserve">
+  <data name="LblDashboardlTitle.Text" xml:space="preserve">
     <value>ડેશબોર્ડ</value>
   </data>
-  <data name="hlForum.Text" xml:space="preserve">
-    <value>ફોરમ</value>
+  <data name="LblDashboardlTitle.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="hlLogout.Text" xml:space="preserve">
+  <data name="LblPerfAccountTitle.Text" xml:space="preserve">
+    <value>મારી પ્રોફાઈલ.</value>
+  </data>
+  <data name="LblPerfAccountTitle.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblPerfInvoiceTitle.Text" xml:space="preserve">
+    <value>ભરતિયું</value>
+  </data>
+  <data name="LblPerfInvoiceTitle.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblPerfLogoutTitle.Text" xml:space="preserve">
     <value>લૉગ આઉટ</value>
   </data>
-  <data name="hlQuery.Text" xml:space="preserve">
-    <value>પ્રશ્ન</value>
+  <data name="LblPerfLogoutTitle.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="hlReport.Text" xml:space="preserve">
-    <value>અહેવાલ</value>
+  <data name="LblPerfPackageTitle.Text" xml:space="preserve">
+    <value>પેકેજ ખરીદો</value>
   </data>
-  <data name="hlSupport.Text" xml:space="preserve">
+  <data name="LblPerfPackageTitle.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblPerfReportTitle.Text" xml:space="preserve">
+    <value>પરીક્ષાનું પરિણામ</value>
+  </data>
+  <data name="LblPerfReportTitle.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblPerfSupportTitle.Text" xml:space="preserve">
     <value>સપોર્ટ</value>
+  </data>
+  <data name="LblPerfSupportTitle.ToolTip" xml:space="preserve">
+    <value />
   </data>
 </root>

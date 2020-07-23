@@ -36,11 +36,36 @@ public class Package_BLogic
         arrParameter.Add(new parameter("BoardID", package.BoardID));
         arrParameter.Add(new parameter("MediumID", package.MediumID));
         arrParameter.Add(new parameter("StandardID", package.StandardID));
-        arrParameter.Add(new parameter("ProductID", package.ProductID));
+        //Change package payment 18072019
+        //arrParameter.Add(new parameter("ProductID", package.ProductID));
         Value = DAL_SYS_Package.DAL_InsertUpdate_Return("Insert_TransactionDetails", arrParameter);
         return Value;
     }
 
+    public int InsertTransactionDetailsWithStudentDetails(Package package, string txtAddress, string txtCity, string txtZipCode, string ddlCountryID, string ddlStateID)
+        {
+        int Value = 0;
+
+        this.DAL_SYS_Package = new DataAccess();
+        this.arrParameter = new ArrayList();
+        arrParameter.Add(new parameter("TransactionID", package.TransactionID));
+        arrParameter.Add(new parameter("StudentID", package.StudentID));
+        arrParameter.Add(new parameter("packageID", package.PackgeID));
+        arrParameter.Add(new parameter("Amount", package.Price));
+        arrParameter.Add(new parameter("Status", package.Status));
+        arrParameter.Add(new parameter("BMSID", package.BMSID));
+        arrParameter.Add(new parameter("BoardID", package.BoardID));
+        arrParameter.Add(new parameter("MediumID", package.MediumID));
+        arrParameter.Add(new parameter("StandardID", package.StandardID));
+        arrParameter.Add(new parameter("Address", txtAddress));
+        arrParameter.Add(new parameter("City", txtCity));
+        arrParameter.Add(new parameter("zipcode", txtZipCode));
+        arrParameter.Add(new parameter("Country", ddlCountryID));
+        arrParameter.Add(new parameter("State", ddlStateID));
+        //arrParameter.Add(new parameter("ProductID", package.ProductID));
+        Value = DAL_SYS_Package.DAL_InsertUpdate_Return("Insert_TransactionDetailsStudentDetails", arrParameter);
+        return Value;
+        }
 
     public int BAL_Package_Insert(Package Package)
     {
@@ -103,20 +128,20 @@ public class Package_BLogic
         arrParameter.Add(new parameter("EMITenure", EMITenure));
         arrParameter.Add(new parameter("EchoBankParameter", EchoBankParameter));
 
-        arrParameter.Add(new parameter("PaymentGateway", Package.PaymentGateway));
-        arrParameter.Add(new parameter("PaymentMode", Package.PaymentMode));
-        arrParameter.Add(new parameter("CardName", Package.CardName));
-        arrParameter.Add(new parameter("StatusCode", Package.StatusCode));
-        arrParameter.Add(new parameter("Currency", Package.Currency));
-        arrParameter.Add(new parameter("Country", Package.Country));
-        arrParameter.Add(new parameter("Vault", Package.Vault));
-        arrParameter.Add(new parameter("OfferType", Package.OfferType));
-        arrParameter.Add(new parameter("OfferCode", Package.OfferCode));
-        arrParameter.Add(new parameter("Discount", Package.Discount));
-        arrParameter.Add(new parameter("MerchantAmount", Package.MerchantAmount));
-        arrParameter.Add(new parameter("ECIValue", Package.ECIValue));
-        arrParameter.Add(new parameter("Retry", Package.Retry));
-        arrParameter.Add(new parameter("ResponseCode", Package.ResponseCode));
+        //arrParameter.Add(new parameter("PaymentGateway", Package.PaymentGateway));
+        //arrParameter.Add(new parameter("PaymentMode", Package.PaymentMode));
+        //arrParameter.Add(new parameter("CardName", Package.CardName));
+        //arrParameter.Add(new parameter("StatusCode", Package.StatusCode));
+        //arrParameter.Add(new parameter("Currency", Package.Currency));
+        //arrParameter.Add(new parameter("Country", Package.Country));
+        //arrParameter.Add(new parameter("Vault", Package.Vault));
+        //arrParameter.Add(new parameter("OfferType", Package.OfferType));
+        //arrParameter.Add(new parameter("OfferCode", Package.OfferCode));
+        //arrParameter.Add(new parameter("Discount", Package.Discount));
+        //arrParameter.Add(new parameter("MerchantAmount", Package.MerchantAmount));
+        //arrParameter.Add(new parameter("ECIValue", Package.ECIValue));
+        //arrParameter.Add(new parameter("Retry", Package.Retry));
+        //arrParameter.Add(new parameter("ResponseCode", Package.ResponseCode));
 
         this.DAL_SYS_Package.DAL_InsertUpdate("Update_TransactionStatus", arrParameter);
     }

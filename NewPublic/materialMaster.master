@@ -595,18 +595,20 @@
                 <span class="dropbtn"><i class="fa fa-user"></i>
                     <%: AppSessions.UserName %><i class="fa fa-caret-down"></i></span> <span class="dropbtn icon">
                     </span>
-                <div class="dropdown-content">
-                    <a href="../Dashboard/StudentDashboard.aspx">Dashboard</a> 
-                    <a href="../Report/StudentChapterwisePerformanceReport.aspx" id="areport" runat="server">Report</a>
-                    <a href="../UserManagement/UpdateProfileStudent.aspx" id="aaccount" runat="server">Account</a>
-                    <a href="../UserManagement/Support.aspx">Support</a> 
-                    <a href="../NewPublic/StudentQuery.aspx" id="aquery" runat="server">Query</a> 
-                    <a href="../Student/PostAndViewForum.aspx" id="aForum" runat="server">Forum</a> 
-                    <%-- <a href="../Dashboard/SelectCourse.aspx" id="buy" runat="server">BuyPackage</a> --%>
-                     
-                 <%--   <a href="../DataEntry/atompaymenttesting.aspx">payment</a>--%>
-                    <a href="../Logout.aspx">
-                        Logout</a>
+              <div class="dropdown-content">
+                  <div id="dropdownmenu" runat="server">
+                    <a href="../Dashboard/StudentDashboard.aspx"><asp:Label ID="Label3" runat="server" Text="Dashboard" meta:resourcekey="LblDashboardlTitle"></asp:Label> </a> 
+                     <a href="../UserManagement/UpdateProfileStudent.aspx" id="aaccount" runat="server"><asp:Label ID="Label2" runat="server" Text="Account" meta:resourcekey="LblPerfAccountTitle"></asp:Label></a>
+                    <a href="../UserManagement/Support.aspx"><asp:Label ID="Label4" runat="server" Text="Support" meta:resourcekey="LblPerfSupportTitle"></asp:Label></a>  
+                   <a href="../Report/StudentChapterwisePerformanceReport.aspx" id="areport" runat="server"><asp:Label ID="Label1" runat="server" Text="Test Report" meta:resourcekey="LblPerfReportTitle"></asp:Label> </a>
+                    <a href="../NewPublic/PackageBuy.aspx" id="aBuyPackage" runat="server"><asp:Label ID="Label5" runat="server" Text="Buy Package" meta:resourcekey="LblPerfPackageTitle"></asp:Label></a> 
+                    <a href="~/Report/StudentPackageReport.aspx"  id="aInvoiceView" runat="server"><asp:Label ID="Label6" runat="server" Text="Invoice" meta:resourcekey="LblPerfInvoiceTitle"></asp:Label></a> 
+                   <%-- <a href="../NewPublic/StudentQuery.aspx" id="aquery" runat="server">Query</a> 
+                    <a href="../Student/PostAndViewForum.aspx" id="aForum" runat="server">Forum</a> --%>
+                      </div>
+                 
+                    <a href="../Logout.aspx"><asp:Label ID="Label7" runat="server" Text="Logout" meta:resourcekey="LblPerfLogoutTitle"></asp:Label>
+                        </a>
                     
                 </div>
             </div>
@@ -627,7 +629,7 @@
     waves-effect waves-light" style="color:Black !important" href="../NewPublic/SwayamHomePage.aspx?logout=request">Logout</a></li>
     </ul> </div> </a> </div>--%>
         <div class="content" style="margin-top: 30px; !important">
-            <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true">
+            <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="True">
             </asp:ScriptManager>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

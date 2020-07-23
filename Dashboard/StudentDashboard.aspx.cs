@@ -827,7 +827,22 @@ public partial class Student_StudentDashboard : System.Web.UI.Page
     [WebMethod]
     public static string SubjectSelection(string SubjectID, string SubjectName)
         {
-       
+        if(SubjectID=="173")
+            {
+            try
+                {
+                Process p = new Process();
+                string filename = System.Web.HttpContext.Current.Server.MapPath("../Barakhdi - App/Barakhdi - App.exe");
+                p.StartInfo.FileName = filename;
+                p.Start();
+                return "";
+                }
+            catch (Exception ex)
+                {
+                WebMsg.Show(ex.ToString());
+                }
+           
+            }
         TrackLog_Utils.Log(Convert.ToInt32(AppSessions.SchoolID), Convert.ToInt32(AppSessions.EmployeeOrStudentID), Convert.ToInt16(AppSessions.DivisionID), StringEnum.stringValueOf(EnumFile.AccessedPages.StudentDashboard), "Subject List", "Click", Convert.ToDateTime(System.DateTime.Now), HttpContext.Current.Session.SessionID, StringEnum.stringValueOf(EnumFile.Activity.SubjectExplored), "Subject Name: " + SubjectName, 0);
 
         AppSessions.SubjectID = Convert.ToInt16(SubjectID);
@@ -1188,7 +1203,7 @@ public partial class Student_StudentDashboard : System.Web.UI.Page
                 //{
                 //    resourceName = "Quiz";
                 //}
-              
+
                 if (resourceName.ToLower() == "pretest")
                     {
                     resourceName = "Pre-test";
@@ -1209,12 +1224,6 @@ public partial class Student_StudentDashboard : System.Web.UI.Page
 
                     HttpContext.Current.Session["ContentType"] = "video/mp4";
                     //var = "<img alt=\"\" src=\"" + FullPath + "\"  ><button  data-bmssctID=\"" + bmssctid + "\"  type=\"button\" data-toggle=\"modal\" data-target=\"#myModal\" class=\"btn btn-outline-primary\" onclick=\"javascript:return PlayContent('" + dr["Resource"] + "','" + dr["Ext"] + "','" + dr["ResourcePath"] + "','" + bmssctid + "');\">" + topic + "</button> ";
-                     if ((AppSessions.IsFreePackage == "free") && (resourceName == ""))
-                        {
-                            resourceName = topic;
-                            var = "<img   alt=\"\" src=\"" + FullPath + "\"width=\"20\"   ><a href=\"#\"  style=\" color: black !important; pointer-events: none; cursor: default;   border: 0px solid #f6f7f7 !important; width:50%;\">" + topic + "-" + j + "</a> ";
-                        }
-                    else
                     var = "<img   alt=\"\" src=\"" + FullPath + "\"width=\"20\"   ><a href=\"\"  style=\" color: black !important;   border: 0px solid #f6f7f7 !important; width:50%;\"  data-bmssctID=\"" + bmssctid + "\"  data-toggle=\"modal\" data-target=\"#myModal\" onclick=\"javascript:return PlayContent('" + dr["Resource"] + "','" + dr["Ext"] + "','" + dr["ResourcePath"] + "','" + bmssctid + "');\">" + topic + "-" + j + "</a> ";
 
                     }
@@ -1230,13 +1239,7 @@ public partial class Student_StudentDashboard : System.Web.UI.Page
                 {
                     string FullPath = "../NewPublic/img/Book.png";
                     //var = "<img alt=\"\" src=\"" + FullPath + "\"  ><button  style=\"background-color: #f6f7f7; color: black !important;   border: 0px solid #f6f7f7 !important; width:50%;\" data-bmssctID=\"" + bmssctid + "\"   data-toggle=\"modal\" data-target=\"#myModal\" class=\"btn btn-outline-primary\" onclick=\"javascript:return PlayContent('" + dr["Resource"] + "','" + dr["Ext"] + "','" + dr["ResourcePath"] + "','" + bmssctid + "');\">" + resourceName + "</button> ";
-                    if ((AppSessions.IsFreePackage == "free") && (resourceName == ""))
-                        {
-                            resourceName = topic;
-                            var = "<img alt=\"\" src=\"" + FullPath + "\"width=\"20\" ><a href=\"#\"  style=\" color: black !important; pointer-events: none; cursor: default;    border: 0px solid #f6f7f7 !important; width:50%;\">" + resourceName + "</a> ";
-                        }
-                    else
-                        var = "<img alt=\"\" src=\"" + FullPath + "\"width=\"20\" ><a href=\"\"  style=\" color: black !important;   border: 0px solid #f6f7f7 !important; width:50%;\" data-bmssctID=\"" + bmssctid + "\"   data-toggle=\"modal\" data-target=\"#myModal\"  onclick=\"javascript:return PlayContent('" + dr["Resource"] + "','" + dr["Ext"] + "','" + dr["ResourcePath"] + "','" + bmssctid + "');\">" + resourceName + "</a> ";
+                    var = "<img alt=\"\" src=\"" + FullPath + "\"width=\"20\" ><a href=\"\"  style=\" color: black !important;   border: 0px solid #f6f7f7 !important; width:50%;\" data-bmssctID=\"" + bmssctid + "\"   data-toggle=\"modal\" data-target=\"#myModal\"  onclick=\"javascript:return PlayContent('" + dr["Resource"] + "','" + dr["Ext"] + "','" + dr["ResourcePath"] + "','" + bmssctid + "');\">" + resourceName + "</a> ";
                 }
 
                 if ((dr["Ext"].ToString().ToLower() == ".mp4") || (dr["Ext"].ToString().ToLower()  == ".swf")|| (dr["Ext"].ToString().ToLower() == ".m4v"))                    {
@@ -1376,19 +1379,41 @@ public partial class Student_StudentDashboard : System.Web.UI.Page
             oBuilder.Append("<table cellspacing='2' cellpadding='2' border='1' style='width:100%;'  class='GridViewForRes'>");
             oBuilder.Append("<tbody><tr align='left' class='GridViewItemForRes'>");
             oBuilder.Append("<td>");
-            oBuilder.Append("<div onclick=\"javascript:alert('Not Available in this package');\">" + Regex.Replace(Convert.ToString(dr["Resource"]), "^[\\d]*", "", RegexOptions.IgnoreCase) + "</div>");
+            oBuilder.Append("<div onclick=\"javascript:alert('Subscribe First');\">" + Regex.Replace(Convert.ToString(dr["Resource"]), "^[\\d]*", "", RegexOptions.IgnoreCase) + "</div>");
             oBuilder.Append("</td>");
             oBuilder.Append("</tr>");
             oBuilder.Append("</tbody></table>");
             }
-        //if (dt.Rows.Count > 0 && !iscover)
-        //    oBuilder.Append("<div style=\"text-align:center; margin-top:10px; margin-bottom:-10px;\"><input id=\"btnsubmitfeedback\" type=\"submit\" value=\"Finish Activity\" name=\"btnSave\"></div>");
+        if (dt.Rows.Count > 0 && !iscover)
+            oBuilder.Append("<div style=\"text-align:center; margin-top:10px; margin-bottom:-10px;\"><input id=\"btnsubmitfeedback\" type=\"submit\" value=\"Finish Activity\" name=\"btnSave\"></div>");
 
-        //oBuilder.Append("<div onclick=\"javascript:return RedirectToBuy();\" class=\"hoversubscribe\" style=\"width: 100%; cursor:pointer; height: 100%;  position: absolute;  top: 0;  left: 0%;z-index: 10;\"><div width=\"100%\" height=\"100%\"></div></div>");
+        oBuilder.Append("<div onclick=\"javascript:return RedirectToBuy();\" class=\"hoversubscribe\" style=\"width: 100%; cursor:pointer; height: 100%;  position: absolute;  top: 0;  left: 0%;z-index: 10;\"><div width=\"100%\" height=\"100%\"></div></div>");
 
         return Convert.ToString(oBuilder);
         }
+    //change 09-07-2020
+    private static string BuildContentHTMLDisablenew(bool iscover, int bmssctid, string topic)
+        {
+        StringBuilder oBuilder = new StringBuilder();
 
+
+        string var = ""; string FullPath;
+        oBuilder.Append("<div class=\"col-sm-12\" onclick=\"javascript:alert('Not Available for this package');\" >");
+        oBuilder.Append("<span style=\"font-size:14px;Font-weight:500;color:#c2822b;\"> Learn</span>");
+          FullPath = "../NewPublic/img/Learn.png";
+        var = "<img   alt=\"\" src=\"" + FullPath + "\"width=\"20\"   ><a href=\"#\"  style=\" color: black !important;   border: 0px solid #f6f7f7 !important; width:50%;\"  );\">" + topic + "</a> ";
+        oBuilder.Append("</br>");
+        oBuilder.Append(var);
+        oBuilder.Append("</div>");
+       
+
+
+
+
+
+
+        return Convert.ToString(oBuilder);
+        }
     [WebMethod]
     public static string UpdateRating(string ratingid)
         {
@@ -1498,14 +1523,13 @@ public partial class Student_StudentDashboard : System.Web.UI.Page
     protected static string BuildTopicChapterHTML(DataSet dsSelect)
         {
         StringBuilder oBuilder = new StringBuilder();
-        int i = 0,j=0;
+        int i = 0;
         bool iscontentavailable = false;
 
         foreach (DataRow odr in dsSelect.Tables[0].Rows)
             {
-            j++;
             DataRow[] dataRows = dsSelect.Tables[1].Select("ChapterID = " + odr["ChapterID"] + "");
-             i = 0;
+            i = 0;
             foreach (DataRow odrtopic in dataRows)
                 {
                 if (i == 0)
@@ -1516,9 +1540,25 @@ public partial class Student_StudentDashboard : System.Web.UI.Page
                     {
                     continue;
                     }
-           //     if (CheckFolderExists(Convert.ToInt32(odrtopic["BMSSCTID"])))
-                  //  {
+                //change 09-07-2020
+                if (AppSessions.IsFreePackage == "free")
+                    {
                     iscontentavailable = true;
+                    }
+                else
+                    {
+                    if (CheckFolderExists(Convert.ToInt32(odrtopic["BMSSCTID"])))
+                        {
+                        iscontentavailable = true;
+                        }
+                    else
+                        {
+                        iscontentavailable = false;
+                        }
+                    }
+
+                if (iscontentavailable)
+                    {
                     var bmsSctID = odrtopic["BMSSCTID"];
                     var topic = " " + odrtopic["Topic"];
                     //var chNo = "Ch. " + odrtopic["SequenceNo"] + "." + odrtopic["TopicIndex"];
@@ -1530,22 +1570,12 @@ public partial class Student_StudentDashboard : System.Web.UI.Page
 
                     if (Convert.ToBoolean(odrtopic["IsCurrent"]) == true)
                         {
-                    //Make card expanded on current chapter topic
-                    if ((AppSessions.IsFreePackage == "free") )
-                        {
-                        oBuilder.Append("<div class=\"card-header\" data-toggle=\"collapse\" href=\"#\" onclick=\"javascript:alert('Not Available in this package');\"  role=\"button\" aria-expanded=\"true\" aria-controls=\"collapse" + bmsSctID + "\">");
-                        }
-                    else
+                        //Make card expanded on current chapter topic
                         oBuilder.Append("<div class=\"card-header\" data-toggle=\"collapse\" href=\"#collapse" + bmsSctID + "\" role=\"button\" aria-expanded=\"true\" aria-controls=\"collapse" + bmsSctID + "\">");
                         }
                     else
                         {
-                    //Make card collapsed on not current chapter topic
-                    if ((AppSessions.IsFreePackage == "free")&&(j>1))
-                        {
-                        oBuilder.Append("<div class=\"card-header collapsed\" data-toggle=\"collapse\" href=\"#\" onclick=\"javascript:alert('Not Available in this package');\" role=\"button\" aria-expanded=\"false\" aria-controls=\"collapse" + bmsSctID + "\">");
-                        }
-                    else
+                        //Make card collapsed on not current chapter topic
                         oBuilder.Append("<div class=\"card-header collapsed\" data-toggle=\"collapse\" href=\"#collapse" + bmsSctID + "\" role=\"button\" aria-expanded=\"false\" aria-controls=\"collapse" + bmsSctID + "\">");
                         }
 
@@ -1603,7 +1633,8 @@ public partial class Student_StudentDashboard : System.Web.UI.Page
                     //oBuilder.Append("</div>");
 
                     //odrtopic["imagePath"] = BuildThumbnailHTML(Convert.ToInt32(odrtopic["BMSSCTID"]));
-                   // }
+                    //  }
+                    }
 
                 }
             }
@@ -1615,7 +1646,7 @@ public partial class Student_StudentDashboard : System.Web.UI.Page
             }
         else
             {
-            oBuilder.Append("<div class=\"col-8\"><h3 style=\"color:red;\"> Resource not available </h3></div>");
+            //oBuilder.Append("<div class=\"col-8\"><h3 style=\"color:red;\"> Resource not available </h3></div>");
             return Convert.ToString(oBuilder);
             }
 
@@ -1883,236 +1914,217 @@ public partial class Student_StudentDashboard : System.Web.UI.Page
         try
             {
             //E:\SourceSafe Project\EpathshalaResponsive\Epathshala\EduResource\3829
-            if (Directory.Exists(ContentFolderPath))
+            string[] ContentSubFolderList = Directory.GetDirectories(ContentFolderPath);
+            int ContentFolderPathLength = ContentFolderPath.Length + 1;
+
+            dt.Columns.Add("ResourcePath");
+            dt.Columns.Add("Resource");
+            dt.Columns.Add("Ext");
+            DataRow dr;
+
+            #region PreTest
+
+            bool Pretest, IsPostTest = false;
+            Teacher_Dashboard_BLogic td = new Teacher_Dashboard_BLogic();
+            Int64 count = td.BAL_Select_QuestionBankIDCount(bmssctid, IsPostTest);
+            if (getConfigValue("Pretest") == "1" && count > 0)
                 {
-                string[] ContentSubFolderList = Directory.GetDirectories(ContentFolderPath);
-                int ContentFolderPathLength = ContentFolderPath.Length + 1;
-
-                dt.Columns.Add("ResourcePath");
-                dt.Columns.Add("Resource");
-                dt.Columns.Add("Ext");
-                DataRow dr;
-
-                #region PreTest
-
-                bool Pretest, IsPostTest = false;
-                Teacher_Dashboard_BLogic td = new Teacher_Dashboard_BLogic();
-                Int64 count = td.BAL_Select_QuestionBankIDCount(bmssctid, IsPostTest);
-                if (getConfigValue("Pretest") == "1" && count > 0)
+                Pretest = true;
+                }
+            else
+                {
+                Pretest = false;
+                }
+            if (Pretest)
+                {
+                if (AppSessions.StudentID != null && AppSessions.StudentID != 0)
                     {
-                    Pretest = true;
+                    dr = dt.NewRow();
+                    dr["Resource"] = "Pretest";
+                    dr["ResourcePath"] = "../Student/StudentAssessment.aspx?Level=0&TestType=Pretest";
+                    dr["Ext"] = ".Test";
+                    dt.Rows.Add(dr);
                     }
                 else
                     {
-                    Pretest = false;
+                    dr = dt.NewRow();
+                    dr["Resource"] = "Pretest";
+                    dr["ResourcePath"] = "../Teacher/TeacherAssessment.aspx?Level=0&TestType=Pretest";
+                    dr["Ext"] = ".Test";
+                    dt.Rows.Add(dr);
                     }
-                if (Pretest)
+                }
+
+            #endregion
+
+            #region Content
+
+            foreach (string ContentSubFolderPath in ContentSubFolderList)
+                {
+                //E:\SourceSafe Project\EpathshalaResponsive\Epathshala\EduResource\3829\01 Animation
+                //E:\SourceSafe Project\EpathshalaResponsive\Epathshala\EduResource\3829\01 Video Presentation
+                //E:\SourceSafe Project\EpathshalaResponsive\Epathshala\EduResource\3829\01 Work-sheet
+
+                string FullPath = string.Empty;
+                string FileName = string.Empty;
+                string ext = string.Empty;
+
+                string[] Files = Directory.GetFiles(ContentFolderPath + "\\" + ContentSubFolderPath.Substring(ContentFolderPathLength) + "\\");
+
+                if (Files.Length > 0)
+                    {
+                    FileName = Path.GetFileName(Files[0]);
+                    ext = Path.GetExtension(Files[0]);
+                    ext = ext.ToLower();
+
+                    if (ext.ToString().Equals(".scc"))
+                        {
+                        FileName = Path.GetFileName(Files[1]);
+                        ext = Path.GetExtension(Files[1]);
+                        }
+
+                    FullPath = ContentSubFolderPath + "\\" + FileName;
+
+                    if (FileName != string.Empty)
+                        {
+                        dr = dt.NewRow();
+                        if (FullPath.Contains("NoContent\\"))
+                            FullPath = "../EduResource/" + "NoContent" + "/" + ContentSubFolderPath.Substring(ContentFolderPathLength) + "/" + FileName;
+                        else
+                             if ((AppSessions.IsFreePackage == "free") || (AppSessions.IsFreePackage == "demo"))//free
+                            {
+                            if (AppSessions.IsFreePackage == "free")
+                                {
+                                FullPath = "../EduResource/free/" + bmssctid + "/" + ContentSubFolderPath.Substring(ContentFolderPathLength) + "/" + FileName;
+                                }
+                            else
+                                {
+                                FullPath = "../EduResource/Demo/" + bmssctid + "_Demo" + "/" + ContentSubFolderPath.Substring(ContentFolderPathLength) + "/" + FileName;
+                                }
+                            }
+                        else
+                            {
+                            FullPath = "../EduResource/" + bmssctid  + "/" + ContentSubFolderPath.Substring(ContentFolderPathLength) + "/" + FileName;
+
+                            }
+                        //    FullPath = "../EduResource/Demo" + bmssctid + "_Demo" + "/" + ContentSubFolderPath.Substring(ContentFolderPathLength) + "/" + FileName;
+                        //   FullPath = ContentFolderPath + "\\"+ ContentSubFolderPath.Substring(ContentFolderPathLength) + "/" + FileName;
+
+                        ext = ext.ToLower();
+                        if (ext.ToString().Equals(".pdf"))
+                            {
+                            dr["Resource"] = ContentSubFolderPath.Substring(ContentFolderPathLength);
+                            dr["ResourcePath"] = FullPath;
+                            dr["Ext"] = ext;
+                            }
+                        else if (ext.ToString().Equals(".swf") || ext.ToString().Equals(".mp4")|| ext.ToString().Equals(".m4v"))
+                            {
+                            dr["Resource"] = ContentSubFolderPath.Substring(ContentFolderPathLength);
+                            //dr["ResourcePath"] = FullPath;
+                            dr["ResourcePath"] = FileName;
+                            dr["Ext"] = ext;
+                            }
+                        else if (ext.ToString().Equals(".htm") || ext.ToString().Equals(".html"))
+                            {
+                            dr["Resource"] = ContentSubFolderPath.Substring(ContentFolderPathLength);
+                            dr["ResourcePath"] = FullPath;
+                            dr["Ext"] = ext;
+                            }
+                        else
+                            {
+                            dr = null;
+                            }
+
+                        if (dr != null)
+                            {
+                            dt.Rows.Add(dr);
+
+                            HttpContext.Current.Session["ContentPath"] = FullPath;
+
+                            HttpContext.Current.Session["ContentType"] = "video/mp4";
+                            }
+                        }
+                    }
+                }
+
+            #endregion
+
+            #region Posttest
+
+            bool AllLevel;
+            if (getConfigValue("AllLevel") == "0")
+                {
+                AllLevel = true;
+                }
+            else
+                {
+                AllLevel = false;
+                }
+            bool PosttestAllow;
+            IsPostTest = true;
+            Int64 countpost = td.BAL_Select_QuestionBankIDCount(bmssctid, IsPostTest);
+            if (getConfigValue("Posttest") == "1" && countpost > 0)
+                PosttestAllow = true;
+            else
+                PosttestAllow = false;
+            if (PosttestAllow)
+                {
+                if (AllLevel)
                     {
                     if (AppSessions.StudentID != null && AppSessions.StudentID != 0)
                         {
                         dr = dt.NewRow();
-                        dr["Resource"] = "Pretest";
-                        dr["ResourcePath"] = "../Student/StudentAssessment.aspx?Level=0&TestType=Pretest";
+                        dr["Resource"] = "Posttest";
+                        dr["ResourcePath"] = "../Student/StudentAssessment.aspx?Level=0&TestType=Posttest";
                         dr["Ext"] = ".Test";
                         dt.Rows.Add(dr);
                         }
                     else
                         {
                         dr = dt.NewRow();
-                        dr["Resource"] = "Pretest";
-                        dr["ResourcePath"] = "../Teacher/TeacherAssessment.aspx?Level=0&TestType=Pretest";
+                        dr["Resource"] = "Posttest";
+                        dr["ResourcePath"] = "../Teacher/TeacherAssessment.aspx?Level=0&TestType=Posttest";
                         dr["Ext"] = ".Test";
                         dt.Rows.Add(dr);
                         }
                     }
-
-                #endregion
-
-                #region Content
-
-                foreach (string ContentSubFolderPath in ContentSubFolderList)
-                    {
-                    //E:\SourceSafe Project\EpathshalaResponsive\Epathshala\EduResource\3829\01 Animation
-                    //E:\SourceSafe Project\EpathshalaResponsive\Epathshala\EduResource\3829\01 Video Presentation
-                    //E:\SourceSafe Project\EpathshalaResponsive\Epathshala\EduResource\3829\01 Work-sheet
-
-                    string FullPath = string.Empty;
-                    string FileName = string.Empty;
-                    string ext = string.Empty;
-
-                    string[] Files = Directory.GetFiles(ContentFolderPath + "\\" + ContentSubFolderPath.Substring(ContentFolderPathLength) + "\\");
-
-                    if (Files.Length > 0)
-                        {
-                        FileName = Path.GetFileName(Files[0]);
-                        ext = Path.GetExtension(Files[0]);
-                        ext = ext.ToLower();
-
-                        if (ext.ToString().Equals(".scc"))
-                            {
-                            FileName = Path.GetFileName(Files[1]);
-                            ext = Path.GetExtension(Files[1]);
-                            }
-
-                        FullPath = ContentSubFolderPath + "\\" + FileName;
-
-                        if (FileName != string.Empty)
-                            {
-                            dr = dt.NewRow();
-                            if (FullPath.Contains("NoContent\\"))
-                                FullPath = "../EduResource/" + "NoContent" + "/" + ContentSubFolderPath.Substring(ContentFolderPathLength) + "/" + FileName;
-                            else
-                                 if ((AppSessions.IsFreePackage == "free") || (AppSessions.IsFreePackage == "demo"))//free
-                                {
-                                if (AppSessions.IsFreePackage == "free")
-                                    {
-                                    FullPath = "../EduResource/free/" + bmssctid + "/" + ContentSubFolderPath.Substring(ContentFolderPathLength) + "/" + FileName;
-                                    }
-                                else
-                                    {
-                                    FullPath = "../EduResource/Demo/" + bmssctid + "_Demo" + "/" + ContentSubFolderPath.Substring(ContentFolderPathLength) + "/" + FileName;
-                                    }
-                                }
-                            //    FullPath = "../EduResource/Demo" + bmssctid + "_Demo" + "/" + ContentSubFolderPath.Substring(ContentFolderPathLength) + "/" + FileName;
-                            //   FullPath = ContentFolderPath + "\\"+ ContentSubFolderPath.Substring(ContentFolderPathLength) + "/" + FileName;
-
-                            ext = ext.ToLower();
-                            if (ext.ToString().Equals(".pdf"))
-                                {
-                                dr["Resource"] = ContentSubFolderPath.Substring(ContentFolderPathLength);
-                                dr["ResourcePath"] = FullPath;
-                                dr["Ext"] = ext;
-                                }
-                            else if (ext.ToString().Equals(".swf") || ext.ToString().Equals(".mp4") || ext.ToString().Equals(".m4v"))
-                                {
-                                dr["Resource"] = ContentSubFolderPath.Substring(ContentFolderPathLength);
-                                //dr["ResourcePath"] = FullPath;
-                                dr["ResourcePath"] = FileName;
-                                dr["Ext"] = ext;
-                                }
-                            else if (ext.ToString().Equals(".htm") || ext.ToString().Equals(".html"))
-                                {
-                                dr["Resource"] = ContentSubFolderPath.Substring(ContentFolderPathLength);
-                                dr["ResourcePath"] = FullPath;
-                                dr["Ext"] = ext;
-                                }
-                            else
-                                {
-                                dr["Resource"] = ContentSubFolderPath.Substring(ContentFolderPathLength);
-                                dr["ResourcePath"] = FullPath;
-                                dr["Ext"] = ext;
-
-                                }
-
-                            if (dr != null)
-                                {
-                                dt.Rows.Add(dr);
-
-                                HttpContext.Current.Session["ContentPath"] = FullPath;
-
-                                HttpContext.Current.Session["ContentType"] = "video/mp4";
-                                }
-                            }
-                        }
-                    }
-
-                #endregion
-
-                #region Posttest
-
-                bool AllLevel;
-                if (getConfigValue("AllLevel") == "0")
-                    {
-                    AllLevel = true;
-                    }
                 else
                     {
-                    AllLevel = false;
-                    }
-                bool PosttestAllow;
-                IsPostTest = true;
-                Int64 countpost = td.BAL_Select_QuestionBankIDCount(bmssctid, IsPostTest);
-                if (getConfigValue("Posttest") == "1" && countpost > 0)
-                    PosttestAllow = true;
-                else
-                    PosttestAllow = false;
-                if (PosttestAllow)
-                    {
-                    if (AllLevel)
+
+                    // Code for posttest level 0
+                    //dr = dt.NewRow();
+                    //dr["Resource"] = "Posttest";
+                    //dr["ResourcePath"] = "../Student/StudentAssessment.aspx?Level=0&TestType=Posttest";
+                    //dr["Ext"] = ".Test";
+                    //dt.Rows.Add(dr);
+
+                    // Code for level wise post test
+
+                    for (int n = 1; n < 4; n++)
                         {
                         if (AppSessions.StudentID != null && AppSessions.StudentID != 0)
                             {
                             dr = dt.NewRow();
-                            dr["Resource"] = "Posttest";
-                            dr["ResourcePath"] = "../Student/StudentAssessment.aspx?Level=0&TestType=Posttest";
+                            dr["Resource"] = "Posttest Level-" + n;
+                            dr["ResourcePath"] = "../Student/StudentAssessment.aspx?Level=" + n + "&TestType=Posttest";
                             dr["Ext"] = ".Test";
                             dt.Rows.Add(dr);
                             }
                         else
                             {
-                            dr = dt.NewRow();
-                            dr["Resource"] = "Posttest";
-                            dr["ResourcePath"] = "../Teacher/TeacherAssessment.aspx?Level=0&TestType=Posttest";
-                            dr["Ext"] = ".Test";
-                            dt.Rows.Add(dr);
-                            }
-                        }
-                    else
-                        {
-
-                        // Code for posttest level 0
-                        //dr = dt.NewRow();
-                        //dr["Resource"] = "Posttest";
-                        //dr["ResourcePath"] = "../Student/StudentAssessment.aspx?Level=0&TestType=Posttest";
-                        //dr["Ext"] = ".Test";
-                        //dt.Rows.Add(dr);
-
-                        // Code for level wise post test
-
-                        for (int n = 1; n < 4; n++)
-                            {
-                            if (AppSessions.StudentID != null && AppSessions.StudentID != 0)
+                            if (n == 1)
                                 {
                                 dr = dt.NewRow();
                                 dr["Resource"] = "Posttest Level-" + n;
-                                dr["ResourcePath"] = "../Student/StudentAssessment.aspx?Level=" + n + "&TestType=Posttest";
+                                dr["ResourcePath"] = "../Teacher/TeacherAssessment.aspx?Level=" + n + "&TestType=Posttest";
                                 dr["Ext"] = ".Test";
                                 dt.Rows.Add(dr);
-                                }
-                            else
-                                {
-                                if (n == 1)
-                                    {
-                                    dr = dt.NewRow();
-                                    dr["Resource"] = "Posttest Level-" + n;
-                                    dr["ResourcePath"] = "../Teacher/TeacherAssessment.aspx?Level=" + n + "&TestType=Posttest";
-                                    dr["Ext"] = ".Test";
-                                    dt.Rows.Add(dr);
-                                    }
                                 }
                             }
                         }
                     }
-                #endregion
-                //    }
-                //else
-                //    {
-                //  dt.Columns.Add("ResourcePath");
-                //dt.Columns.Add("Resource");
-                //dt.Columns.Add("Ext");
-                //DataRow dr;
-                //dr = dt.NewRow();
-                //dr["Resource"] ="";
-                //dr["ResourcePath"] = "";
-                //dr["Ext"] = ".mp4";
-                //dt.Rows.Add(dr);
-                //dr = dt.NewRow();
-                //dr["Resource"] = "";
-                //dr["ResourcePath"] = "";
-                //dr["Ext"] = ".pdf";
-                //dt.Rows.Add(dr);
-                //  }
                 }
+            #endregion
             }
         catch (Exception ex)
             {
@@ -2200,17 +2212,21 @@ public partial class Student_StudentDashboard : System.Web.UI.Page
                     ContentFolderPath = System.Web.HttpContext.Current.Server.MapPath("../EduResource/Demo/" + bmssctid + "_Demo");
                 // ContentFolderPath = System.Web.HttpContext.Current.Server.MapPath("../EduResource/" + bmssctid + "_Demo");
                 //ContentFolderPath = AppDomain.CurrentDomain.BaseDirectory + "EduResource\\" + bmssctid + "_Demo";
-                //if (Directory.Exists(ContentFolderPath))
-                //    {
+                if (Directory.Exists(ContentFolderPath))
+                    {
                     dt = new DataTable();
                     dt = FillResourceDemo(bmssctid, ContentFolderPath);
                     if (dt.Rows.Count > 0)
                         return BuildContentHTML(iscover, bmssctid, dt, topic);
                     else
-                        return LoadDisableContentHTML(bmssctid, iscover, ref ContentFolderPath, ref dt);
-                //    }
-                //else
-                //    return LoadDisableContentHTML(bmssctid, iscover, ref ContentFolderPath, ref dt);
+                        // return LoadDisableContentHTML(bmssctid, iscover, ref ContentFolderPath, ref dt);
+                        //change 09-07-2020
+                        return BuildContentHTMLDisablenew(iscover, bmssctid, topic);
+                    }
+                else
+                    //change 09-07-2020
+                    //  return LoadDisableContentHTML(bmssctid, iscover, ref ContentFolderPath, ref dt);
+                    return BuildContentHTMLDisablenew(iscover, bmssctid, topic);
                 }
             else if (AppSessions.IsFreePackage == "paid")//paid
                 {
@@ -2218,7 +2234,7 @@ public partial class Student_StudentDashboard : System.Web.UI.Page
                 if (Directory.Exists(ContentFolderPath))
                     {
                     dt = new DataTable();
-                    dt = FillResource(bmssctid, ContentFolderPath);
+                    dt = FillResourceDemo(bmssctid, ContentFolderPath);
                     if (dt.Rows.Count > 0)
                         return BuildContentHTML(iscover, bmssctid, dt, topic);
                     else
@@ -2242,17 +2258,18 @@ public partial class Student_StudentDashboard : System.Web.UI.Page
     private static string LoadDisableContentHTML(int bmssctid, bool iscover, ref string ContentFolderPath, ref DataTable dt)
         {
         ContentFolderPath = System.Web.HttpContext.Current.Server.MapPath("../EduResource/" + bmssctid);
-        //if (Directory.Exists(ContentFolderPath))
-        //    {
+        if (Directory.Exists(ContentFolderPath))
+            {
             dt = new DataTable();
             dt = FillResource(bmssctid, ContentFolderPath);
             if (dt.Rows.Count > 0)
                 return BuildContentHTMLDisable(iscover, bmssctid, dt);
             else
                 return "<div title='" + bmssctid + "'>No Resource Available</div>";
-        //    }
-        //else
-        //    return "<div title='" + bmssctid + "'>No Resource Available</div>";
+            }
+        else
+            //change 09-07-2020
+            return "<div title='" + bmssctid + "'> Resource not available for this package</div>";
         }
 
     private static bool CheckFolderExists(int bmssctid)

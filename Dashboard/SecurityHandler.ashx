@@ -33,7 +33,7 @@ public class SecurityHandler : IHttpHandler, System.Web.SessionState.IReadOnlySe
             }
         if(free=="paid")
             {
-            path = System.Web.HttpContext.Current.Server.MapPath("../EduResource/Demo/" +Id+"/"+fname+"/"+res);
+            path = System.Web.HttpContext.Current.Server.MapPath("../EduResource/" +Id+"/"+fname+"/"+res);
             }
          
         if (context.Request.UrlReferrer != null)

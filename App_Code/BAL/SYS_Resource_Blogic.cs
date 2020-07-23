@@ -67,6 +67,6 @@ public class SYS_Resource_Blogic
         {
         DAL_Student = new DataAccess();
         arrParameter.Add(new parameter("BMSSCTID", src.bmssctid));
-        return DAL_Student.DAL_SelectALL("Proc_SysResource_URL");
+        return DAL_Student.DAL_Select("Proc_SysResource_URL",arrParameter);
         }
     }

@@ -133,6 +133,7 @@ public class DataAccess
         }
         catch (SqlException SqlException)
         {
+            Console.WriteLine(SqlException);
             if (comm != null && comm.Connection.State == ConnectionState.Open)
             {
                 comm.Connection.Close();

@@ -117,25 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="hlAccount.Text" xml:space="preserve">
-    <value>Account</value>
-  </data>
-  <data name="hlDashboard.Text" xml:space="preserve">
+  <data name="LblDashboardlTitle.Text" xml:space="preserve">
     <value>Dashboard</value>
   </data>
-  <data name="hlForum.Text" xml:space="preserve">
-    <value>Forum</value>
+  <data name="LblDashboardlTitle.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="hlLogout.Text" xml:space="preserve">
-    <value>LogOut</value>
+  <data name="LblPerfAccountTitle.Text" xml:space="preserve">
+    <value>Account</value>
   </data>
-  <data name="hlQuery.Text" xml:space="preserve">
-    <value>Query</value>
+  <data name="LblPerfAccountTitle.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="hlReport.Text" xml:space="preserve">
-    <value>Report</value>
+  <data name="LblPerfInvoiceTitle.Text" xml:space="preserve">
+    <value>Invoice</value>
   </data>
-  <data name="hlSupport.Text" xml:space="preserve">
+  <data name="LblPerfInvoiceTitle.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblPerfLogoutTitle.Text" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="LblPerfLogoutTitle.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblPerfPackageTitle.Text" xml:space="preserve">
+    <value>Buy Package</value>
+  </data>
+  <data name="LblPerfPackageTitle.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblPerfReportTitle.Text" xml:space="preserve">
+    <value>Test Report</value>
+  </data>
+  <data name="LblPerfReportTitle.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LblPerfSupportTitle.Text" xml:space="preserve">
     <value>Support</value>
+  </data>
+  <data name="LblPerfSupportTitle.ToolTip" xml:space="preserve">
+    <value />
   </data>
 </root>

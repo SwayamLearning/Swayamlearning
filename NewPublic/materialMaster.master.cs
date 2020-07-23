@@ -26,7 +26,8 @@ public partial class NewPublic_materialMaster : System.Web.UI.MasterPage
     public string board, medium, standard,subject;
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (AppSessions.RoleID != 0)
+
+        if ((AppSessions.RoleID != 0) && (!IsPostBack))
         {
             switch (AppSessions.RoleID)
             {
@@ -40,20 +41,23 @@ public partial class NewPublic_materialMaster : System.Web.UI.MasterPage
                         {
                         areport.Visible = false;
                         aaccount.Visible = true;
-                        aquery.Visible = false;
-                        aForum.Visible = false;
+                       
+                        aBuyPackage.Visible = true;
+                        aInvoiceView.Visible = false;
+
                         }
                     else
                         {
                         areport.Visible = true;
                         aaccount.Visible = true;
-                        aquery.Visible = true;
-                        aForum.Visible = true;
 
+                        aBuyPackage.Visible = false;
+                        aInvoiceView.Visible = true;
                         }
                     break;
+                //aquery.Visible = false;
+                //aForum.Visible = false;
 
-                
                 case (int)EnumFile.Role.Teacher:
                     //Mv_RolewiseMenus.ActiveViewIndex = 1;
 

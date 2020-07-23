@@ -534,7 +534,7 @@
            <%--if ($("#<%= btnShow.ClientID%>") != null) {
                 $("#<%= btnShow.ClientID%>").click();
                 document.getElementById('<%= LblDisplay.ClientID %>').innerHTML = document.getElementById('<%= hdnTopicName.ClientID %>').value;--%>
-
+           
             var modalTitle = document.getElementById("modal-title");
             modalTitle.innerHTML = $('#' + "chapter" + id).text();
 
@@ -566,18 +566,18 @@
                 //modalBody.innerHTML = "<video style=\"margin:auto;\" id=\"myVideo\" width='65%' preload controls autoplay><source type='video/mp4' codecs='avc1.42E01E, mp4a.40.2' src='" + res + "' ></video>";
              //   alert( modalBody.innerHTML);
                 var vid = document.getElementById("myVideo");
-             alert(vid);
-                 vid.onplaying = function () {
-                   alert("The video is now playing");
-                 };
-                 vid.onabort = function () {
-               alert("The video ended");
-                }
-                vid.onpause = function () {
-                   alert("The video paused");
-                 }
+            
+               //  vid.onplaying = function () {
+               //    alert("The video is now playing");
+               //  };
+               //  vid.onabort = function () {
+               //alert("The video ended");
+               // }
+               // vid.onpause = function () {
+               //    alert("The video paused");
+               //  }
                 vid.onended = function () {
-                    alert("the video ended");
+                //    alert("the video ended");
                     PageMethods.log_StudentWiseCoveredSyllabus(fname, id);
                     $('#modal-body').html('');
                     jQuery("#myModal").modal("hide");
@@ -1510,7 +1510,8 @@
 
 
         //play content in model popup
-        //function ShowContent(fname, ext, res, id) { if ($("#<%= btnShow.ClientID%>") != null) { $("#<%= btnShow.ClientID%>").click(); document.getElementById('<%= LblDisplay.ClientID %>').innerHTML = document.getElementById('<%= hdnTopicName.ClientID %>').value; if (ext == ".mp4") { $('#dvcontentPlayArea').html("<video width='100%' height='100%' style='max-height:100%' preload  controls autoplay><source type='video/mp4' codecs='avc1.42E01E, mp4a.40.2' src='" + res + "' ></video>"); } else if (ext == ".pdf") { var pdfurl = window.location.href.replace("Dashboard/StudentDashboard.aspx", "") + res.replace("../", ""); $('#dvcontentPlayArea').html("<iframe id='myframe' width='100%' height='100%' src=\"http://docs.google.com/gview?url=" + pdfurl + "&embedded=true\" allowfullscreen='true'></iframe>"); } else if (ext == ".Test") { var testurl = res + "&BMSSCTID=" + id; $('#dvcontentPlayArea').html("<iframe id='myframe' width='100%' height='100%' src='" + testurl + "' allowfullscreen='true'></iframe>"); } else { $('#dvcontentPlayArea').html("<iframe id='myframe' width='100%' height='100%' src='" + res + "' allowfullscreen='true'></iframe>"); } PlayedContent(fname, res); } return false; }
+        //function ShowContent(fname, ext, res, id) { if ($("#<%= btnShow.ClientID%>") != null) { $("#<%= btnShow.ClientID%>").click(); document.getElementById('<%= LblDisplay.ClientID %>').innerHTML = document.getElementById('<%= hdnTopicName.ClientID %>').value; if (ext == ".mp4") { $('#dvcontentPlayArea').html("<video width='100%' height='100%' style='max-height:100%' preload  controls autoplay><source type='video/mp4' codecs='avc1.42E01E, mp4a.40.2' src='" + res + "' ></video>"); } else if (ext == ".pdf") { var pdfurl = window.location.href.replace("Dashboard/StudentDashboard.aspx", "") + res.replace("../", ""); $('#dvcontentPlayArea').html("<iframe id='myframe' width='100%' height='100%' src=\"http://docs.google.com/gview?url=" + pdfurl + "&embedded=true\" allowfullscreen='true'></iframe>"); } else if (ext == ".
+     //   ") { var testurl = res + "&BMSSCTID=" + id; $('#dvcontentPlayArea').html("<iframe id='myframe' width='100%' height='100%' src='" + testurl + "' allowfullscreen='true'></iframe>"); } else { $('#dvcontentPlayArea').html("<iframe id='myframe' width='100%' height='100%' src='" + res + "' allowfullscreen='true'></iframe>"); } PlayedContent(fname, res); } return false; }
 
         
         //educational resource populate on chapter-topic selection changed
@@ -1537,7 +1538,8 @@
         //get html of loading
         function GetLoading() { return '<div style="text-align:center;"><div class="loading"></div></div>'; }
         //play content
-        function PlayContent(fname, ext, res, id) { ShowContent(fname, ext, res, id); }
+        function PlayContent(fname, ext, res, id) { debugger;
+             ShowContent(fname, ext, res, id); }
         ////log played content
         //function PlayedContent(fname, res) { PageMethods.LogResourceAccess(fname, res, Success, Failure); function Success(result) { } function Failure(error) { } }
         function RefreshPage() { location.reload(); return false; }

@@ -1,0 +1,66 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class PackageBuy : System.Web.UI.Page
+    {
+    #region Declaration
+    Student_DashBoard_BLogic obj_BAL_Student_Dashboard;
+    StudentDash obj_Student_Dashboard;
+    #endregion
+    protected void Page_Load(object sender, EventArgs e)
+        {
+        if (!IsPostBack)
+            {
+            GetStudentpackagedetails();
+          
+            //lblusername.Text = "Dear " + AppSessions.UserName + ",";
+            //lblmessage.Text = "Please subscribe following package to access all available educational resources.";
+            //CheckForPackageOffer();
+            }
+        }
+
+    //methods
+    protected void GetStudentpackagedetails()
+        {
+        try
+            {
+            obj_BAL_Student_Dashboard = new Student_DashBoard_BLogic();
+            obj_Student_Dashboard = new StudentDash();
+            obj_Student_Dashboard.StudentID = AppSessions.StudentID;
+            DataSet ds = new DataSet();
+            ds = obj_BAL_Student_Dashboard.BAL_Student_ExpiryNotification1(obj_Student_Dashboard);
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                if (ds.Tables[0].Rows[i]["Price"].ToString() != "0")
+                    {
+                    decimal cntnoofdays = Convert.ToDecimal((Convert.ToInt32(ds.Tables[0].Rows[i]["NoOfMonth"].ToString())) / 30);
+                    int cntnoofmonth = Convert.ToInt32(Math.Round(cntnoofdays));
+                    DateTime dtFromDate = Convert.ToDateTime(ds.Tables[0].Rows[i]["FromDate"].ToString());
+                    DateTime dtvalidtill = dtFromDate.AddMonths(cntnoofmonth).AddDays(-1);
+                    ds.Tables[0].Rows[i]["NoOfMonth"] = cntnoofmonth.ToString();
+                    ds.Tables[0].Rows[i]["ValidTill"] = dtvalidtill.ToString();
+                    }
+                }
+            if (ds.Tables[0].Rows.Count > 0 && ds != null)
+                {
+
+                gvpurchasedpackages.Visible = true;
+                gvpurchasedpackages.DataSource = ds.Tables[0];
+                gvpurchasedpackages.DataBind();
+                }
+            gvpurchasedpackages.DataSource = ds.Tables[0];
+            gvpurchasedpackages.DataBind();
+            }
+        catch (Exception ex)
+            {
+            WebMsg.Show(ex.Message);
+            }
+        }
+
+    
+    }

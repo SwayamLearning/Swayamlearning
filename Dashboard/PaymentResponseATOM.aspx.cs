@@ -26,129 +26,129 @@ public partial class PaymentResponcePage : System.Web.UI.Page
         {
             if (!IsPostBack)
             {
-                if (Session["country_name"] != null)
-                {
-                    if (Session["country_name"].ToString().ToLower() == "india")
-                    {
-                        string transactionid = Session["TransactionID"].ToString();
-                        NameValueCollection nvc = Request.Form;
-                        string mmp_Transaction = nvc["mmp_txn"].ToString();
-                        string PaymentStatus = nvc["f_code"].ToString();
-                        string MerchantTransactionId = Request.Form["mer_txn"];
-                        string Amount = Request.Form["amt"];
-                        string Product = Request.Form["prod"];
-                        string TransactionDate = Request.Form["date"];
-                        string BankTransactionId = Request.Form["bank_txn"];
-                        string ClientCode = Request.Form["clientcode"]; // Encrypted User Information
-                        string BankName = Request.Form["bank_name"];
+                //if (Session["country_name"] != null)
+                //{
+                //    if (Session["country_name"].ToString().ToLower() == "india")
+                //    {
+                //        string transactionid = Session["TransactionID"].ToString();
+                //        NameValueCollection nvc = Request.Form;
+                //        string mmp_Transaction = nvc["mmp_txn"].ToString();
+                //        string PaymentStatus = nvc["f_code"].ToString();
+                //        string MerchantTransactionId = Request.Form["mer_txn"];
+                //        string Amount = Request.Form["amt"];
+                //        string Product = Request.Form["prod"];
+                //        string TransactionDate = Request.Form["date"];
+                //        string BankTransactionId = Request.Form["bank_txn"];
+                //        string ClientCode = Request.Form["clientcode"]; // Encrypted User Information
+                //        string BankName = Request.Form["bank_name"];
 
-                        //User Details
-                        string Udf1 = Request.Form["udf1"]; //First Name
-                        string Udf2 = Request.Form["udf2"]; //Email
-                        string Udf3 = Request.Form["udf3"]; //Mobile
-                        string Udf4 = Request.Form["udf4"]; //Address
-                        string Udf5 = Request.Form["udf5"]; //Bank Name
-                        string Udf6 = Request.Form["udf6"]; //EMI Option
+                //        //User Details
+                //        string Udf1 = Request.Form["udf1"]; //First Name
+                //        string Udf2 = Request.Form["udf2"]; //Email
+                //        string Udf3 = Request.Form["udf3"]; //Mobile
+                //        string Udf4 = Request.Form["udf4"]; //Address
+                //        string Udf5 = Request.Form["udf5"]; //Bank Name
+                //        string Udf6 = Request.Form["udf6"]; //EMI Option
 
-                        string strResponceIP = HttpContext.Current.Request.UserHostAddress;
-                        //string strRemarks = "txnId:" + MerchantTransactionId + ", txnStatus:" + PaymentStatus + ", amount:" + Amount + ", pgTxnId:" + mmp_Transaction + ", BankTransactionId:" + BankTransactionId + ", Udf1:" + Udf1 + ", Udf2:" + Udf2 + ", Udf3:" + Udf3 + ", Udf4:" + Udf4 + ", Udf5:" + Udf5 + ", Udf6:" + Udf6;
+                //        string strResponceIP = HttpContext.Current.Request.UserHostAddress;
+                //        //string strRemarks = "txnId:" + MerchantTransactionId + ", txnStatus:" + PaymentStatus + ", amount:" + Amount + ", pgTxnId:" + mmp_Transaction + ", BankTransactionId:" + BankTransactionId + ", Udf1:" + Udf1 + ", Udf2:" + Udf2 + ", Udf3:" + Udf3 + ", Udf4:" + Udf4 + ", Udf5:" + Udf5 + ", Udf6:" + Udf6;
 
-                        DataSet dsSettings = new DataSet();
-                        Teacher_Dashboard_BLogic obj_BAL_Teacher_Dashboard = new Teacher_Dashboard_BLogic();
-                        dsSettings = obj_BAL_Teacher_Dashboard.BAL_Select_CoveredUncoverChapterTopic_Settings("ATOMPaymentIP");
-                        string ATOMPaymentIP = dsSettings.Tables[0].Rows[0]["value"].ToString().Trim();
-                        //Verify the Response Server
-                        //if (Request.UrlReferrer.Host.Trim() != ATOMPaymentIP)
-                        //{
-                        //    lblthankyou.Text = " Sorry for inconvenience ";
-                        //    lblthankyou.ForeColor = System.Drawing.Color.Red;
+                //        DataSet dsSettings = new DataSet();
+                //        Teacher_Dashboard_BLogic obj_BAL_Teacher_Dashboard = new Teacher_Dashboard_BLogic();
+                //        dsSettings = obj_BAL_Teacher_Dashboard.BAL_Select_CoveredUncoverChapterTopic_Settings("ATOMPaymentIP");
+                //        string ATOMPaymentIP = dsSettings.Tables[0].Rows[0]["value"].ToString().Trim();
+                //        //Verify the Response Server
+                //        //if (Request.UrlReferrer.Host.Trim() != ATOMPaymentIP)
+                //        //{
+                //        //    lblthankyou.Text = " Sorry for inconvenience ";
+                //        //    lblthankyou.ForeColor = System.Drawing.Color.Red;
 
-                        //    lblmessage1.Text = "Payment is not done sucessfully please try again....";
-                        //    PPackage.TransactionID = transactionid;
-                        //    PPackage.Status = "Fail";
-                        //    Blogic_Package.BAL_Student_Package_Update_TransactionMaster(PPackage, "Responce server is not verify", mmp_Transaction, Product, BankName, BankTransactionId, Udf1, Udf2, Udf3, Udf4, Udf5, Udf6, "");
-                        //    Response.AddHeader("REFRESH", "10;URL=SelectPackage.aspx");
-                        //}
+                //        //    lblmessage1.Text = "Payment is not done sucessfully please try again....";
+                //        //    PPackage.TransactionID = transactionid;
+                //        //    PPackage.Status = "Fail";
+                //        //    Blogic_Package.BAL_Student_Package_Update_TransactionMaster(PPackage, "Responce server is not verify", mmp_Transaction, Product, BankName, BankTransactionId, Udf1, Udf2, Udf3, Udf4, Udf5, Udf6, "");
+                //        //    Response.AddHeader("REFRESH", "10;URL=SelectPackage.aspx");
+                //        //}
 
-                        // CHECK THE PAYMENT STATUS AND VALIDATE THE TRANSACTION ID
+                //        // CHECK THE PAYMENT STATUS AND VALIDATE THE TRANSACTION ID
 
-                        if (PaymentStatus.ToUpper().Trim() == "OK" && transactionid.Trim() == MerchantTransactionId.Trim())
-                        {
-                            lblthankyou.Text = " Thank You ";
-                            lblthankyou.ForeColor = System.Drawing.Color.Black;
-                            lblmessage1.Text = " Your Transaction is successfull Please note down your Transaction number for further use. ";
-                            lbltransactionnumber.Text = "Your Transaction Number is: " + transactionid;
-                            transactionid = Session["TransactionID"].ToString();
-                            Blogic_Package = new Package_BLogic();
-                            PPackage = new Package();
-                            DataTable dt = (DataTable)(Session["SelectedPackage"]);
-                            for (int i = 0; i < dt.Rows.Count; i++)
-                            {
-                                PPackage.PackageFD_ID = Convert.ToInt64(dt.Rows[i]["PackageID"].ToString());
-                                PPackage.StudentID = AppSessions.StudentID;
-                                PPackage.PackageActivationDate = Convert.ToDateTime(dt.Rows[i]["ActivateOn"].ToString());
-                                PPackage.EndDate = Convert.ToDateTime(dt.Rows[i]["ExpiryDate"].ToString());
-                                PPackage.TransactionID = transactionid.ToString();
+                //        if (PaymentStatus.ToUpper().Trim() == "OK" && transactionid.Trim() == MerchantTransactionId.Trim())
+                //        {
+                //            lblthankyou.Text = " Thank You ";
+                //            lblthankyou.ForeColor = System.Drawing.Color.Black;
+                //            lblmessage1.Text = " Your Transaction is successfull Please note down your Transaction number for further use. ";
+                //            lbltransactionnumber.Text = "Your Transaction Number is: " + transactionid;
+                //            transactionid = Session["TransactionID"].ToString();
+                //            Blogic_Package = new Package_BLogic();
+                //            PPackage = new Package();
+                //            DataTable dt = (DataTable)(Session["SelectedPackage"]);
+                //            for (int i = 0; i < dt.Rows.Count; i++)
+                //            {
+                //                PPackage.PackageFD_ID = Convert.ToInt64(dt.Rows[i]["PackageID"].ToString());
+                //                PPackage.StudentID = AppSessions.StudentID;
+                //                PPackage.PackageActivationDate = Convert.ToDateTime(dt.Rows[i]["ActivateOn"].ToString());
+                //                PPackage.EndDate = Convert.ToDateTime(dt.Rows[i]["ExpiryDate"].ToString());
+                //                PPackage.TransactionID = transactionid.ToString();
 
-                                Blogic_Package.BAL_Student_Package_Insert(PPackage);
-                            }
+                //                Blogic_Package.BAL_Student_Package_Insert(PPackage);
+                //            }
 
-                            PPackage = new Package();
-                            PPackage.TransactionID = transactionid;
-                            PPackage.Status = "OK";
-                            PPackage.InvoiceID = GetInvoiceID();
-                            PPackage.Currency = "INR";
-                            Blogic_Package.BAL_Student_Package_Update_TransactionMaster(PPackage, "Transaction Is Successfull", mmp_Transaction, Product, BankName, BankTransactionId, Udf1, Udf2, Udf3, Udf4, Udf5, Udf6, "");
-                            SendTransactionDetails(BuildEmailBody("Epathshala", Udf1, Udf3, Udf2, Convert.ToDecimal(Amount), BankName, DateTime.Now.ToString("dd-MMM-yyyy hh:mm:ss"), PaymentStatus, transactionid, mmp_Transaction));
-                            Response.AddHeader("REFRESH", "10;URL=../Report/StudentPackageReport.aspx");
+                //            PPackage = new Package();
+                //            PPackage.TransactionID = transactionid;
+                //            PPackage.Status = "OK";
+                //            PPackage.InvoiceID = GetInvoiceID();
+                //            PPackage.Currency = "INR";
+                //            Blogic_Package.BAL_Student_Package_Update_TransactionMaster(PPackage, "Transaction Is Successfull", mmp_Transaction, Product, BankName, BankTransactionId, Udf1, Udf2, Udf3, Udf4, Udf5, Udf6, "");
+                //            SendTransactionDetails(BuildEmailBody("Epathshala", Udf1, Udf3, Udf2, Convert.ToDecimal(Amount), BankName, DateTime.Now.ToString("dd-MMM-yyyy hh:mm:ss"), PaymentStatus, transactionid, mmp_Transaction));
+                //            Response.AddHeader("REFRESH", "10;URL=../Report/StudentPackageReport.aspx");
 
 
-                        }
+                //        }
 
-                        else if (PaymentStatus.ToUpper().Trim() == "C")
-                        {
-                            lblthankyou.ForeColor = System.Drawing.Color.Black;
-                            lblmessage1.Text = " You have cancelled transaction.";
-                            PPackage = new Package();
-                            Blogic_Package = new Package_BLogic();
-                            PPackage.TransactionID = transactionid;
-                            PPackage.Status = "Cancel";
-                            PPackage.Currency = "INR";
-                            Blogic_Package.BAL_Student_Package_Update_TransactionMaster(PPackage, "Transaction cancelled by user.", mmp_Transaction, Product, BankName, BankTransactionId, Udf1, Udf2, Udf3, Udf4, Udf5, Udf6, "");
-                            SendTransactionDetails(BuildEmailBody("Epathshala", AppSessions.UserName, Session["MobileNumber"].ToString(), AppSessions.LoginID, Convert.ToDecimal(Amount), BankName, DateTime.Now.ToString("dd-MMM-yyyy hh:mm:ss"), "Transaction cancelled by user.", transactionid, mmp_Transaction));
-                            RedirectPage();
-                            //Response.AddHeader("REFRESH", "10;URL=../Dashboard/StudentDashboard.aspx");
-                        }
-                        else
-                        {
-                            //lblmessage.Text = "PAYMENT STATUS IS NOT SUCCESS OR TRANSACTION ID IS NOT VERIFIED";
-                            lblthankyou.Text = " Sorry for inconvenience ";
-                            lblthankyou.ForeColor = System.Drawing.Color.Red;
-                            //lblmessage.ForeColor = System.Drawing.Color.Red;
-                            lblmessage1.Text = "Transaction not successful please try again....";
-                            lblmessage1.ForeColor = System.Drawing.Color.Red;
-                            PPackage = new Package();
-                            Blogic_Package = new Package_BLogic();
-                            PPackage.TransactionID = transactionid;
-                            PPackage.Status = "Fail";
-                            PPackage.Currency = "INR";
-                            //PPackage.InvoiceID = GetInvoiceID();
-                            Blogic_Package.BAL_Student_Package_Update_TransactionMaster(PPackage, "Transaction not successful or transaction ID not varified", mmp_Transaction, Product, BankName, BankTransactionId, Udf1, Udf2, Udf3, Udf4, Udf5, Udf6, "");
-                            SendTransactionDetails(BuildEmailBody("Epathshala", Udf1, Udf3, Udf2, Convert.ToDecimal(Amount), BankName, DateTime.Now.ToString("dd-MMM-yyyy hh:mm:ss"), "Fail", transactionid, mmp_Transaction));
-                            RedirectPage();
-                            //Response.AddHeader("REFRESH", "10;URL=SelectPackage.aspx");
-                        }
-                    }
-                    else
-                    {
+                //        else if (PaymentStatus.ToUpper().Trim() == "C")
+                //        {
+                //            lblthankyou.ForeColor = System.Drawing.Color.Black;
+                //            lblmessage1.Text = " You have cancelled transaction.";
+                //            PPackage = new Package();
+                //            Blogic_Package = new Package_BLogic();
+                //            PPackage.TransactionID = transactionid;
+                //            PPackage.Status = "Cancel";
+                //            PPackage.Currency = "INR";
+                //            Blogic_Package.BAL_Student_Package_Update_TransactionMaster(PPackage, "Transaction cancelled by user.", mmp_Transaction, Product, BankName, BankTransactionId, Udf1, Udf2, Udf3, Udf4, Udf5, Udf6, "");
+                //            SendTransactionDetails(BuildEmailBody("Epathshala", AppSessions.UserName, Session["MobileNumber"].ToString(), AppSessions.LoginID, Convert.ToDecimal(Amount), BankName, DateTime.Now.ToString("dd-MMM-yyyy hh:mm:ss"), "Transaction cancelled by user.", transactionid, mmp_Transaction));
+                //            RedirectPage();
+                //            //Response.AddHeader("REFRESH", "10;URL=../Dashboard/StudentDashboard.aspx");
+                //        }
+                //        else
+                //        {
+                //            //lblmessage.Text = "PAYMENT STATUS IS NOT SUCCESS OR TRANSACTION ID IS NOT VERIFIED";
+                //            lblthankyou.Text = " Sorry for inconvenience ";
+                //            lblthankyou.ForeColor = System.Drawing.Color.Red;
+                //            //lblmessage.ForeColor = System.Drawing.Color.Red;
+                //            lblmessage1.Text = "Transaction not successful please try again....";
+                //            lblmessage1.ForeColor = System.Drawing.Color.Red;
+                //            PPackage = new Package();
+                //            Blogic_Package = new Package_BLogic();
+                //            PPackage.TransactionID = transactionid;
+                //            PPackage.Status = "Fail";
+                //            PPackage.Currency = "INR";
+                //            //PPackage.InvoiceID = GetInvoiceID();
+                //            Blogic_Package.BAL_Student_Package_Update_TransactionMaster(PPackage, "Transaction not successful or transaction ID not varified", mmp_Transaction, Product, BankName, BankTransactionId, Udf1, Udf2, Udf3, Udf4, Udf5, Udf6, "");
+                //            SendTransactionDetails(BuildEmailBody("Epathshala", Udf1, Udf3, Udf2, Convert.ToDecimal(Amount), BankName, DateTime.Now.ToString("dd-MMM-yyyy hh:mm:ss"), "Fail", transactionid, mmp_Transaction));
+                //            RedirectPage();
+                //            //Response.AddHeader("REFRESH", "10;URL=SelectPackage.aspx");
+                //        }
+                //    }
+                //    else
+                //    {
                         CCAvenueTransation();
-                    }
-                }
-                else
-                {
-                    Response.Redirect("StudentDashboard.aspx");
+                //    }
+                //}
+                //else
+                //{
+                //    Response.Redirect("StudentDashboard.aspx");
 
-                }
+                //}
             }
 
         }

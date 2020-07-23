@@ -12,6 +12,7 @@ using System.Text;
 using System.Web.Script.Serialization;
 using CCA.Util;
 
+
 public partial class PackagePaymentNew : System.Web.UI.Page
 {
     #region Declaration
@@ -36,9 +37,9 @@ public partial class PackagePaymentNew : System.Web.UI.Page
                 if (Request.QueryString["PageIndex"] != null)
                     Pageindex = Request.QueryString["PageIndex"].ToString();
 
-                if (Session["country_name"].ToString().ToLower() == "india")
-                    paymentmode.Visible = true;
-                else
+                //if (Session["country_name"].ToString().ToLower() == "india")
+                //    paymentmode.Visible = true;
+                //else
                     paymentmode.Visible = false;
             }
             else
@@ -85,18 +86,18 @@ public partial class PackagePaymentNew : System.Web.UI.Page
     {
         try
         {
-            if (Session["country_name"].ToString().ToLower() == "india")
-            {
-                transactiontype = hftransactiontype.Value.ToString();
-                if (transactiontype.ToString() != string.Empty)
-                    BuyPackage();
-                else
-                {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "msg", "alert('Please select transaction type.')", true);
-                }
-            }
-            else
-            {
+            //if (Session["country_name"].ToString().ToLower() == "india")
+            //{
+            //    transactiontype = hftransactiontype.Value.ToString();
+            //    if (transactiontype.ToString() != string.Empty)
+            //        BuyPackage();
+            //    else
+            //    {
+            //        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "msg", "alert('Please select transaction type.')", true);
+            //    }
+            //}
+            //else
+            //{
                 DataSet dsSettings = new DataSet();
                 Teacher_Dashboard_BLogic obj_BAL_Teacher_Dashboard = new Teacher_Dashboard_BLogic();
 
@@ -112,9 +113,9 @@ public partial class PackagePaymentNew : System.Web.UI.Page
                 dsSettings = obj_BAL_Teacher_Dashboard.BAL_Select_CoveredUncoverChapterTopic_Settings("CCAvenue_URL");
                 string CCAvenue_URL = dsSettings.Tables[0].Rows[0]["value"].ToString().Trim();
 
-                string merchant_id = CCAvenue_merchant_id; //"99522";
-                string access_code = CCAvenue_access_code;  //"AVFW65DE39BV30WFVB";
-                string Working_key = CCAvenue_Working_key;  //"E85FE1783919FA34A4758580E844135A";
+                string merchant_id = "264897"; //CCAvenue_merchant_id; //"99522";
+                string access_code = "AVJH93HG41AV94HJVA"; //CCAvenue_access_code;  //"AVFW65DE39BV30WFVB";
+            string Working_key = "198C5C10C9BC8B5FEB23250E347F7A4C";// CCAvenue_Working_key;  //"E85FE1783919FA34A4758580E844135A";
                 string amount = PackagePrice.ToString();  //"1";
                 string requesturl = "";
                 string ccaRequest = "";
@@ -126,13 +127,15 @@ public partial class PackagePaymentNew : System.Web.UI.Page
                 Uri redirect_Uri = new Uri(System.Web.HttpContext.Current.Request.Url, "PaymentResponseATOM.aspx");
                 string redirect_url = redirect_Uri.ToString();
 
-                Uri cancel_Uri = new Uri(System.Web.HttpContext.Current.Request.Url, "BuyPackage.aspx");
+                Uri cancel_Uri = new Uri(System.Web.HttpContext.Current.Request.Url, "../NewPublic/PackageBuy.aspx");
                 string cancel_url = cancel_Uri.ToString();
 
 
                 //string ccaRequest = "tid=1&merchant_id=" + merchant_id + "&order_id=1&amount=1.00&currency=INR&redirect_url=" + redirect_url + "&cancel_url=" + cancel_url + "&billing_name=Arraycom&billing_address=Gandhinagar&billing_city=Gandhinagar&billing_state=Gujarat&billing_zip=425001&billing_country=Dubai&billing_tel=9327035124&billing_email=disha.vaghela@epath.net.in&delivery_name=Disha&merchant_param1=additional Info.&merchant_param2=additional Info.&merchant_param3=additional Info.&merchant_param4=additional Info.&merchant_param5=additional Info.&integration_type=iframe_normal&promo_code=&customer_identifier=&";
                 PackagePrice = Convert.ToDecimal(Session["PackagePrice"].ToString().Trim());
-                TransactionID = GetTransactionID("CCAvenue");
+                Random rnd = new Random();
+            
+            TransactionID = GetTransactionID("CCAvenue")+ rnd.Next(1000);
                 ccaRequest = "tid=" + TransactionID + "&merchant_id=" + merchant_id + "&order_id=" + TransactionID + "&amount=" + PackagePrice + "&currency=" + Session["CurrencyType"].ToString() + "&redirect_url=" + redirect_url + "&cancel_url=" + cancel_url;
 
                 strEncRequest = ccaCrypto.Encrypt(ccaRequest, Working_key);
@@ -140,7 +143,7 @@ public partial class PackagePaymentNew : System.Web.UI.Page
                 requesturl = CCAvenue_URL + strEncRequest + "&access_code=" + access_code;
                 InsertIntoTransactionMaster("CCAvenue");
                 Response.Redirect(requesturl, false);
-            }
+           // }
         }
         catch (Exception)
         {
@@ -395,12 +398,13 @@ public partial class PackagePaymentNew : System.Web.UI.Page
     #endregion
     protected void btngoback_Click(object sender, EventArgs e)
     {
-        if (Pageindex == "0")
+        Response.Redirect("../NewPublic/PackageBuy.aspx", false);
+        //if (Pageindex == "0")
 
-            Response.Redirect("SelectPackage.aspx", false);
-        else
-            Response.Redirect("BuyPackage.aspx", false);
-    }
+        //    Response.Redirect("SelectPackage.aspx", false);
+        //else
+        //    Response.Redirect("BuyPackage.aspx", false);
+        }
 
     /* Code for CCAvenue integration. START*/
     public string GetClientIPAddress()

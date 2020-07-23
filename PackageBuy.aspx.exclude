@@ -1,0 +1,52 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GenericMasterPage.master" AutoEventWireup="true" CodeFile="PackageBuy.aspx.cs" Inherits="PackageBuy" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card">
+                   Current Package
+                    <asp:GridView ID="Grvcurrentpackage" runat="server" AutoGenerateColumns="false" DataKeyNames="PackageFD_ID"  EmptyDataText="No active packages not available">
+
+                    </asp:GridView>
+                </div>
+                <div class="card">
+                     
+                </div>
+            </div>
+             <div class="col-lg-3">
+	            <div class="card mb-3">
+	                <div class="card-body">
+	                     
+	                        <div class="form-group"> <label>Have coupon?</label>
+	                            <div class="input-group"> <asp:TextBox id="Txtcoupon" runat="server"  class="form-control coupon"  placeholder="Coupon code"></asp:TextBox> <span class="input-group-append"> 
+                                    <asp:Button  id="Btcoupon" runat="server" class="btn btn-primary btn-apply coupon" Text="Apply"> </asp:Button> </span> </div>
+	                        </div>
+	                     
+	                </div>
+	            </div>
+	            <div class="card">
+	                <div class="card-body">
+	                    <dl class="dlist-align">
+	                        <dt>Total price:</dt>
+	                        <asp:Label ID="lblprice" runat="server"></asp:Label>
+	                    </dl>
+	                    <dl class="dlist-align">
+	                        <dt>Discount:</dt>
+	                          <asp:Label ID="lbldiscount" runat="server"></asp:Label>
+	                    </dl>
+	                    <dl class="dlist-align">
+	                        <dt>Total:</dt>
+	                         <asp:Label ID="Lblfinal" runat="server"></asp:Label>
+	                    </dl>
+	                    <hr> <a href="#" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Make Purchase </a>  
+	                </div>
+	            </div>
+	        </div>
+        </div>
+    </div>
+
+</asp:Content>
+

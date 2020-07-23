@@ -30,11 +30,15 @@ public partial class Logout : System.Web.UI.Page
             //    sessions = new Hashtable();
             //}
 
-         
+
             //Changed date:07-06-2020 Reason:update userlogtime for students
             UserLogtime_BLogic userblogic = new UserLogtime_BLogic();
             HttpSessionState ss = HttpContext.Current.Session;
             string studentid = AppSessions.StudentID.ToString();
+            if (Request.QueryString["param"] != null)
+            {
+                studentid = Convert.ToString(Request.QueryString["param"]);
+            }
             if (studentid != "0")
             {
                 UserLogtime userlogtime = new UserLogtime();
@@ -44,8 +48,8 @@ public partial class Logout : System.Web.UI.Page
                 userlogtime.isOffline = true;
                 userblogic.BAL_Logtime_Update(userlogtime);
             }
-          //  ss.RemoveAll();
-          
+            //  ss.RemoveAll();
+
             Hashtable sessions = (Hashtable)Application["WEB_SESSIONS_OBJECT"];
             if (sessions == null)
             {
@@ -57,10 +61,10 @@ public partial class Logout : System.Web.UI.Page
             {
                 existingUserSession = null;
             }
-        
+
             Session.RemoveAll();
             Session.Abandon();
-          
+
             Application.Lock();
             Application["WEB_SESSIONS_OBJECT"] = sessions;
             Application.UnLock();
@@ -73,10 +77,14 @@ public partial class Logout : System.Web.UI.Page
 
             HttpContext.Current.Session.Clear();
             HttpContext.Current.Session.Abandon();
-           
-            Response.Redirect("SwayamDemoHomepage.aspx");
- 
+            if (Request.QueryString["param"] != null)
+            {
+                Response.Redirect("~/NewPublic/UserLogin.aspx");
             }
+            else
+            { Response.Redirect("SwayamDemoHomepage.aspx"); }
+
+        }
         catch (Exception ex)
         {
         }
@@ -85,7 +93,7 @@ public partial class Logout : System.Web.UI.Page
 
     # region Control events
     # endregion
-    
+
     # region User defined function
     # endregion
 }

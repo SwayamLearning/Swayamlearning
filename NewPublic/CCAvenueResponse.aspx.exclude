@@ -1,0 +1,39 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NewPublic/materialMaster.master" AutoEventWireup="true" CodeFile="CCAvenueResponse.aspx.cs" Inherits="NewPublic_CCAvenueResponse" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+     <div  id="process" runat="server" align="center" style="vertical-align: middle; margin-top: 110px; margin-left: 170px;
+        width: 70%">
+        <table style="border-width: 1px; height: 167px; width: 70%; border-collapse: collapse;
+            border: 1px solid black;">
+            
+            <tr>
+                <td align="left" style="width: 20%; padding-left: 10px; padding-bottom: 30px; padding-top: 20px;">
+                    <img src="../App_Themes/Home/Homepagenewimages/Logonew.png" width="150" alt="Swayam Learning" />
+                </td>
+                <td align="left" style="width: 80%; padding-left: 50px; padding-bottom: 30px; padding-top: 20px;">
+                    <h1>
+                        <asp:Label ID="lblthankyou" runat="server" ></asp:Label></h1>
+                    <br />
+                    <h3>
+                        <asp:Label ID="lbltransactionnumber" runat="server" Text=""></asp:Label>
+                        <br />
+                        <asp:Label runat="server" ID="lblmessage1"></asp:Label>
+                    </h3>
+                </td>
+            </tr>
+            
+            <tr align="center">
+                <td colspan="2" style="width: 100%; height: 2px;" >
+                    Please do not refresh the page or click the "Back" or "Close" button of your browser.
+                    <img src="../App_Themes/Responsive/web/v11_wait_bar.gif" height="30px" width="100%"
+                        alt="Please wait" />
+                </td>
+            </tr>
+        </table>
+        
+    </div>
+    
+</asp:Content>
+
