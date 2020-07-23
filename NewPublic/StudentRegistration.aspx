@@ -363,6 +363,56 @@
      window.onpageshow = function(evt) { if (evt.persisted) DisableBackButton() }
      window.onunload = function() { void (0) }
  </script>
+     <script src="../Scripts/Jquery1.9.1.js"></script>
+   <script>
+       $(document).ready(function () {
+           $("#txtusername").keyup(function () {
+               console.log($("#txtusername")[0].value)
+               UserOrEmailAvailability();
+               
+           });
+       });
+   </script>
+     <script type="text/javascript">
+
+         
+         function UserOrEmailAvailability() { //This function call on text change.             
+             $("#loaderIcon").show();
+             $.ajax({
+                 type: "POST",
+                 url: "StudentRegistration.aspx/CheckEmail", // this for calling the web method function in cs code.  
+                 data: '{useroremail: "' + $("#txtusername")[0].value + '" }',// user name or email value  
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: OnSuccess,
+                failure: function (response) {
+                    alert(response);
+                }
+             });
+
+        }
+
+        // function OnSuccess  
+        function OnSuccess(response) {
+            var msg = $("#lblStatus")[0];
+            switch (response.d) {
+                case "true":
+                    msg.style.display = "block";
+                    msg.style.color = "red";
+                    msg.innerHTML = "User Name already exists.";
+                    $("#btnsubmit").prop("disabled", true);
+                    break;
+                case "false":
+                    msg.style.display = "block";
+                    msg.style.color = "green";
+                    msg.innerHTML = "User Name Available";
+                    $("#btnsubmit").prop("disabled", false);
+                    break;
+            }
+            $("#loaderIcon").hide();
+        }
+
+    </script>  
 </head>
 <body>
     <form id="form1" runat="server">
@@ -481,6 +531,17 @@
                                 ControlToValidate="TxtOTP" ValidationGroup="a" meta:resourcekey="ReqFieldContactNoResource1" Text="*"></asp:RequiredFieldValidator>
                         </div>
                     </div>
+                     <div class="form-row">
+                          <div class="form-group col-md-4">
+                            <asp:Label ID="lblUsername" runat="server" Visible="False" meta:resourcekey="lblUsernameResource1" ></asp:Label><br />
+                           <%-- <asp:Button ID="btnUsername" runat="server" CssClass="btn btn-dark submitrow" visible="false" Text="User name" OnClick="btnusername_Click" />--%>
+                            <asp:TextBox ID="txtusername" runat="server" MaxLength="30"  placeholder="Username" CssClass="form-control" meta:resourcekey="txtUsernameResource1" ></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="ReqFieldUsername" runat="server" ErrorMessage="Enter Username."
+                                ControlToValidate="txtusername" ValidationGroup="a" meta:resourcekey="ReqFieldUsernameResource1" Text="*"></asp:RequiredFieldValidator>
+                              <img src="../App_Themes/Home/assets/loader.gif" id="loaderIcon" style="display:none" />
+                              <asp:Label ID="lblStatus" runat="server" meta:resourcekey="lblStatusResource1" ></asp:Label>
+                        </div>
+                         </div>
                     <div class="form-row">
                         <div class="col-md-6 form-group">
                              

@@ -75,11 +75,17 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
                 string lname =  "અટક".ToString();
                 string sname = "સ્કૂલ નામ".ToString();
                string email =  "ઇમેઇલ".ToString();
+               string username = "વપરાશકર્તા નામ".ToString();
+               string signup = "સાઇન અપ".ToString();
                 txtContactNo.Attributes.Add("Placeholder", contact);
                 txtFirstName.Attributes.Add("Placeholder", fname);
                 txtLastName.Attributes.Add("Placeholder", lname);
                 txtSchoolname.Attributes.Add("Placeholder",sname);
                 txtEmail.Attributes.Add("Placeholder", email);
+                txtusername.Attributes.Add("Placeholder", username);
+                btnsubmit.Text = signup.ToString();
+                Label1.Text = "કૃપા કરીને તમારી વિગતો ભરો";
+                Label3.Text = "હોમ પેજ";
             }
             if (culture == "hi-IN")
                 {
@@ -98,11 +104,17 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
                 string lname = "उपनाम".ToString();
                 string sname = "विद्यालय का नाम".ToString();
                 string email = "ईमेल".ToString();
+                string username = "उपयोगकर्ता नाम".ToString();
+               string signup = "साइन अप".ToString(); 
                 txtContactNo.Attributes.Add("Placeholder", contact);
                 txtFirstName.Attributes.Add("Placeholder", fname);
                 txtLastName.Attributes.Add("Placeholder", lname);
                 txtSchoolname.Attributes.Add("Placeholder", sname);
                 txtEmail.Attributes.Add("Placeholder", email);
+                txtusername.Attributes.Add("Placeholder", username);
+                btnsubmit.Text = signup.ToString();
+                Label1.Text = "कृपया अपना विवरण भरें";
+                Label3.Text = "मुख पृष्ठ";
                 }
             ViewState["txtotp"] = TxtOTP.Text;
             }
@@ -116,8 +128,8 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
         //Captcha1.ValidateCaptcha(TxtBxCap.Text.Trim());
         try
         {
-            if (verifyLoginID())
-                {
+            //if (verifyLoginID())
+            //    {
                 //if (!CheckPasswordComplexcity())
                 //{
                 //    WebMsg.Show("Invalid password format, please enter minimum 6 alphanumeric character with @ # $ %. Sign.");
@@ -142,7 +154,7 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
                 Student.divisionid = 1;
                 Student.bmsid = (int)ViewState["BMSID"];
                 //ViewState["BMSID"] = int.Parse(ddlBMS.SelectedValue);
-                Student.loginid = txtContactNo.Text;
+                Student.loginid = txtusername.Text;
                     Student.emailid = txtEmail.Text;
                 //Student.password = txtPassword.Text;
                 Student.password = ViewState["strpassword"].ToString();
@@ -196,11 +208,11 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
                 //        ClearRegisterControls();
                 //        }
                 //    }
-            }
-            else
-            {
-                WebMsg.Show("LoginID already exist..");
-            }
+            //}
+            //else
+            //{
+            //    WebMsg.Show("LoginID already exist..");
+            //}
         }
         catch (FormatException fe)
         {
@@ -491,7 +503,7 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
         {
         string msg;
         msg = "Dear  " + txtFirstName.Text + "\n"+ "Thank you for registering with SwayamLearning"+ "\n";
-        msg = msg + "visit:http://swayamlearning.org with \n Loginid:" + txtContactNo.Text + "\n"+"Password:" + ViewState["strpassword"].ToString();
+        msg = msg + "visit:http://swayamlearning.org with \n Loginid:" + txtusername.Text + "\n"+"Password:" + ViewState["strpassword"].ToString();
         msg = msg + "\n" + "Swayam Learning - Support Team";
         return msg;
         }
@@ -499,7 +511,7 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
         {
         string msg;
         msg = "પ્રિય  " + txtFirstName.Text + "\n"+"સ્વયલેરિંગ સાથે નોંધણી કરવા બદલ આભાર";
-        msg = msg + "\n"+ "વેબસાઇટ http://swayamlearning.org \nલૉગિન આઈડી:" + txtContactNo.Text +"\n"+ "પાસવર્ડ:" + ViewState["strpassword"].ToString();
+        msg = msg + "\n"+ "વેબસાઇટ http://swayamlearning.org \nલૉગિન આઈડી:" + txtusername.Text +"\n"+ "પાસવર્ડ:" + ViewState["strpassword"].ToString();
         msg = msg + "\n"+ "સ્વયમ લર્નિંગ - સપોર્ટ ટીમ";
         return msg;
         }
@@ -507,7 +519,7 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
         {
         string msg;
         msg = "પ્રિય  " + txtFirstName.Text + "\n" + "स्वयं लर्निंग के साथ पंजीकरण करने के लिए धन्यवाद";
-        msg = msg + "\n" + "वेबसाइट http://swayamlearning.org \nलॉगिन आईडी" + txtContactNo.Text + "\n" + "पासवर्ड:" + ViewState["strpassword"].ToString();
+        msg = msg + "\n" + "वेबसाइट http://swayamlearning.org \nलॉगिन आईडी" + txtusername.Text + "\n" + "पासवर्ड:" + ViewState["strpassword"].ToString();
         msg = msg + "\n" + "स्वयं लर्निंग - सपोर्ट टीम ";
         return msg;
         }
@@ -564,7 +576,7 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
 
             oBuilder.Append("<div><table border=0 cellpadding=5 cellspacing=3 style='border-collapse: collapse;border: 1px SOLID #9B9B9B; margin-left: 90px; width=40%'>");
             oBuilder.Append("<tr><td>Visit:</td><td>http://swayamlearning.org/</td></tr>");
-            oBuilder.Append("<tr><td class=style2>Login ID:</td><td class=style1><b>" + txtContactNo.Text + "</b></td></tr>");
+            oBuilder.Append("<tr><td class=style2>Login ID:</td><td class=style1><b>" + txtusername.Text + "</b></td></tr>");
             oBuilder.Append("<tr><td class=style2>Password:</td><td class=style1><b>" + ViewState["strpassword"].ToString() + "</b></td></tr>");
             oBuilder.Append("<tr><td class=style2 colspan=2>Please do reach us on support@swayamlearning.org for your queries or suggestion.</td></tr>");
             oBuilder.Append("</table></div><br />");
@@ -650,7 +662,7 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
 
             oBuilder.Append("<div><table border=0 cellpadding=5 cellspacing=3 style='border-collapse: collapse;border: 1px SOLID #9B9B9B; margin-left: 90px; width=40%'>");
             oBuilder.Append("<tr><td>વેબસાઇટ:</td><td>http://swayamlearning.org/</td></tr>");
-            oBuilder.Append("<tr><td class=style2>લૉગિન આઈડી:</td><td class=style1><b>" + txtContactNo.Text + "</b></td></tr>");
+            oBuilder.Append("<tr><td class=style2>લૉગિન આઈડી:</td><td class=style1><b>" + txtusername.Text + "</b></td></tr>");
             oBuilder.Append("<tr><td class=style2>પાસવર્ડ:</td><td class=style1><b>" + ViewState["strpassword"].ToString() + "</b></td></tr>");
             oBuilder.Append("<tr><td class=style2 colspan=2પ્રશ્નો અને સપોર્ટ માટે support@swayamlearning.org પર અમારો સંપર્ક કરો.</td></tr>");
             oBuilder.Append("</table></div><br />");
@@ -736,7 +748,7 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
 
             oBuilder.Append("<div><table border=0 cellpadding=5 cellspacing=3 style='border-collapse: collapse;border: 1px SOLID #9B9B9B; margin-left: 90px; width=40%'>");
             oBuilder.Append("<tr><td>वेबसाइट:</td><td>http://swayamlearning.org/</td></tr>");
-            oBuilder.Append("<tr><td class=style2>लॉगिन आईडी:</td><td class=style1><b>" + txtContactNo.Text + "</b></td></tr>");
+            oBuilder.Append("<tr><td class=style2>लॉगिन आईडी:</td><td class=style1><b>" + txtusername.Text + "</b></td></tr>");
             oBuilder.Append("<tr><td class=style2>पासवर्ड</ td><td class=style1><b>" + ViewState["strpassword"].ToString() + "</b></td></tr>");
             oBuilder.Append("<tr><td class=style2 colspan=2सवाल और समर्थन के लिए support@swayamlearning.org पर हमसे संपर्क करें.</td></tr>");
             oBuilder.Append("</table></div><br />");
@@ -840,7 +852,7 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
             DataSet ds = new DataSet();
 
             //Student.loginid = txtEmail.Text;
-            Student.loginid = txtContactNo.Text;
+            Student.loginid = txtusername.Text;
             ds = BAL_Student.BAL_Verify_Student(Student);
             if (ds.Tables[0].Rows.Count > 0 && ds != null)
             {
@@ -1206,4 +1218,34 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
           //  Response.Redirect(HttpContext.Current.Request.Url.ToString(), true);
         }
         }
-    }
+    
+    [System.Web.Services.WebMethod]
+    public static string CheckEmail(string useroremail)
+    {
+        string usernameexist = "false";
+        Student_BLogic Blogic = new Student_BLogic();
+        Student Student = new Student();
+        DataSet ds = new DataSet();     
+       
+
+        //Student.loginid = txtEmail.Text;
+        Student.loginid = useroremail;
+        ds = Blogic.BAL_Verify_Student(Student);
+        // bool existUName=Blogic.BAL_Student_UserNameExists(username);
+        if (ds.Tables[0].Rows.Count > 0)
+        {
+            usernameexist = ds.Tables[0].Rows[0]["LoginID"].ToString();
+            usernameexist = "true";
+            
+        }
+        else
+        {
+            usernameexist = "false";
+        }
+        
+        return usernameexist;
+       
+
+       // return retval;
+    }  
+}
