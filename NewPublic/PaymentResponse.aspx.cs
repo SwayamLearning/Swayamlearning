@@ -278,6 +278,10 @@ public partial class NewPublic_PaymentResponse : System.Web.UI.Page
             PPackage.Retry = retry;
             PPackage.ResponseCode = response_code;
 
+            string[] Ord = order_id.Split('/');
+            string strOrderid = Ord[0].ToString();
+            string[] stdId = Ord[1].ToString().Split(':');
+
             if (order_status.ToUpper().Trim() != "FAILURE" && order_status.ToUpper().Trim() != "ABORTED")
             {
 
@@ -287,26 +291,24 @@ public partial class NewPublic_PaymentResponse : System.Web.UI.Page
                     lblthankyou.Text = " આભાર ";
                     lblthankyou.ForeColor = System.Drawing.Color.Black;
                     lblmessage1.Text = " તમારો લેવડદેવડ સફળતાપૂર્વક છે આગળના ઉપયોગ માટે કૃપા કરીને તમારો વ્યવહાર નંબર નોંધો.     ";
-                    lbltransactionnumber.Text = "તમારો વ્યવહાર નંબર છે: " + order_id;
+                    lbltransactionnumber.Text = "તમારો વ્યવહાર નંબર છે: " + strOrderid;
                 }
                 else if (culture == "hi-IN")
                 {
                     lblthankyou.Text = " धन्यवाद ";
                     lblthankyou.ForeColor = System.Drawing.Color.Black;
                     lblmessage1.Text = " आपका लेन-देन सफल है कृपया आगे उपयोग के लिए अपने लेनदेन नंबर को नोट करें. ";
-                    lbltransactionnumber.Text = "आपका लेनदेन नंबर है: " + order_id;
+                    lbltransactionnumber.Text = "आपका लेनदेन नंबर है: " + strOrderid;
                 }
                 else
                 {
                     lblthankyou.Text = " Thank You ";
                     lblthankyou.ForeColor = System.Drawing.Color.Black;
                     lblmessage1.Text = " Your Transaction is successfull Please note down your Transaction number for further use. ";
-                    lbltransactionnumber.Text = "Your Transaction Number is: " + order_id;
+                    lbltransactionnumber.Text = "Your Transaction Number is: " + strOrderid;
 
                 }
-                string[] Ord = order_id.Split('/');
-                string strOrderid = Ord[0].ToString();
-                string[] stdId = Ord[1].ToString().Split(':');
+              
 
                 // order_id = Session["TransactionID"].ToString();
                 Blogic_Package = new Package_BLogic();
@@ -336,12 +338,12 @@ public partial class NewPublic_PaymentResponse : System.Web.UI.Page
                 PPackage.InvoiceID = GetInvoiceID();
                 Blogic_Package.BAL_Student_Package_Update_TransactionMaster(PPackage, "Transaction is successfull", tracking_id, "CCAvenue", "", bank_ref_no, delivery_name, billing_email, billing_tel, billing_address, "", "", "");
                 if (billing_email != "")
-                    SendTransactionDetails(BuildEmailBody("Swayam Learning", delivery_name, billing_tel, billing_email, Convert.ToDecimal(amount), card_name, DateTime.Now.ToString("dd-MMM-yyyy hh:mm:ss"), order_status.ToString(), order_id, tracking_id), billing_email);
+                    SendTransactionDetails(BuildEmailBody("Swayam Learning", delivery_name, billing_tel, billing_email, Convert.ToDecimal(amount), card_name, DateTime.Now.ToString("dd-MMM-yyyy hh:mm:ss"), order_status.ToString(), strOrderid, tracking_id), billing_email);
                 if (billing_tel != "")
-                    SendSMS(billing_tel, BuildSMSBody(order_id, order_status, tracking_id, amount, billing_name));
+                    SendSMS(billing_tel, BuildSMSBody(strOrderid, order_status, tracking_id, amount, billing_name));
                 string message = "Transaction successful Login again ";
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "msg", "alert(" + message + ")", true);
-
+                AppSessions.StudentID = Convert.ToInt32(stdId[0].ToString());
                 Response.AddHeader("REFRESH", "10;URL=../Logout.aspx?param=" + stdId[0].ToString());
             }
 
@@ -363,22 +365,20 @@ public partial class NewPublic_PaymentResponse : System.Web.UI.Page
                 {
                     lblmessage1.Text = " You have cancelled transaction.";
                 }
-                string[] Ord = order_id.Split('/');
-                string strOrderid = Ord[0].ToString();
-                string[] stdId = Ord[1].ToString().Split(':');
+              
 
                 Blogic_Package = new Package_BLogic();
                 PPackage = new Package();
                 PPackage.TransactionID = strOrderid;
                 PPackage.Status = order_status;
                 Blogic_Package.BAL_Student_Package_Update_TransactionMaster(PPackage, "Transaction cancelled by user.", tracking_id, "CCAvenue", "", bank_ref_no, delivery_name, billing_email, billing_tel, billing_address, "", "", "");
-                //if (billing_email != "")
-                //    SendTransactionDetails(BuildEmailBody("Swayam Learning", AppSessions.UserName, billing_tel, AppSessions.LoginID, Convert.ToDecimal(amount), card_name, DateTime.Now.ToString("dd-MMM-yyyy hh:mm:ss"), "Transaction cancelled by user.", order_id, tracking_id), billing_email);
+                if (billing_email != "")
+                    SendTransactionDetails(BuildEmailBody("Swayam Learning", billing_name, billing_tel, billing_email, Convert.ToDecimal(amount), card_name, DateTime.Now.ToString("dd-MMM-yyyy hh:mm:ss"), "Transaction cancelled by user.", strOrderid, tracking_id), billing_email);
                 //if (billing_tel != "")
                 //{
                 //    //  SendTransactionDetails(BuildSMSBody("Swayam Learning",AppSessions.UserName,Session))
                 //}
-
+                AppSessions.StudentID = Convert.ToInt32(stdId[0].ToString());
                 Response.AddHeader("REFRESH", "10;URL=../Logout.aspx?param=" + stdId[0].ToString());
                // RedirectPage();
                 //Response.AddHeader("REFRESH", "10;URL=../Dashboard/StudentDashboard.aspx");
@@ -408,15 +408,18 @@ public partial class NewPublic_PaymentResponse : System.Web.UI.Page
                     lblmessage1.ForeColor = System.Drawing.Color.Red;
                 }
                 Blogic_Package = new Package_BLogic();
-                string[] Ord = order_id.Split('/');
-                string strOrderid = Ord[0].ToString();
-                string[] stdId = Ord[1].ToString().Split(':');
+              
                 PPackage.TransactionID = strOrderid;
                 PPackage.Status = order_status;
 
                 //PPackage.InvoiceID = GetInvoiceID();
                 Blogic_Package.BAL_Student_Package_Update_TransactionMaster(PPackage, "Transaction is not successful", tracking_id, "CCAvenue", "", bank_ref_no, delivery_name, billing_email, billing_tel, billing_address, "", "", "");
-                SendTransactionDetails(BuildEmailBody("Swayam Learning", delivery_name, billing_tel, billing_email, Convert.ToDecimal(amount), card_name, DateTime.Now.ToString("dd-MMM-yyyy hh:mm:ss"), "Fail", order_id, tracking_id), billing_email);
+
+                if (billing_email != "")
+                SendTransactionDetails(BuildEmailBody("Swayam Learning", delivery_name, billing_tel, billing_email, Convert.ToDecimal(amount), card_name, DateTime.Now.ToString("dd-MMM-yyyy hh:mm:ss"), "Fail", strOrderid, tracking_id), billing_email);
+
+
+                AppSessions.StudentID = Convert.ToInt32(stdId[0].ToString());
                 Response.AddHeader("REFRESH", "10;URL=../Logout.aspx?param=" + stdId[0].ToString());
                 //Response.AddHeader("REFRESH", "10;URL=SelectPackage.aspx");
             }
