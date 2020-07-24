@@ -96,18 +96,18 @@
 </head>
 <body>
     <form id="form1" runat="server" class="container">
-
+   
     <div class="row" >
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 15px; overflow: auto;">
             <div class="col-md-8 col-md-offset-2">
                 <asp:Panel ID="pnlInvoice" runat="server">
-                <table style="width:100%;"   cellpadding="10" id="tblinvoice" runat="server">
+                <table style="width:100%;"   cellpadding="10" id="tblinvoice" runat="server" border="1">
                     <tr style="border-color: #000000; border-bottom-style: solid; border-bottom-width: 1px;">
-                        <td style="width: 80%;">
+                        <td style="width: 80%;" >
                             <%--<img src="App_Themes/Responsive/web/logo.png" alt="Epathshala logo" id="dvICICIEpath"
                                 runat="server" />--%>Swayam Learning
                         </td>
-                        <td align="right" style="width: 20%;">
+                        <td align="right" style="width: 20%;text-align:right">
                             <div align="left">
                                 Swayam Learning Pvt Ltd
                                 <br />
@@ -117,13 +117,13 @@
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
+                     <tr>
+                        <td style="width: 80%;" >
                             <%--<span>Student Name:</span> <u><span style="padding-left: 10px;">Nilofar Dabhi </span></u>--%>
                             <br />
                             <asp:Label ID="lblstudentname" runat="server" Text="Student Name: Nilofar Dabhi"></asp:Label>
                             <br />
-                            <table style="border: none; width: 100%;">
+                            <table style="border: none; width: 100%;" border="0" width="100%">
                                 <tr style="width: 100%;">
                                     <td style="width: 20%;">
                                         <asp:Label ID="lblboard" runat="server" Text="Board: Gujarat Board"></asp:Label>
@@ -142,7 +142,7 @@
                             standard 7 (sem-02) </span></u>--%>
                             <br />
                         </td>
-                        <td style="min-width=100px;">
+                        <td align="right" style="width: 20%;">
                             <asp:Label ID="lblinvoicenumber" runat="server"></asp:Label>
                             <br />
                             <asp:Label ID="lblinvoicedate" runat="server" Text="Invoice Date:"></asp:Label>
@@ -156,7 +156,7 @@
                 </td>
             </tr>--%>
                     <tr>
-                        <td colspan="2">
+                        <td colspan="2" width="100%">
                             <div>
 
                               
@@ -231,20 +231,23 @@
                                     <tr>
                                         <td colspan="5" align="right" style="border-color: #000000; border-right-style: solid;
                                             border-right-width: 1px;">
-                                            <span style="padding-right: 10px;">CGST @9%</span>
+                                            <span style="padding-right: 10px;">
+                                                <asp:Label ID="lblCgstTitle" runat="server" Text="CGST @9%"></asp:Label>
+                                                </span>
                                         </td>
                                         <td align="right">
                                             +&nbsp;
                                             <asp:Label ID="lbltax" runat="server"></asp:Label>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr id="SGSTRow" runat="server">
                                         <td colspan="5" align="right" style="border-color: #000000; border-right-style: solid;
                                             border-right-width: 1px;">
-                                            <span style="padding-right: 10px;">SGST @9%</span>
+                                            <span style="padding-right: 10px;">
+                                                <asp:Label ID="lblSgstTitle" runat="server" Text="SGST @9%"></asp:Label></span>
                                         </td>
                                         <td align="right">
-                                            +&nbsp;
+                                            <asp:Label ID="lblplussign" runat="server" Text="+"></asp:Label>&nbsp;
                                             <asp:Label ID="Lblsgst" runat="server"></asp:Label>
                                         </td>
                                     </tr>
@@ -294,7 +297,10 @@
         </div>
     </div>
         <div class="row">
-            <asp:Button ID="btndownload" runat="server" Text="Download PDF" OnClick="btndownload_Click" />
+            <asp:Button ID="btnExportInvoice" runat="server" Text="Dwonload Invoice" OnClick="btnExportInvoice_Click" />
+            <%--<asp:Button ID="btndownload" runat="server" Text="Download PDF" OnClick="btndownload_Click" />
+            <asp:Button ID="btntest" runat="server" Text="Test" OnClick="btntest_Click" />
+            <asp:Button ID="btnNrecoExport" runat="server" Text="Download PDF Nreco" OnClick="btnNrecoExport_Click" />--%>
         </div>
     </form>
 </body>

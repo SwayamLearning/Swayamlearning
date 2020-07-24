@@ -295,8 +295,8 @@
                     <asp:BoundField DataField="Status" HeaderText="Status" />
                     <asp:TemplateField HeaderText="View">
                         <ItemTemplate>
-                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# string.Format("~/Invoice.aspx?PackageName={0}&Subject={1}&ActivateOn={2}&Price={3}&NoOfMonth={4}&ValidTill={5}&TransactionID={6}&RegisteredOn={7}",
-                    HttpUtility.UrlEncode(Eval("PackageName").ToString()), HttpUtility.UrlEncode(Eval("Subject").ToString()), HttpUtility.UrlEncode(Eval("FromDate").ToString()) , HttpUtility.UrlEncode(Eval("Price").ToString()), HttpUtility.UrlEncode(Eval("NoOfMonth").ToString()), HttpUtility.UrlEncode(Eval("ValidTill").ToString()), HttpUtility.UrlEncode(Eval("TransactionID").ToString()), HttpUtility.UrlEncode(Eval("ActivateOn").ToString())) %>'
+                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# string.Format("~/Invoice.aspx?PackageName={0}&Subject={1}&ActivateOn={2}&Price={3}&NoOfMonth={4}&ValidTill={5}&TransactionID={6}&RegisteredOn={7}&StateName={8}",
+                    HttpUtility.UrlEncode(Eval("PackageName").ToString()), HttpUtility.UrlEncode(Eval("Subject").ToString()), HttpUtility.UrlEncode(Eval("FromDate").ToString()) , HttpUtility.UrlEncode(Eval("Price").ToString()), HttpUtility.UrlEncode(Eval("NoOfMonth").ToString()), HttpUtility.UrlEncode(Eval("ValidTill").ToString()), HttpUtility.UrlEncode(Eval("TransactionID").ToString()), HttpUtility.UrlEncode(Eval("ActivateOn").ToString()), HttpUtility.UrlEncode(Eval("StateName").ToString())) %>'
                                 Text="View" Target="_blank" ForeColor="Blue" />
                         </ItemTemplate>
                     </asp:TemplateField>
