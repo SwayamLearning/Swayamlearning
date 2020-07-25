@@ -105,7 +105,9 @@ public partial class NewPublic_PaymentResponse : System.Web.UI.Page
         alistEmailAddress.Add(TransactionMailIDList);
         alistEmailAddress.Add(EmailID);
         // ArrayList alistEmailAddress = new ArrayList(TransactionMailIDList.Split(','));
+        //CommiteAgain
         string response = SendMail(alistEmailAddress, "Transaction Detail ", BuildEmailBody);
+
     }
     private static string SendMail(ArrayList emailId, string mailSubject, string mailContent)
     {

@@ -60,6 +60,7 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
             string culture = ViewState["cultreinfo"].ToString();
             if(culture=="gu-IN")
             {
+
                 //lblname.Visible = true;
                 //lblname.Text = "નામ";
                 //lbllastname.Visible = true;
