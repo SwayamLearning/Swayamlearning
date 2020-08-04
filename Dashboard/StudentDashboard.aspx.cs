@@ -2174,7 +2174,15 @@ public partial class Student_StudentDashboard : System.Web.UI.Page
                     filledbyuser++;
                 }
             }
-
+        try
+        {
+            if (dsSelect.Tables.Count>1)
+            {
+                lblmarqueeBMS.Text = dsSelect.Tables[1].Rows[0][0].ToString();
+            }
+        }
+        catch(Exception ex)
+        { }
         int per = (filledbyuser * 100) / totalfield;
         if (per >= 100)
             dvprofilepercentage.Style["display"] = "none";
