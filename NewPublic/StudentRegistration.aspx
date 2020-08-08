@@ -378,11 +378,7 @@
         window.onunload = function () { void (0) }
     </script>
 
-    <script type="text/javascript">
-        $(function () {
-
-        });
-    </script>
+    
     <script>
         $(document).ready(function () {
             $("#txtusername").keyup(function () {
@@ -654,8 +650,11 @@
                                     <asp:AsyncPostBackTrigger ControlID="ddlMedium" EventName="SelectedIndexChanged" />
                                 </Triggers>
                             </asp:UpdatePanel>
+
                         </div>
                     </div>
+                    <%--<div id="Div1" runat="server" visible="false">--%>
+                    <div style="display:none">
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <asp:Label ID="lblPincode" runat="server" Visible="False" meta:resourcekey="lblPincodeResource1"></asp:Label><br />
@@ -693,6 +692,7 @@
                         </div>
 
                     </div>
+                         </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <asp:Label ID="lblemail" runat="server" Visible="False" meta:resourcekey="lblemailResource1"></asp:Label><br />
@@ -763,6 +763,7 @@
                 var pattern = /^[6-9]{1}[0-9]{9}$/;
                 var mobile = this.value;
                 if (pattern.test(mobile)) {
+                    console.log(mobile);
                     //alert("here");
                     //$(this).next('.inputs').focus();
                     $("#TxtOTP").css('display', 'block');

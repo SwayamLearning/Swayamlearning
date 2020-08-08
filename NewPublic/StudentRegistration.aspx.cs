@@ -85,11 +85,11 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
     }
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Request.Form["__EVENTTARGET"] != null)
-        {
-            string test = Request.Form["__EVENTTARGET"].ToString();
-            string test2 = Request.Form["__EVENTARGUMENT"].ToString();
-        }
+        //if (Request.Form["__EVENTTARGET"] != null)
+        //{
+        //    string test = Request.Form["__EVENTTARGET"].ToString();
+        //    string test2 = Request.Form["__EVENTARGUMENT"].ToString();
+        //}
         if (!IsPostBack)
         {
             //  GetUserCountryByIp();
@@ -186,7 +186,7 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
     }
     protected void ddlStateID_SelectedIndexChanged(object sender, EventArgs e)
     {
-     
+
         GetCityBind();
 
 
@@ -556,27 +556,27 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
                         }
                         else
                             if (culture == "hi-IN")
-                            {
+                        {
 
-                                if (!string.IsNullOrEmpty(txtEmail.Text))
-                                {
-                                    string MailContent = DefaultEmailBodyHindi("yes");
-                                    string strResponce = SendMail(txtEmail.Text, "नया पंजीकरण विवरण", MailContent);
-                                }
-                                string smscontent = DefaultSMSbodyHindi("Yes");
-                                bool strresponse = EmailUtility.SendSms(txtContactNo.Text, smscontent, "1", "1");
-
-                            }
-                            else
+                            if (!string.IsNullOrEmpty(txtEmail.Text))
                             {
-                                if (!string.IsNullOrEmpty(txtEmail.Text))
-                                {
-                                    string MailContent = DefaultEmailBody("yes");
-                                    string strResponce = SendMail(txtEmail.Text, "New Registration Details", MailContent);
-                                }
-                                string smscontent = DefaultSMSbody("Yes");
-                                bool strresponse = EmailUtility.SendSms(txtContactNo.Text, smscontent, "1", "0");
+                                string MailContent = DefaultEmailBodyHindi("yes");
+                                string strResponce = SendMail(txtEmail.Text, "नया पंजीकरण विवरण", MailContent);
                             }
+                            string smscontent = DefaultSMSbodyHindi("Yes");
+                            bool strresponse = EmailUtility.SendSms(txtContactNo.Text, smscontent, "1", "1");
+
+                        }
+                        else
+                        {
+                            if (!string.IsNullOrEmpty(txtEmail.Text))
+                            {
+                                string MailContent = DefaultEmailBody("yes");
+                                string strResponce = SendMail(txtEmail.Text, "New Registration Details", MailContent);
+                            }
+                            string smscontent = DefaultSMSbody("Yes");
+                            bool strresponse = EmailUtility.SendSms(txtContactNo.Text, smscontent, "1", "0");
+                        }
                         //ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('Your message.');window.open('AnotherPage.aspx','_self');", true);
                         //WebMsg.Show("Congratulation! You got free trial for 30 days");
                     }
@@ -1205,14 +1205,14 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
             else
 
                 if (cultureinfo == "gu-IN")
-                {
-                    ddlBoard.Items.Insert(0, new ListItem("--બોર્ડ પસંદ કરો--", "0"));
-                    //  ddlBoard.Items.Insert(0, "--બોર્ડ પસંદ કરો--");
-                }
-                else if (cultureinfo == "hi-IN")
-                {
-                    ddlBoard.Items.Insert(0, new ListItem("--बोर्ड का चयन करें--", "0"));
-                }
+            {
+                ddlBoard.Items.Insert(0, new ListItem("--બોર્ડ પસંદ કરો--", "0"));
+                //  ddlBoard.Items.Insert(0, "--બોર્ડ પસંદ કરો--");
+            }
+            else if (cultureinfo == "hi-IN")
+            {
+                ddlBoard.Items.Insert(0, new ListItem("--बोर्ड का चयन करें--", "0"));
+            }
         }
     }
 
@@ -1234,9 +1234,26 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
             if (culture == "gu-IN")
             {
                 issuccess = EmailUtility.SendSms(txtContactNo.Text, messagecontent, "1", "1");
+                if (txtEmail.Text != string.Empty)
+                {
+                    string failuremessage = "";
+                    ArrayList EmailList = new ArrayList();
+                    EmailList.Add(txtEmail.Text);
+                    EmailUtility.SendEmail(EmailList, "Swayam Learning registration OTP",messagecontent);
+                }
             }
             else
+            {
                 issuccess = EmailUtility.SendSms(txtContactNo.Text, messagecontent, "1", "0");
+                if (txtEmail.Text != string.Empty)
+                {
+                    string failuremessage = "";
+                    ArrayList EmailList = new ArrayList();
+                    EmailList.Add(txtEmail.Text);
+                    EmailUtility.SendEmail(EmailList, "Swayam Learning registration OTP", messagecontent);
+                }
+
+            }
 
             if (issuccess)
             {
