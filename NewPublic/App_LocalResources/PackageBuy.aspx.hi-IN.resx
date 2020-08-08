@@ -213,7 +213,7 @@
   <data name="LblPPackagenaeDetailTitle.Text" xml:space="preserve">
     <value>पैकेज विवरण</value>
   </data>
-  <data name="lblmarqueePayment.Text" xml:space="preserve">
+  <data name="lblmarqueePaymentResource1.Text" xml:space="preserve">
     <value>पैकेज केवल शैक्षणिक वर्ष 2020 के लिए है।</value>
   </data>
 </root>

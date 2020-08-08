@@ -252,7 +252,7 @@
   <data name="lblTCNoteResource1.Text" xml:space="preserve">
     <value>મેં નિયમો અને શરતો વાંચી અને સંમત થઈ છે.</value>
   </data>
-  <data name="lblmarqueePayment.Text" xml:space="preserve">
+  <data name="lblmarqueePaymentResource1.Text" xml:space="preserve">
     <value>આ પેકેજ ફક્ત શૈક્ષણિક વર્ષ 2020 માટે છે.</value>
   </data>
 </root>

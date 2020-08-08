@@ -71,7 +71,11 @@ public partial class NewPublic_PackageBuy : System.Web.UI.Page
             days = days - 1;
             string validtill = DateTime.Today.AddDays(days).ToString("MMMM dd, yyyy");
             string fromdate = DateTime.Today.ToString("MMMM dd, yyyy");
-          //  fromdate = DateTime.Today.ToString("MMMM dd, yyyy");
+            //  fromdate = DateTime.Today.ToString("MMMM dd, yyyy");
+            if (ds.Tables[0].Rows[0]["IsEndDatewise"].ToString() == "1")
+            {
+                validtill = (Convert.ToDateTime(ds.Tables[0].Rows[0]["EndDate"])).ToString("MMMM dd, yyyy");
+            }
             lblvalidity.Text = fromdate + " to " + validtill;
             lblprice.Text = "Rs. "+ ds.Tables[0].Rows[0]["Price"].ToString();
             Session["price"]= ds.Tables[0].Rows[0]["Price"].ToString();
@@ -152,7 +156,15 @@ public partial class NewPublic_PackageBuy : System.Web.UI.Page
             now = now.AddDays(Convert.ToInt32(validity));
             now = now.AddDays(-1);
             //now = now.Date.ToString("dd/MMM/yyyy");
-            dtrow["ExpiryDate"] = now.Date.ToString("dd/MMM/yyyy");
+            //20200808 as required academic year end wise
+            if (ds.Tables[0].Rows[0]["IsEndDatewise"].ToString() == "1")
+            {
+                dtrow["ExpiryDate"] = (Convert.ToDateTime(ds.Tables[0].Rows[0]["EndDate"])).ToString("MMMM dd, yyyy");
+            }
+            else
+            {
+                dtrow["ExpiryDate"] = now.Date.ToString("dd/MMM/yyyy");
+            }
             dt.Rows.Add(dtrow);
             Session["SelectedPackage"] = dt;
             }

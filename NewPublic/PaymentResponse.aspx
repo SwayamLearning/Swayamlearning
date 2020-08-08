@@ -39,7 +39,9 @@
             </tr>
         </table>
     </div>
-        <marquee><asp:Label ID="lblmarqueePayment" runat="server" Text=""></asp:Label></marquee>
+        <div class="container packagewrapper">
+        <asp:Label ID="lblmarqueePayment" runat="server" Text="" meta:resourcekey="lblmarqueePaymentResource1" ForeColor="#17476E" Font-Bold="true"></asp:Label>
+    </div>
     </form>
 </body>
 </html>
