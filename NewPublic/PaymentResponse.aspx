@@ -39,6 +39,7 @@
             </tr>
         </table>
     </div>
+        <marquee><asp:Label ID="lblmarqueePayment" runat="server" Text=""></asp:Label></marquee>
     </form>
 </body>
 </html>

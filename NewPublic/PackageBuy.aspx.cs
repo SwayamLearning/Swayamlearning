@@ -133,6 +133,7 @@ public partial class NewPublic_PackageBuy : System.Web.UI.Page
             dt.Columns.Add("Price", typeof(string));
             dt.Columns.Add("PackageType", typeof(string));
             dt.Columns.Add("ActivateOn", typeof(string));
+            dt.Columns.Add("Coupon", typeof(string));
 
             dt.Columns.Add("ExpiryDate", typeof(string));
             DataRow dtrow = dt.NewRow();
@@ -147,6 +148,7 @@ public partial class NewPublic_PackageBuy : System.Web.UI.Page
 
             dtrow["PackageType"] = "combo";
             dtrow["ActivateOn"] = DateTime.Today.ToString("dd/MMM/yyyy");
+            dtrow["Coupon"] = Txtcoupon.Text;
             now = now.AddDays(Convert.ToInt32(validity));
             now = now.AddDays(-1);
             //now = now.Date.ToString("dd/MMM/yyyy");

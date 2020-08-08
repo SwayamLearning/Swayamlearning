@@ -673,7 +673,7 @@
             </div>
             
         </div>
-        <marquee><asp:Label ID="lblmarqueeBMS" runat="server" Text=""></asp:Label></marquee>
+       
         <div class="row">
             <style>
                 .coverage {
@@ -1501,7 +1501,7 @@
         </div>
 
     </div>
-
+     <marquee><asp:Label ID="lblmarqueeBMS" runat="server" Text=""></asp:Label></marquee>
     <script type="text/javascript">
         //fire script when document is load
         $(document).ready(function () {

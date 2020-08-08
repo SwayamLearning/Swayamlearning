@@ -20,6 +20,7 @@ public partial class NewPublic_PaymentStatusCheck : System.Web.UI.Page
         string merchant_id = "264897"; //"99522";
         string access_code = "AVJH93HG41AV94HJVA"; //"AVFW65DE39BV30WFVB";
         string Working_key = "198C5C10C9BC8B5FEB23250E347F7A4C"; //"E85FE1783919FA34A4758580E844135A";
+       // string EncReq = "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><Order_Status_Query order_no='"+txtOrderID.Text+"' reference_no=''/>";
         object EncReq = new
         {
             reference_no = "",

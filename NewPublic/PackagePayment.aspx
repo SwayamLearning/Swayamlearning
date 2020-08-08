@@ -243,6 +243,7 @@ ul.columns>li>a
                 </div>
         </div>
     </div>
+    <marquee><asp:Label ID="lblmarqueePayment" runat="server" Text=""></asp:Label></marquee>
     <script type="text/javascript">
         function Check() {
             debugger;

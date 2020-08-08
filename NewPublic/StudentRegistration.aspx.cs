@@ -26,6 +26,12 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
     Student Student;
     SYS_Subject_BLogic Blogic_Subject = new SYS_Subject_BLogic();
     Employee_BLogic Blogic_Employee = new Employee_BLogic();
+    SYS_State_BLogic BAL_SYS_State;
+    SYS_State SYS_State;
+    SYS_Country PCountry = new SYS_Country();
+    SYS_Country_BLogic BLCountry = new SYS_Country_BLogic();
+    SYS_State_BLogic BLState = new SYS_State_BLogic();
+    SYS_District_BLogic BLDistrict = new SYS_District_BLogic();
     protected override void InitializeCulture()
     {
         HttpCookie cookie = Request.Cookies["CultureInfo"];
@@ -43,10 +49,50 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
             ViewState["cultreinfo"] = "en-US";
         }
     }
+    public void GetUserCountryByIp()
+    {
+        string VisitorsIPAddr = string.Empty;
+        //Users IP Address.                
+        if (HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"] != null)
+        {
+            //To get the IP address of the machine and not the proxy
+            VisitorsIPAddr = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"].ToString();
+        }
+        else if (HttpContext.Current.Request.UserHostAddress.Length != 0)
+        {
+            VisitorsIPAddr = HttpContext.Current.Request.UserHostAddress;//`enter code here`
+        }
+        else if (HttpContext.Current.Request.UserHostAddress == "::1")
+        {
+            VisitorsIPAddr = "25.7.92.185";
+        }
+
+        string res = "http://ipinfo.io/" + VisitorsIPAddr + "/city";
+        string ipResponse = IPRequestHelper(res);
+    }
+    public string IPRequestHelper(string url)
+    {
+
+        string checkURL = url;
+        HttpWebRequest objRequest = (HttpWebRequest)WebRequest.Create(url);
+        HttpWebResponse objResponse = (HttpWebResponse)objRequest.GetResponse();
+        StreamReader responseStream = new StreamReader(objResponse.GetResponseStream());
+        string responseRead = responseStream.ReadToEnd();
+        responseRead = responseRead.Replace("\n", String.Empty);
+        responseStream.Close();
+        responseStream.Dispose();
+        return responseRead;
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Request.Form["__EVENTTARGET"] != null)
+        {
+            string test = Request.Form["__EVENTTARGET"].ToString();
+            string test2 = Request.Form["__EVENTARGUMENT"].ToString();
+        }
         if (!IsPostBack)
         {
+            //  GetUserCountryByIp();
             strpassword = System.Web.Security.Membership.GeneratePassword(6, 0);
 
             Random rnd = new Random();
@@ -58,7 +104,7 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
             AppSessions.RoleID = 0;
             Session["LoginURl"] = Request.Url.AbsoluteUri;
             string culture = ViewState["cultreinfo"].ToString();
-            if(culture=="gu-IN")
+            if (culture == "gu-IN")
             {
 
                 //lblname.Visible = true;
@@ -71,25 +117,27 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
                 //lblemail.Text = "ઇમેઇલ";
                 //lblmob.Visible = true;
                 //lblmob.Text = "મોબાઇલ";
-                string contact = "મોબાઇલ".ToString();  
-                string fname =  "નામ".ToString();
-                string lname =  "અટક".ToString();
+                string contact = "મોબાઇલ".ToString();
+                string fname = "નામ".ToString();
+                string lname = "અટક".ToString();
                 string sname = "સ્કૂલ નામ".ToString();
-               string email =  "ઇમેઇલ".ToString();
-               string username = "વપરાશકર્તા નામ".ToString();
-               string signup = "સાઇન અપ".ToString();
+                string email = "ઇમેઇલ".ToString();
+                string username = "વપરાશકર્તા નામ".ToString();
+                string signup = "સાઇન અપ".ToString();
+                string Pincode = "પીન કોડ".ToString();
                 txtContactNo.Attributes.Add("Placeholder", contact);
                 txtFirstName.Attributes.Add("Placeholder", fname);
                 txtLastName.Attributes.Add("Placeholder", lname);
-                txtSchoolname.Attributes.Add("Placeholder",sname);
+                txtSchoolname.Attributes.Add("Placeholder", sname);
                 txtEmail.Attributes.Add("Placeholder", email);
                 txtusername.Attributes.Add("Placeholder", username);
+                txtPincode.Attributes.Add("Placeholder", Pincode);
                 btnsubmit.Text = signup.ToString();
                 Label1.Text = "કૃપા કરીને તમારી વિગતો ભરો";
                 Label3.Text = "હોમ પેજ";
             }
             if (culture == "hi-IN")
-                {
+            {
                 //lblname.Visible = true;
                 //lblname.Text = "નામ";
                 //lbllastname.Visible = true;
@@ -106,19 +154,66 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
                 string sname = "विद्यालय का नाम".ToString();
                 string email = "ईमेल".ToString();
                 string username = "उपयोगकर्ता नाम".ToString();
-               string signup = "साइन अप".ToString(); 
+                string signup = "साइन अप".ToString();
+                string Pincode = "पिन कोड".ToString();
                 txtContactNo.Attributes.Add("Placeholder", contact);
                 txtFirstName.Attributes.Add("Placeholder", fname);
                 txtLastName.Attributes.Add("Placeholder", lname);
                 txtSchoolname.Attributes.Add("Placeholder", sname);
                 txtEmail.Attributes.Add("Placeholder", email);
                 txtusername.Attributes.Add("Placeholder", username);
+                txtPincode.Attributes.Add("Placeholder", Pincode);
                 btnsubmit.Text = signup.ToString();
                 Label1.Text = "कृपया अपना विवरण भरें";
                 Label3.Text = "मुख पृष्ठ";
-                }
-            ViewState["txtotp"] = TxtOTP.Text;
             }
+            ViewState["txtotp"] = TxtOTP.Text;
+
+            BindState();
+
+        }
+    }
+
+    private void BindState()
+    {
+
+        ddlStateID.Items.Clear();
+        BLState.BindListByID(ddlStateID, "ByCountryID", 1);
+        ddlStateID.Enabled = true;
+        ddlStateID.SelectedIndex = 1;
+        GetCityBind();
+
+    }
+    protected void ddlStateID_SelectedIndexChanged(object sender, EventArgs e)
+    {
+     
+        GetCityBind();
+
+
+    }
+
+    private void GetCityBind()
+    {
+        try
+        {
+            if (ddlStateID.SelectedValue != ((int)EnumFile.AssignValue.Zero).ToString())
+            {
+                ddlCity.Items.Clear();
+                BLDistrict.BindListByID(ddlCity, "ByStateID", int.Parse(ddlStateID.SelectedValue));
+
+            }
+            else if (ddlStateID.SelectedValue == ((int)EnumFile.AssignValue.Zero).ToString())
+            {
+                ddlCity.Items.Clear();
+                ddlCity.Items.Insert(Convert.ToInt32(EnumFile.AssignValue.Zero), "-- Select --");
+                ddlCity.Items[0].Value = ((int)EnumFile.AssignValue.Zero).ToString();
+                ddlCity.Enabled = false;
+            }
+        }
+        catch (Exception ex)
+        {
+            WebMsg.Show(ex.Message);
+        }
     }
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
@@ -131,24 +226,24 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
         {
             //if (verifyLoginID())
             //    {
-                //if (!CheckPasswordComplexcity())
-                //{
-                //    WebMsg.Show("Invalid password format, please enter minimum 6 alphanumeric character with @ # $ %. Sign.");
-                //    return;
-                //}
-                /*if (txtPassword.Text.Length < 6)
-                {
-                    WebMsg.Show("Minimum 6 character required in password");
-                    return;
-                }*/
-                //if (rblrole.Text == "Student")
-                //    {
-                //verification of OTP
+            //if (!CheckPasswordComplexcity())
+            //{
+            //    WebMsg.Show("Invalid password format, please enter minimum 6 alphanumeric character with @ # $ %. Sign.");
+            //    return;
+            //}
+            /*if (txtPassword.Text.Length < 6)
+            {
+                WebMsg.Show("Minimum 6 character required in password");
+                return;
+            }*/
+            //if (rblrole.Text == "Student")
+            //    {
+            //verification of OTP
 
-                string otp = Session["OTP"].ToString();
-                string txtotp = Session["OTP"].ToString();
-                if (otp == txtotp)
-                    { 
+            string otp = Session["OTP"].ToString();
+            string txtotp = Session["OTP"].ToString();
+            if (otp == txtotp)
+            {
                 Student = new Student();
                 BAL_Student = new Student_BLogic();
                 Student.schoolid = GetDefaultSchoolID();
@@ -156,7 +251,7 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
                 Student.bmsid = (int)ViewState["BMSID"];
                 //ViewState["BMSID"] = int.Parse(ddlBMS.SelectedValue);
                 Student.loginid = txtusername.Text;
-                    Student.emailid = txtEmail.Text;
+                Student.emailid = txtEmail.Text;
                 //Student.password = txtPassword.Text;
                 Student.password = ViewState["strpassword"].ToString();
                 Student.firstname = txtFirstName.Text;
@@ -170,45 +265,45 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
                 t1 = BAL_Student.BAL_Student_Insert_Online(Student, "OnlineReg");
                 InsertIntoStudentPackageDetails(t1);
                 if (t1 > 0)
-                    {
+                {
                     // string msg = "Registration successful. Login details sent to the Registered Email Id";
                     // WebMsg.Show("Registration successful. Login details sent to the Registered Email Id");
                     // ScriptManager.RegisterStartupScript(this, GetType(), msg, "alertMessage();", true);
                     dvsuccessmessage.Visible = true;
                     //    Response.Redirect("UserLogin.aspx", false);
                     //RedirectToDashboard();
-                    }
+                }
                 ClearRegisterControls();
-                }
-              else
-                {
-                    TxtOTP.Visible = false;
-                    Btnresendotp.Visible = true;
+            }
+            else
+            {
+                TxtOTP.Visible = false;
+                Btnresendotp.Visible = true;
                 WebMsg.Show("OTP MISMATCH..");
-                }
-                    //} 
-                //if (rblrole.Text == "Teacher")
-                //    {
-                //    Employee teacher = new Employee();
-                //    teacher.firstname = txtFirstName.Text;
-                //    teacher.lastname = txtLastName.Text;
-                //    teacher.roleid = 16;
-                //    teacher.loginid = txtEmail.Text;
-                //    teacher.code = txtFirstName.Text + txtLastName.Text + "12345";
-                //    //Student.password = txtPassword.Text;
-                //    teacher.password = ViewState["strpassword"].ToString();
-                     
-                //    //Student.contactno = Convert.ToInt64(txtContactNo.Text);
-                //    teacher.contactno = Convert.ToInt32(txtContactNo.Text);
-                //    teacher.emailid = txtEmail.Text;
-                //    Int32 t2 = Blogic_Employee.Bal_online_employee_insert(teacher);
-                //     //Int32 t2=Blogic_Employee.BAL_Employee_Insert(teacher, "OnlineReg");
-                //    if (t2 >0)
-                //        {
-                //        dvsuccessmessage.Visible = true;
-                //        ClearRegisterControls();
-                //        }
-                //    }
+            }
+            //} 
+            //if (rblrole.Text == "Teacher")
+            //    {
+            //    Employee teacher = new Employee();
+            //    teacher.firstname = txtFirstName.Text;
+            //    teacher.lastname = txtLastName.Text;
+            //    teacher.roleid = 16;
+            //    teacher.loginid = txtEmail.Text;
+            //    teacher.code = txtFirstName.Text + txtLastName.Text + "12345";
+            //    //Student.password = txtPassword.Text;
+            //    teacher.password = ViewState["strpassword"].ToString();
+
+            //    //Student.contactno = Convert.ToInt64(txtContactNo.Text);
+            //    teacher.contactno = Convert.ToInt32(txtContactNo.Text);
+            //    teacher.emailid = txtEmail.Text;
+            //    Int32 t2 = Blogic_Employee.Bal_online_employee_insert(teacher);
+            //     //Int32 t2=Blogic_Employee.BAL_Employee_Insert(teacher, "OnlineReg");
+            //    if (t2 >0)
+            //        {
+            //        dvsuccessmessage.Visible = true;
+            //        ClearRegisterControls();
+            //        }
+            //    }
             //}
             //else
             //{
@@ -426,104 +521,104 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
             //Student = new Student();
             //if (rblrole.Text == "Student")
             //    {
-                BAL_Student = new Student_BLogic();
-                Package_BLogic Blogic_Package = new Package_BLogic();
-                //Student.bmsid = Convert.ToInt32(ViewState["BMSID"]);
-                int BMSID = Convert.ToInt32(ViewState["BMSID"]);
-                DataSet dsPackageID = BAL_Student.BAL_Student_SelectPackageID(BMSID);
+            BAL_Student = new Student_BLogic();
+            Package_BLogic Blogic_Package = new Package_BLogic();
+            //Student.bmsid = Convert.ToInt32(ViewState["BMSID"]);
+            int BMSID = Convert.ToInt32(ViewState["BMSID"]);
+            DataSet dsPackageID = BAL_Student.BAL_Student_SelectPackageID(BMSID);
 
-                if (dsPackageID != null && dsPackageID.Tables.Count > 0)
+            if (dsPackageID != null && dsPackageID.Tables.Count > 0)
+            {
+                if (dsPackageID.Tables[0].Rows.Count > 0)
+                {
+
+                    Session["dsTrailPAckage"] = dsPackageID.Tables[0];
+                    Package Opackage = new Package();
+
+                    Opackage.StudentID = studentid;
+                    Opackage.PackageFD_ID = Convert.ToInt64(dsPackageID.Tables[0].Rows[0]["PackageID"].ToString());
+                    Opackage.Price = 500;
+                    int result = Blogic_Package.BAL_Student_TrialPackage_Insert(Opackage);
+                    if (result > 0)
                     {
-                    if (dsPackageID.Tables[0].Rows.Count > 0)
-                        {
-
-                        Session["dsTrailPAckage"] = dsPackageID.Tables[0];
-                        Package Opackage = new Package();
-
-                        Opackage.StudentID = studentid;
-                        Opackage.PackageFD_ID = Convert.ToInt64(dsPackageID.Tables[0].Rows[0]["PackageID"].ToString());
-                        Opackage.Price = 500;
-                        int result = Blogic_Package.BAL_Student_TrialPackage_Insert(Opackage);
-                        if (result > 0)
-                            {
-                         string culture = ViewState["cultreinfo"].ToString();
+                        string culture = ViewState["cultreinfo"].ToString();
                         if (culture == "gu-IN")
                         {
-                            
+
                             if (!string.IsNullOrEmpty(txtEmail.Text))
-                                {
+                            {
                                 string MailContent = DefaultEmailBodygujarati("yes");
                                 string strResponce = SendMail(txtEmail.Text, "નવી નોંધણી વિગતો", MailContent);
-                                }
+                            }
                             string smscontent = DefaultSMSbodyGujarati("Yes");
-                            bool strresponse = EmailUtility.SendSms(txtContactNo.Text, smscontent,"1","1");
+                            bool strresponse = EmailUtility.SendSms(txtContactNo.Text, smscontent, "1", "1");
 
                         }
                         else
                             if (culture == "hi-IN")
                             {
 
-                            if (!string.IsNullOrEmpty(txtEmail.Text))
+                                if (!string.IsNullOrEmpty(txtEmail.Text))
                                 {
-                                string MailContent = DefaultEmailBodyHindi("yes");
-                                string strResponce = SendMail(txtEmail.Text, "नया पंजीकरण विवरण", MailContent);
+                                    string MailContent = DefaultEmailBodyHindi("yes");
+                                    string strResponce = SendMail(txtEmail.Text, "नया पंजीकरण विवरण", MailContent);
                                 }
-                            string smscontent = DefaultSMSbodyHindi("Yes");
-                            bool strresponse = EmailUtility.SendSms(txtContactNo.Text, smscontent, "1", "1");
+                                string smscontent = DefaultSMSbodyHindi("Yes");
+                                bool strresponse = EmailUtility.SendSms(txtContactNo.Text, smscontent, "1", "1");
 
                             }
-                        else
-                        {
-                            if (!string.IsNullOrEmpty(txtEmail.Text))
+                            else
+                            {
+                                if (!string.IsNullOrEmpty(txtEmail.Text))
                                 {
-                                string MailContent = DefaultEmailBody("yes");
-                                string strResponce = SendMail(txtEmail.Text, "New Registration Details", MailContent);
+                                    string MailContent = DefaultEmailBody("yes");
+                                    string strResponce = SendMail(txtEmail.Text, "New Registration Details", MailContent);
                                 }
-                            string smscontent = DefaultSMSbody("Yes");
-                            bool strresponse = EmailUtility.SendSms(txtContactNo.Text, smscontent, "1","0");
+                                string smscontent = DefaultSMSbody("Yes");
+                                bool strresponse = EmailUtility.SendSms(txtContactNo.Text, smscontent, "1", "0");
                             }
-                            //ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('Your message.');window.open('AnotherPage.aspx','_self');", true);
-                            //WebMsg.Show("Congratulation! You got free trial for 30 days");
-                            }
-                        }
-                    else
-                        {
-                        string MailContent = DefaultEmailBody();
-                        string strResponce = SendMail(txtEmail.Text, "New Registration Details", MailContent);
-                        }
+                        //ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('Your message.');window.open('AnotherPage.aspx','_self');", true);
+                        //WebMsg.Show("Congratulation! You got free trial for 30 days");
                     }
-                //}
-           
+                }
+                else
+                {
+                    string MailContent = DefaultEmailBody();
+                    string strResponce = SendMail(txtEmail.Text, "New Registration Details", MailContent);
+                }
+            }
+            //}
+
         }
         catch (Exception ex)
         {
             throw ex;
         }
     }
-    public string DefaultSMSbody(string ISFreeTrial=null)
-        {
+    public string DefaultSMSbody(string ISFreeTrial = null)
+    {
         string msg;
-        msg = "Dear  " + txtFirstName.Text + "\n"+ "Thank you for registering with SwayamLearning"+ "\n";
-        msg = msg + "visit:http://swayamlearning.org with \n Loginid:" + txtusername.Text + "\n"+"Password:" + ViewState["strpassword"].ToString();
+        msg = "Dear  " + txtFirstName.Text + "\n" + "Thank you for registering with SwayamLearning" + "\n";
+        msg = msg + "visit:http://swayamlearning.org with \n Loginid:" + txtusername.Text + "\n" + "Password:" + ViewState["strpassword"].ToString();
         msg = msg + "\n" + "Swayam Learning - Support Team";
         return msg;
-        }
+    }
     public string DefaultSMSbodyGujarati(string ISFreeTrial = null)
-        {
+    {
         string msg;
-        msg = "પ્રિય  " + txtFirstName.Text + "\n"+"સ્વયલેરિંગ સાથે નોંધણી કરવા બદલ આભાર";
-        msg = msg + "\n"+ "વેબસાઇટ http://swayamlearning.org \nલૉગિન આઈડી:" + txtusername.Text +"\n"+ "પાસવર્ડ:" + ViewState["strpassword"].ToString();
-        msg = msg + "\n"+ "સ્વયમ લર્નિંગ - સપોર્ટ ટીમ";
+        msg = "પ્રિય  " + txtFirstName.Text + "\n" + "સ્વયલેરિંગ સાથે નોંધણી કરવા બદલ આભાર";
+        msg = msg + "\n" + "વેબસાઇટ http://swayamlearning.org \nલૉગિન આઈડી:" + txtusername.Text + "\n" + "પાસવર્ડ:" + ViewState["strpassword"].ToString();
+        msg = msg + "\n" + "સ્વયમ લર્નિંગ - સપોર્ટ ટીમ";
         return msg;
-        }
+    }
     public string DefaultSMSbodyHindi(string ISFreeTrial = null)
-        {
+    {
         string msg;
         msg = "પ્રિય  " + txtFirstName.Text + "\n" + "स्वयं लर्निंग के साथ पंजीकरण करने के लिए धन्यवाद";
         msg = msg + "\n" + "वेबसाइट http://swayamlearning.org \nलॉगिन आईडी" + txtusername.Text + "\n" + "पासवर्ड:" + ViewState["strpassword"].ToString();
         msg = msg + "\n" + "स्वयं लर्निंग - सपोर्ट टीम ";
         return msg;
-        }
+    }
     protected string DefaultEmailBody(string ISFreeTrial = null)
     {
         StringBuilder oBuilder = new StringBuilder();
@@ -697,10 +792,10 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
         return oBuilder.ToString();
     }
     protected string DefaultEmailBodyHindi(string ISFreeTrial = null)
-        {
+    {
         StringBuilder oBuilder = new StringBuilder();
         try
-            {
+        {
             oBuilder.Append("<!DOCTYPE html><html><head>");
             oBuilder.Append("<style type=text/css> th {color: #685858;} table tr:nth-child(odd) { background-color: #DBDBDB; border-bottom: 1px SOLID GRAY; }  p { text-align:justify; line-height:1.4em; }  </style> ");
             oBuilder.Append("</head><body>");
@@ -722,7 +817,7 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
             //oBuilder.Append("</table></center><br />");
 
             if (ISFreeTrial != null && ISFreeTrial.ToString().ToLower() == "yes")
-                {
+            {
                 DataTable dtTrialPackage = (DataTable)Session["dsTrailPAckage"];
                 //string strBMS = ddlBMS.SelectedItem.Text.Replace(">>", ">");
                 //string[] BMS = strBMS.Split('>');
@@ -738,11 +833,11 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
                 oBuilder.Append("<tr style='background-color: #CECECE;'><th>पैकेज नाम </th><th>વિષય</th><th>आरंभ तारीख</th><th>समाप्त तारीख </th> </tr>");
 
                 for (int i = 0; i < dtTrialPackage.Rows.Count; i++)
-                    {
+                {
                     oBuilder.Append("<tr><td>" + dtTrialPackage.Rows[i]["PackageName"].ToString() + "</td><td>" + dtTrialPackage.Rows[i]["Subject"].ToString() + "</td><td style='text-align: center;'>" + DateTime.Now.ToString("dd MMM, yyyy") + "</td><td style='text-align: center;'>" + DateTime.Now.AddDays(Convert.ToInt32(dtTrialPackage.Rows[0]["NoOfMonth"].ToString())).ToString("dd MMM, yyyy") + "</td></tr>");
-                    }
-                oBuilder.Append("</table> </center></div><br />");
                 }
+                oBuilder.Append("</table> </center></div><br />");
+            }
 
             //oBuilder.Append("<div><p> We wish you happy learning and also wish to strengthen your knowledge, increase your confidence and achieve better performance.<br />We look forward to a wonderful learning experience with us and relationship with us.  </p> <b>Your Login details are as below:  </b></div><br/>");
             oBuilder.Append("<div><p>हम एक अद्भुत सीखने के अनुभव और हमारे साथ एक रिश्ते के लिए तत्पर हैं।  </p> <b>लॉगइन विवरण  </b></div><br/>");
@@ -775,30 +870,30 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
             //oBuilder.Append("</div></div>");
             //oBuilder.Append("</body></html>");
 
-            }
-        catch (Exception ex)
-            {
-            WebMsg.Show(ex.Message);
-            }
-        return oBuilder.ToString();
         }
-    private string sendsms(string contactno,string smscontent,string acusage)
+        catch (Exception ex)
         {
+            WebMsg.Show(ex.Message);
+        }
+        return oBuilder.ToString();
+    }
+    private string sendsms(string contactno, string smscontent, string acusage)
+    {
         string Response = string.Empty;
         if (!string.IsNullOrEmpty(contactno))
-            {
-            bool IsSendSuccess = EmailUtility.SendSms(contactno, smscontent,acusage,"0");
+        {
+            bool IsSendSuccess = EmailUtility.SendSms(contactno, smscontent, acusage, "0");
             if (IsSendSuccess)
                 Response = "Send email successfully.";
             else
                 Response = "Send email failed.";
-            }
-        else
-            {
-            Response="Send Sms failed.[contanct number] is empty]";
-            }
-        return Response;
         }
+        else
+        {
+            Response = "Send Sms failed.[contanct number] is empty]";
+        }
+        return Response;
+    }
     private string SendMail(string emailid, string mailsubject, string mailcontent)
     {
         string Response = string.Empty;
@@ -822,7 +917,7 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
         return Response;
     }
 
-    
+
     private int GetDefaultSchoolID()
     {
         int schoolid = 0;
@@ -872,11 +967,11 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
         }
         return Flag;
     }
- 
 
-    
 
-    
+
+
+
 
     //public DataSet CheckLoginStudentPortal(string name)
     //{
@@ -1048,8 +1143,8 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
                 {
                     ddlStandard.Items.Insert(0, new ListItem("--वर्ग का चयन करें--", "0"));
                 }
-                    //ddlStandard.Items.Insert(0, "--Select Standard--");
-                    ddlStandard.Enabled = true;
+                //ddlStandard.Items.Insert(0, "--Select Standard--");
+                ddlStandard.Enabled = true;
             }
         }
 
@@ -1087,7 +1182,7 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
             //    ddlSubject.Enabled = true;
             //    }
             ViewState["BMSID"] = bmsid;
-            }
+        }
 
     }
     public void Get_Boards()
@@ -1105,26 +1200,26 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
             if (cultureinfo == "en-US")
             {
                 ddlBoard.Items.Insert(0, new ListItem("--Select Board--", "0"));
-              //  Insert(0, "--Select Board--");
+                //  Insert(0, "--Select Board--");
             }
             else
-            
-                if(cultureinfo=="gu-IN")
-            { 
-                ddlBoard.Items.Insert(0, new ListItem("--બોર્ડ પસંદ કરો--", "0"));
-              //  ddlBoard.Items.Insert(0, "--બોર્ડ પસંદ કરો--");
-            }
-            else if(cultureinfo=="hi-IN")
-            {
-                ddlBoard.Items.Insert(0, new ListItem("--बोर्ड का चयन करें--", "0"));
-            }
+
+                if (cultureinfo == "gu-IN")
+                {
+                    ddlBoard.Items.Insert(0, new ListItem("--બોર્ડ પસંદ કરો--", "0"));
+                    //  ddlBoard.Items.Insert(0, "--બોર્ડ પસંદ કરો--");
+                }
+                else if (cultureinfo == "hi-IN")
+                {
+                    ddlBoard.Items.Insert(0, new ListItem("--बोर्ड का चयन करें--", "0"));
+                }
         }
     }
-    
+
     protected void txtContactNo_TextChanged(object sender, EventArgs e)
-        {
+    {
         if (verifyLoginID())
-            {
+        {
 
             btnsubmit.Enabled = false;
             OTPGenerator otpgen = new OTPGenerator();
@@ -1137,38 +1232,38 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
             bool issuccess;
             string culture = ViewState["cultreinfo"].ToString();
             if (culture == "gu-IN")
-                {
-                issuccess = EmailUtility.SendSms(txtContactNo.Text, messagecontent, "1","1");
-                }
+            {
+                issuccess = EmailUtility.SendSms(txtContactNo.Text, messagecontent, "1", "1");
+            }
             else
-                issuccess = EmailUtility.SendSms(txtContactNo.Text, messagecontent,"1", "0");
+                issuccess = EmailUtility.SendSms(txtContactNo.Text, messagecontent, "1", "0");
 
             if (issuccess)
-                {
+            {
                 TxtOTP.Visible = true;
                 btnsubmit.Enabled = false;
                 Session["OTP"] = OTP;
                 Page.SetFocus(TxtOTP);
-                }
+            }
             else
-                {
+            {
                 TxtOTP.Visible = false;
                 Btnresendotp.Visible = true;
                 /// LblOTP.Text = "OTP sending error retry again";
-                }
             }
+        }
         else
-            {
+        {
             WebMsg.Show("loginid already exists");
-            }
+        }
         //string url = "http://sms.madhavtechnolabs.com/submitsms.jsp?user=SWAYAM&key=SW@ML#20&mobile="+txtContactNo+"&message=OTP= " + OTP + "&senderid=SWAYAMLEARN&accusage=1";
 
 
-        }
+    }
 
 
     protected void btnrResendotp_Click(object sender, EventArgs e)
-        {
+    {
         OTPGenerator otpgen = new OTPGenerator();
         string OTP;
         string numbers = "1234567890";
@@ -1179,55 +1274,55 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
         bool issuccess;
         string culture = ViewState["cultreinfo"].ToString();
         if (culture == "gu-IN")
-            {
-            issuccess = EmailUtility.SendSms(txtContactNo.Text, messagecontent, "1","1");
-            }
+        {
+            issuccess = EmailUtility.SendSms(txtContactNo.Text, messagecontent, "1", "1");
+        }
         else
-            {
+        {
             issuccess = EmailUtility.SendSms(txtContactNo.Text, messagecontent, "1", "0");
-            }
+        }
         if (issuccess)
             TxtOTP.Visible = true;
         else
-            {
+        {
             TxtOTP.Visible = false;
             Btnresendotp.Visible = true;
             /// LblOTP.Text = "OTP sending error retry again";
-            }
-
         }
 
+    }
+
     protected void TxtOTP_TextChanged(object sender, EventArgs e)
-        {
+    {
         string otp = Session["OTP"].ToString();
         string txtotp = TxtOTP.Text;
         if (otp == txtotp)
-            {
+        {
             btnsubmit.Enabled = true;
-            }
+        }
         else
-            {
+        {
             TxtOTP.Text = "";
             TxtOTP.Visible = true;
             TxtOTP.Enabled = true;
-         
-             
+
+
             btnsubmit.Enabled = false;
-       //   ClearRegisterControls();
+            //   ClearRegisterControls();
             //Btnresendotp.Visible = true;
             WebMsg.Show("OTP MISMATCH..Try Again");
-          //  Response.Redirect(HttpContext.Current.Request.Url.ToString(), true);
+            //  Response.Redirect(HttpContext.Current.Request.Url.ToString(), true);
         }
-        }
-    
+    }
+
     [System.Web.Services.WebMethod]
     public static string CheckEmail(string useroremail)
     {
         string usernameexist = "false";
         Student_BLogic Blogic = new Student_BLogic();
         Student Student = new Student();
-        DataSet ds = new DataSet();     
-       
+        DataSet ds = new DataSet();
+
 
         //Student.loginid = txtEmail.Text;
         Student.loginid = useroremail;
@@ -1237,16 +1332,25 @@ public partial class NewPublic_StudentRegistration : System.Web.UI.Page
         {
             usernameexist = ds.Tables[0].Rows[0]["LoginID"].ToString();
             usernameexist = "true";
-            
+
         }
         else
         {
             usernameexist = "false";
         }
-        
-        return usernameexist;
-       
 
-       // return retval;
-    }  
+        return usernameexist;
+
+
+        // return retval;
+    }
+
+    protected void btnCity_Click(object sender, EventArgs e)
+    {
+        GetCityBind();
+        string city = Request["__EVENTARGUMENT"];
+        if (city != "")
+            ddlCity.Items.FindByText(city).Selected = true;
+        //  ddlCity.SelectedValue = city;
+    }
 }

@@ -123,6 +123,9 @@
   <data name="LblDashboardlTitle.ToolTip" xml:space="preserve">
     <value />
   </data>
+  <data name="lblmarqueemas.Text" xml:space="preserve">
+    <value>Message</value>
+  </data>
   <data name="LblPerfAccountTitle.Text" xml:space="preserve">
     <value>Account</value>
   </data>

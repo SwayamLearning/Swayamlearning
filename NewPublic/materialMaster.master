@@ -633,6 +633,7 @@
             </asp:ScriptManager>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
+            <marquee><asp:Label ID="lblmarqueemas" runat="server" Text="Message"></asp:Label></marquee>
         </div>
         <footer class="footer" style="visibility: hidden; display: none;"> <div class="container-fluid"> <nav class="float-left"> <ul> <li>
     <a href="#">SwaAcademy </a> </li> <li> <a href="#">About Us </a> </li> <%--<li>

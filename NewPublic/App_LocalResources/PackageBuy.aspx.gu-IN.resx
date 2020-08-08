@@ -213,4 +213,7 @@
   <data name="LblPPackagenaeDetailTitle.Text" xml:space="preserve">
     <value>પેકેજ વિગતો</value>
   </data>
+  <data name="lblmarqueePayment.Text" xml:space="preserve">
+    <value>આ પેકેજ ફક્ત શૈક્ષણિક વર્ષ 2020 માટે છે.</value>
+  </data>
 </root>

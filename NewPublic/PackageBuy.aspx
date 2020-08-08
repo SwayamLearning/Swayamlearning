@@ -123,7 +123,7 @@
 	         
         </div>
     
-   
+   <marquee><asp:Label ID="lblmarqueePayment" runat="server" Text=""></asp:Label></marquee>
    <script>
        function applycoupon()
        {

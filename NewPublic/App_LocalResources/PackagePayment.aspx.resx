@@ -252,4 +252,7 @@
   <data name="lblTCNoteResource1.Text" xml:space="preserve">
     <value>I have read and  agree to the  terms and conditions.</value>
   </data>
+  <data name="lblmarqueePayment.Text" xml:space="preserve">
+    <value>The Package is only for the academic year 2020.</value>
+  </data>
 </root>

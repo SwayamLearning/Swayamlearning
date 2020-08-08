@@ -130,7 +130,7 @@ public partial class NewPublic_PackagePayment : System.Web.UI.Page
     {
         string merchant_id = "264897"; //"99522";
         string access_code = "AVJH93HG41AV94HJVA"; //"AVFW65DE39BV30WFVB";
-        string Working_key = "8A9A03150204BA6F759C94F100A895C6"; //"E85FE1783919FA34A4758580E844135A";
+        string Working_key = "198C5C10C9BC8B5FEB23250E347F7A4C"; //"E85FE1783919FA34A4758580E844135A";
 
         //production server test keys
         //  string access_code = "AVIE93HG33AO20EIOA"; //"AVFW65DE39BV30WFVB";
@@ -185,8 +185,8 @@ public partial class NewPublic_PackagePayment : System.Web.UI.Page
         ccaRequest += "&billing_state=" + ddlStateID.SelectedItem.Text.ToString();
         ccaRequest += "&billing_country=" + ddlCountryID.SelectedItem.Text.ToString();
         ccaRequest += "&billing_email=" + billing_email;
-       string CCAvenue_URL = "https://test.ccavenue.com/transaction/transaction.do?command=initiateTransaction&encRequest=";
-       // string CCAvenue_URL = "https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction&encRequest=";
+       //string CCAvenue_URL = "https://test.ccavenue.com/transaction/transaction.do?command=initiateTransaction&encRequest=";
+        string CCAvenue_URL = "https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction&encRequest=";
         string strEncRequest = ccaCrypto.Encrypt(ccaRequest, Working_key);
         //   requesturl = "https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction&encRequest=" + strEncRequest + "&access_code=" + access_code;
         requesturl = CCAvenue_URL + strEncRequest + "&access_code=" + access_code;
@@ -201,6 +201,7 @@ public partial class NewPublic_PackagePayment : System.Web.UI.Page
         {
             DataTable dt = (DataTable)Session["SelectedPackage"];
             Session["EndDate"] = dt.Rows[0]["ExpiryDate"].ToString();
+            string coupon = dt.Rows[0]["Coupon"].ToString();
             Package_BLogic OPackage_Blogic = new Package_BLogic();
             Package Opackage = new Package();
             string packageID = string.Empty;
@@ -222,7 +223,7 @@ public partial class NewPublic_PackagePayment : System.Web.UI.Page
             Opackage.StandardID = AppSessions.StandardID;
             // Opackage.ProductID = Productid.ToString();
             //student address update
-            OPackage_Blogic.InsertTransactionDetailsWithStudentDetails(Opackage, txtAddress.Text, txtCity.Text, txtZipCode.Text, ddlCountryID.SelectedItem.Text, ddlStateID.SelectedItem.Text);
+            OPackage_Blogic.InsertTransactionDetailsWithStudentDetails(Opackage, txtAddress.Text, txtCity.Text, txtZipCode.Text, ddlCountryID.SelectedItem.Text, ddlStateID.SelectedItem.Text,coupon);
             // OPackage_Blogic.InsertTransactionDetails(Opackage);
             }
         catch (Exception ex)

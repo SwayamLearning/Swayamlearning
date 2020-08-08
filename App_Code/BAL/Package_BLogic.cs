@@ -42,7 +42,7 @@ public class Package_BLogic
         return Value;
     }
 
-    public int InsertTransactionDetailsWithStudentDetails(Package package, string txtAddress, string txtCity, string txtZipCode, string ddlCountryID, string ddlStateID)
+    public int InsertTransactionDetailsWithStudentDetails(Package package, string txtAddress, string txtCity, string txtZipCode, string ddlCountryID, string ddlStateID,string coupon)
         {
         int Value = 0;
 
@@ -62,6 +62,7 @@ public class Package_BLogic
         arrParameter.Add(new parameter("zipcode", txtZipCode));
         arrParameter.Add(new parameter("Country", ddlCountryID));
         arrParameter.Add(new parameter("State", ddlStateID));
+        arrParameter.Add(new parameter("Coupon", coupon));
         //arrParameter.Add(new parameter("ProductID", package.ProductID));
         Value = DAL_SYS_Package.DAL_InsertUpdate_Return("Insert_TransactionDetailsStudentDetails", arrParameter);
         return Value;
