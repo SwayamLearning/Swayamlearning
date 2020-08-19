@@ -103,25 +103,33 @@
                 <asp:Panel ID="pnlInvoice" runat="server">
                 <table style="width:100%;"   cellpadding="10" id="tblinvoice" runat="server" border="1">
                     <tr style="border-color: #000000; border-bottom-style: solid; border-bottom-width: 1px;">
-                        <td style="width: 80%;" >
-                            <%--<img src="App_Themes/Responsive/web/logo.png" alt="Epathshala logo" id="dvICICIEpath"
-                                runat="server" />--%>Swayam Learning
+                        <td style="width: 60%;" >
+                            <img src="App_Themes/Home/Homepagenewimages/SwayamTMlogo.jpg" width="150" id="dvICICIEpath" alt="Swayam Learning"/> <%--<img src="App_Themes/Responsive/web/logo.png" alt="Epathshala logo" id="dvICICIEpath"
+                                runat="server" />--%>
                         </td>
-                        <td align="right" style="width: 20%;text-align:right">
+                        <td align="right" style="width: 30%;text-align:right">
                             <div align="left">
                                 Swayam Learning Pvt Ltd
                                 <br />
                                 opp. St. Xavier's College, Mithakhali, Navrangpura, Ahmedabad-380009
                                 <br />
                                 Gujarat,India.
+                                <br />
+                               GSTIN:24AAKCS6851N1ZQ
+                                 <br />
+                                PAN Number:AAKCS6851N
+                                 <br />
+                                State Name:Gujarat,Code:24
                             </div>
                         </td>
                     </tr>
+                    <tr><td colspan="2" align="center">Tax Invoice</td></tr>
                      <tr>
                         <td style="width: 80%;" >
                             <%--<span>Student Name:</span> <u><span style="padding-left: 10px;">Nilofar Dabhi </span></u>--%>
                             <br />
-                            <asp:Label ID="lblstudentname" runat="server" Text="Student Name: Nilofar Dabhi"></asp:Label>
+                            <asp:Label ID="lblstudentname" runat="server" Text="Student Name:"></asp:Label>
+                            <asp:Label ID="lblstatecode" runat="server" Text=""></asp:Label>
                             <br />
                             <table style="border: none; width: 100%;" border="0" width="100%">
                                 <tr style="width: 100%;">
@@ -133,6 +141,16 @@
                                     </td>
                                     <td align="right" style="padding-right: 40px;">
                                         <asp:Label ID="lblstandard" runat="server" Text="Standard: Standard 7 (sem - 01)"></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr style="width: 100%;">
+                                    <td style="width: 20%;">
+                                        <asp:Label ID="lblStateName" runat="server" Text="Label"></asp:Label>
+                                    </td>
+                                    <td style="width: 20%;">
+                                        <asp:Label ID="lblStateCode1" runat="server" Text="Label"></asp:Label>
+                                    </td>
+                                    <td style="width: 20%;">
                                     </td>
                                 </tr>
                             </table>
@@ -172,6 +190,10 @@
                                             border-bottom-color: #000000;" class="style6">
                                             Subject
                                         </th>
+                                         <th style="border-right: 1px solid #000000; border-left-color: #000000; border-top-color: #000000;
+                                            border-bottom-color: #000000;" class="style6">
+                                            SAC Code
+                                        </th>
                                         <th style="border-right: 1px solid #000000; border-left-color: #000000; border-top-color: #000000;
                                             border-bottom-color: #000000;" class="style5">
                                             No Of Days
@@ -196,6 +218,9 @@
                                         <td class="style7">
                                             <asp:Label ID="lblsubject" runat="server"></asp:Label>
                                         </td>
+                                        <td class="style3" align="center">
+                                            <asp:Label ID="lblSACcode" runat="server" Text="999299"></asp:Label>
+                                        </td>
                                         <td class="style3" align="right" style="padding-right: 4px;">
                                             <asp:Label ID="lblmonth" runat="server"></asp:Label>
                                         </td>
@@ -210,7 +235,7 @@
                                         </td>
                                     </tr>
                                     <tr style="border-color: #000000; border-top-style: solid; border-top-width: 1px;">
-                                        <td colspan="5" align="right" style="border-color: #000000; border-right-style: solid;
+                                        <td colspan="6" align="right" style="border-color: #000000; border-right-style: solid;
                                             border-right-width: 1px;">
                                             <span style="padding-right: 10px;">Total</span>
                                         </td>
@@ -219,7 +244,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="5" align="right" style="border-color: #000000; border-right-style: solid;
+                                        <td colspan="6" align="right" style="border-color: #000000; border-right-style: solid;
                                             border-right-width: 1px;">
                                             <span style="padding-right: 10px;">Discount</span>
                                         </td>
@@ -229,7 +254,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="5" align="right" style="border-color: #000000; border-right-style: solid;
+                                        <td colspan="6" align="right" style="border-color: #000000; border-right-style: solid;
                                             border-right-width: 1px;">
                                             <span style="padding-right: 10px;">
                                                 <asp:Label ID="lblCgstTitle" runat="server" Text="CGST @9%"></asp:Label>
@@ -241,7 +266,7 @@
                                         </td>
                                     </tr>
                                     <tr id="SGSTRow" runat="server">
-                                        <td colspan="5" align="right" style="border-color: #000000; border-right-style: solid;
+                                        <td colspan="6" align="right" style="border-color: #000000; border-right-style: solid;
                                             border-right-width: 1px;">
                                             <span style="padding-right: 10px;">
                                                 <asp:Label ID="lblSgstTitle" runat="server" Text="SGST @9%"></asp:Label></span>
@@ -253,7 +278,7 @@
                                     </tr>
                                     <tr style="border-color: #000000; border-top-style: solid; border-top-width: 1px;
                                         border-bottom-style: solid; border-bottom-width: 1px;">
-                                        <td colspan="5" align="right" style="border-right-style: solid; border-right-width: 1px;
+                                        <td colspan="6" align="right" style="border-right-style: solid; border-right-width: 1px;
                                             border-right-color: #000000">
                                             <span style="padding-right: 10px;">Grand Total</span>
                                         </td>
@@ -262,16 +287,25 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="6" style="height: 20%; border-color: #000000; border-bottom-style: solid;
+                                        <td colspan="3" style="height: 20%; border-color: #000000; border-bottom-style: solid;
                                             border-bottom-width: 1px;">
                                             <asp:Label ID="lblnumericstring" runat="server"></asp:Label>
                                             <br />
                                             <br />
+                                            <br />
                                             Thanks for your purchase.
+                                        </td>
+                                        <td colspan="4" style="height: 20%; border-color: #000000; border-bottom-style: solid;
+                                            border-bottom-width: 1px; font-size:14px;font-weight:bold;text-align:right">
+                                             <asp:Label ID="Label1" runat="server" Text="For Swayam Learning Private Limited"></asp:Label>
+                                            <br />
+                                             <br />
+                                            <br />
+                                             Authorized Signatory
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" style="font-size: 12px">
+                                        <td colspan="6" style="font-size: 12px">
                                             <u><b><span>Terms and condition</span> </b></u>
                                             <br />
                                             This is computer generated invoice and do not require any stamp or signature.
@@ -286,6 +320,7 @@
                                             <br />
                                             If you have any question regarding this invoice, contact support@swayamlearning.org
                                         </td>
+                                         
                                     </tr>
                                 </table>
                             </div>

@@ -28,7 +28,8 @@ public partial class Invoice : System.Web.UI.Page
 
     #region Declaration
     string TransactionID;
-    #endregion
+    Package_BLogic PackageLogic;
+      #endregion
 
     #region Page Events
     protected void Page_Load(object sender, EventArgs e)
@@ -44,9 +45,26 @@ public partial class Invoice : System.Web.UI.Page
             TransactionID = HttpUtility.UrlDecode(Request.QueryString[6]);
             string RegistrationDate = HttpUtility.UrlDecode(Request.QueryString[7]);
             string stateName = HttpUtility.UrlDecode(Request.QueryString[8]);
+            string stateCodeCust= HttpUtility.UrlDecode(Request.QueryString[9]);
             RegistrationDate = Convert.ToDateTime(RegistrationDate).ToString("dd MMM, yyyy");
 
+            DataSet dstudent = new DataSet();
+            PackageLogic = new Package_BLogic();
+            dstudent = PackageLogic.BAL_Select_studentdetails(TransactionID);
+
+            if(AppSessions.UserName.ToString()=="Swayam")
+                {
+                if(dstudent.Tables[0].Rows.Count>0)
+                    {
+                    string username = dstudent.Tables[0].Rows[0]["name"].ToString();
+                    lblstudentname.Text = "Name: " + username;
+                    }
+                
+                }
+            else
             lblstudentname.Text = "Name: " + AppSessions.UserName;
+            lblStateName.Text = "State Name :"+ stateName;
+            lblStateCode1.Text = "State Code :"+stateCodeCust;
             lblpackagename.Text = package;
             lblsubject.Text = subject;
             lblfromdate.Text = Convert.ToDateTime(ValidFrom).ToString("dd MMM, yyyy");
@@ -76,7 +94,7 @@ public partial class Invoice : System.Web.UI.Page
 
             lbldiscount.Text = Convert.ToDecimal(PaymentDiscout).ToString("00.00");
             double discount = Convert.ToDouble(PaymentDiscout);
-            if (stateName == "Gujarat")
+            if ((stateName == "Gujarat") ||(stateName==""))
             {
                 lbltax.Text = Convert.ToDouble(cgst).ToString("00.00");
                 Lblsgst.Text = Convert.ToDouble(sgst).ToString("00.00");
@@ -101,7 +119,19 @@ public partial class Invoice : System.Web.UI.Page
             //  Convert.ToDecimal(price.Text) - Convert.ToDecimal(lbldiscount.Text) + Convert.ToDecimal(lbltax.Text).ToString()+ Convert.ToDecimal(Lblsgst.Text);
 
             ConvertToWord(lblgrandtotal.Text);
-            string source = AppSessions.BMS.ToString();
+            string source=string.Empty;
+            if (AppSessions.BMS.ToString() == "")
+                {
+                if (dstudent.Tables[0].Rows.Count > 0)
+                    {
+                    source = dstudent.Tables[0].Rows[0]["BMS"].ToString();
+                     
+                    }
+
+                }
+            else
+
+             source = AppSessions.BMS.ToString();
             string[] stringSeparators = new string[] { ">>" };
             string[] result;
             result = source.Split(stringSeparators, StringSplitOptions.None);
@@ -156,7 +186,7 @@ public partial class Invoice : System.Web.UI.Page
                     FinalValue = FinalValue + "Paisa Only";
                 }
             }
-            lblnumericstring.Text += FinalValue;
+            lblnumericstring.Text = FinalValue;
         }
         catch (Exception ex)
         {
@@ -200,9 +230,9 @@ public partial class Invoice : System.Web.UI.Page
             // create a new pdf document converting the html string of the page
             PdfDocument doc = converter.ConvertHtmlString(
                 myWriter.ToString(), Request.Url.AbsoluteUri);
-
+            string filename = TransactionID + "_Invoice.pdf";
             // save pdf document
-            doc.Save(Response, false, "Invoice.pdf");
+            doc.Save(Response, false, filename);
 
             // close pdf document
             doc.Close();
