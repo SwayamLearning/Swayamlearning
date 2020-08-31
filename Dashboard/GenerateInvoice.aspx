@@ -36,7 +36,7 @@
         </div>
 
         <asp:GridView ID="gridTransaction" runat="server" AllowPaging="true" AutoGenerateColumns="false" EmptyDataText="No Records found" ShowHeaderWhenEmpty="true" CssClass="table table-striped table-bordered table-hover"  BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical"
-            OnPageIndexChanging="gridTransaction_PageIndexChanging">
+            OnPageIndexChanging="gridTransaction_PageIndexChanging" DataKeyNames="TransactionID">
             <AlternatingRowStyle BackColor="#CCCCCC" />
              <Columns>
                     <asp:BoundField DataField="TransactionID" HeaderText="TransactionID Ref" />

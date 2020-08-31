@@ -18,6 +18,8 @@ using System.Net;
 using System.Web.Services;
 using SelectPdf;
 using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 
 public partial class Dashboard_BulkInvoice : System.Web.UI.Page
 {
@@ -39,8 +41,11 @@ public partial class Dashboard_BulkInvoice : System.Web.UI.Page
                 {
                     string FromDate = HttpUtility.UrlDecode(Request.QueryString[0]);
                     string ToDate = HttpUtility.UrlDecode(Request.QueryString[1]);
+                  string TransactionIDs= HttpUtility.UrlDecode(Request.QueryString[2]);
 
-                    BindTransactionGrid(FromDate, ToDate);
+                    BindTransactionGrid(FromDate, ToDate, TransactionIDs);
+
+                  
                 }
             }
 
@@ -48,30 +53,67 @@ public partial class Dashboard_BulkInvoice : System.Web.UI.Page
     }
 
 
-    public void BindTransactionGrid(string fromdate, string todate)
+    public void BindTransactionGrid(string fromdate, string todate,string TransactionID)
     {
 
         try
         {
-            Package_BLogic packagelogic = new Package_BLogic();
-            DataSet dtransaction = new DataSet();
-            DateTime dt2 = new DateTime(2020, 07, 20);
+            //Task task = new Task(() =>
+            //{
+                Package_BLogic packagelogic = new Package_BLogic();
+                DataSet dtransaction = new DataSet();
+                DateTime dt2 = new DateTime(2020, 07, 20);
 
-            if (fromdate == "") fromdate = null;
-            if (todate == "") todate = null;
-            dtransaction = packagelogic.BAL_Select_Successful_Transaction("Success", fromdate, todate);
-            if (dtransaction.Tables[0].Rows.Count > 0 && dtransaction != null)
-            {
-                GridView1.DataSource = dtransaction.Tables[0];
-                GridView1.DataBind();
-                startConversion = true;
-            }
+                if (fromdate == "") fromdate = null;
+                if (todate == "") todate = null;
+                dtransaction = packagelogic.BAL_Select_Successful_TransactionForPirnt("Success", fromdate, todate, TransactionID);
+                if (dtransaction != null)
+                {
+                    if (dtransaction.Tables[0].Rows.Count > 0 && dtransaction != null)
+                    {
+                        GridView1.DataSource = dtransaction.Tables[0];
+                        GridView1.DataBind();
+                        startConversion = true;
+
+                    }
+                }
+            //});
+            //task.Start();
+            //task.Wait();
+           
+
         }
         catch (Exception ex)
         {
             WebMsg.Show(ex.ToString());
         }
     }
+
+
+    //public void BindTransactionGrid(string fromdate, string todate)
+    //{
+
+    //    try
+    //    {
+    //        Package_BLogic packagelogic = new Package_BLogic();
+    //        DataSet dtransaction = new DataSet();
+    //        DateTime dt2 = new DateTime(2020, 07, 20);
+
+    //        if (fromdate == "") fromdate = null;
+    //        if (todate == "") todate = null;
+    //        dtransaction = packagelogic.BAL_Select_Successful_Transaction("Success", fromdate, todate);
+    //        if (dtransaction.Tables[0].Rows.Count > 0 && dtransaction != null)
+    //        {
+    //            GridView1.DataSource = dtransaction.Tables[0];
+    //            GridView1.DataBind();
+    //            startConversion = true;
+    //        }
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        WebMsg.Show(ex.ToString());
+    //    }
+    //}
     protected override void Render(HtmlTextWriter writer)
     {
         if (startConversion)
@@ -88,7 +130,8 @@ public partial class Dashboard_BulkInvoice : System.Web.UI.Page
             // create a new pdf document converting the html string of the page
             PdfDocument doc = converter.ConvertHtmlString(
                 myWriter.ToString(), Request.Url.AbsoluteUri);
-            string filename = "12" + "_Invoice.pdf";
+            string filename = DateTime.Now.Year.ToString()+DateTime.Now.Month.ToString()+DateTime.Now.Day.ToString()+DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + "_Invoice.pdf";
+            //string filename =  "_Invoice.pdf";
             // save pdf document
             doc.Save(Response, false, filename);
 
