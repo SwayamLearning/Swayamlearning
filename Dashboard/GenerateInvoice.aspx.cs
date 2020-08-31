@@ -58,11 +58,42 @@ public partial class Admin_GenerateInvoice : System.Web.UI.Page
                 gridTransaction.DataSource = dtransaction.Tables[0];
                 gridTransaction.DataBind();
                 btnExportInvoice.Visible = true;
+                BindTransactionGridWithoutPagging();
             }
             else
             {
                 gridTransaction.DataSource = null;
                 gridTransaction.DataBind();
+                btnExportInvoice.Visible = false;
+            }
+        }
+        catch (Exception ex)
+        {
+            WebMsg.Show(ex.ToString());
+        }
+    }
+    public void BindTransactionGridWithoutPagging()
+    {
+
+        try
+        {
+            packagelogic = new Package_BLogic();
+            DataSet dtransaction = new DataSet();
+            string fromdate = TxtFrom.Text;
+            string todate = TxttoDate.Text;
+            if (fromdate == "") fromdate = null;
+            if (todate == "") todate = null;
+            dtransaction = packagelogic.BAL_Select_Successful_Transaction("Success", fromdate, todate);
+            if (dtransaction.Tables[0].Rows.Count > 0 && dtransaction != null)
+            {
+                gridTransactionForExport.DataSource = dtransaction.Tables[0];
+                gridTransactionForExport.DataBind();
+                btnExportInvoice.Visible = true;
+            }
+            else
+            {
+                gridTransactionForExport.DataSource = null;
+                gridTransactionForExport.DataBind();
                 btnExportInvoice.Visible = false;
             }
         }
@@ -98,15 +129,17 @@ public partial class Admin_GenerateInvoice : System.Web.UI.Page
 
         string script = "";
         string pageurl = "";
-        foreach (GridViewRow gr in gridTransaction.Rows)
+        gridTransaction.AllowPaging = false;
+        int countTotal = 0;
+        foreach (GridViewRow gr in gridTransactionForExport.Rows)
         {
             if (transactionStr == "")
             {
-                transactionStr = "" + gridTransaction.DataKeys[gr.RowIndex]["TransactionID"].ToString() + "";
+                transactionStr = "" + gridTransactionForExport.DataKeys[gr.RowIndex]["TransactionID"].ToString() + "";
             }
             else
             {
-                transactionStr = transactionStr + "," + gridTransaction.DataKeys[gr.RowIndex]["TransactionID"].ToString() ;
+                transactionStr = transactionStr + "," + gridTransactionForExport.DataKeys[gr.RowIndex]["TransactionID"].ToString() ;
             }
             count = count + 1;
             if (count == 5)
@@ -116,7 +149,15 @@ public partial class Admin_GenerateInvoice : System.Web.UI.Page
                 count = 0;
                 transactionStr = "";
             }
-
+            countTotal = countTotal + 1;
+            if(countTotal==gridTransactionForExport.Rows.Count)
+            {
+                pageurl = "BulkInvoice.aspx?Frm=" + TxtFrom.Text + "&TD=" + TxttoDate.Text + "&TransactionIDs=" + transactionStr;
+                script = script + "window.open('" + pageurl + "','_blank');";
+                count = 0;
+                transactionStr = "";
+            }
+            
         }
 
         // pageurl = "BulkInvoice.aspx?Frm=" + TxtFrom.Text + "&TD=" + TxttoDate.Text + "&TransactionId=" + "2007241264595";

@@ -63,7 +63,15 @@
                 <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
                 <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
         </asp:GridView>
+           <asp:GridView ID="gridTransactionForExport" runat="server" AllowPaging="false" AutoGenerateColumns="false" EmptyDataText="No Records found" ShowHeaderWhenEmpty="true" CssClass="table table-striped table-bordered table-hover"  BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical"
+           DataKeyNames="TransactionID" Visible="false">
+            <AlternatingRowStyle BackColor="#CCCCCC" />
+             <Columns>
+                    <asp:BoundField DataField="TransactionID" HeaderText="TransactionID Ref" />
 
+                </Columns>
+
+        </asp:GridView>
        
     </div>
 </asp:Content>
