@@ -290,5 +290,31 @@ public class Package_BLogic
         arrParameter.Add(new parameter("ProductID", ProductID));
         return DAL_SYS_Package.DAL_Select("Proc_SelectMaxTransactionID", arrParameter);
     }
-
-}
+    public DataSet BAL_Select_Successful_Transaction(string status,string fromdate=null,string todate=null)
+        {
+        DAL_SYS_Package = new DataAccess();
+        arrParameter = new ArrayList();
+        arrParameter.Add(new parameter("status", status));
+        arrParameter.Add(new parameter("fromdate", fromdate));
+        arrParameter.Add(new parameter("todate", todate));
+        return DAL_SYS_Package.DAL_Select("sp_Get_allSuccessful_Transactions", arrParameter);
+        }
+    public DataSet BAL_Select_Successful_TransactionForPirnt(string status, string fromdate = null, string todate = null,string transactionids=null)
+    {
+        DAL_SYS_Package = new DataAccess();
+        arrParameter = new ArrayList();
+        arrParameter.Add(new parameter("status", status));
+        arrParameter.Add(new parameter("fromdate", fromdate));
+        arrParameter.Add(new parameter("todate", todate));
+        arrParameter.Add(new parameter("TransactionIDs", transactionids));
+        return DAL_SYS_Package.DAL_Select("sp_Get_allSuccessful_Transactions_ForPrint", arrParameter);
+    }
+    public DataSet BAL_Select_studentdetails(string transactionid)
+        {
+        DAL_SYS_Package = new DataAccess();
+        arrParameter = new ArrayList();
+        arrParameter.Add(new parameter("transactionid", transactionid));
+     
+        return DAL_SYS_Package.DAL_Select("sp_studentdetail_TransactionMaster", arrParameter);
+        }
+    }
